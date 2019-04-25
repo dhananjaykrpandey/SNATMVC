@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/bundles/CSSbootstrapMin", "~/bundles/CSSfontAwesome", "~/bundles/BootadminCSS", "~/bundles/Datatables")
+    <style type="text/css">
+        .bg-Dhananjay
+        {
+            background-color:dodgerblue;
+        }
+        
+    </style>
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand navbar-dark bg-primary">
+        <a class="sidebar-toggle mr-3" href="#"><i class="fa fa-bars"></i></a>
+        <a class="navbar-brand" href="https://bootadmin.net">BootAdmin</a>
+
+        <div class="navbar-collapse collapse">
+            <ul class="navbar-nav ml-auto">
+                
+                <li class="nav-item dropdown">
+                    <a href="#" id="dd_user" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> @HttpContext.Current.User.Identity.Name</a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd_user">
+                        <a href="#" class="dropdown-item">@Session["UserType"]</a>
+                        <a href="#" class="dropdown-item">@Session["UserEmail"]</a>
+                        <a href="#" class="dropdown-item">@Session["UserPhone"]</a>
+                       
+                        <a href="@Url.Action("LogOff", "Login")" class="dropdown-item" data-toggle="tooltip" title="Edit">
+                            Sign Out
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="d-flex">
+        <div class="sidebar sidebar-light bg-Dhananjay">
+            <ul class="list-unstyled">
+                <li><a href="https://bootadmin.net/demo"><i class="fa fa-fw fa-tachometer-alt"></i> Dashboard</a></li>
+                <li>
+                    <a href="#sm_base" data-toggle="collapse">
+                        <i class="fa fa-fw fa-cube"></i> Base
+                    </a>
+                    <ul id="sm_base" class="list-unstyled collapse">
+                        <li><a href="https://bootadmin.net/demo/base/colors">Colors</a></li>
+                        <li><a href="https://bootadmin.net/demo/base/typography">Typography</a></li>
+                        <li><a href="https://bootadmin.net/demo/base/tables">Tables</a></li>
+                        <li><a href="https://bootadmin.net/demo/base/progress">Progress</a></li>
+                        <li><a href="https://bootadmin.net/demo/base/modal">Modal</a></li>
+                        <li><a href="https://bootadmin.net/demo/base/alerts">Alerts</a></li>
+                        <li><a href="https://bootadmin.net/demo/base/popover">Popover</a></li>
+                        <li><a href="https://bootadmin.net/demo/base/tooltip">Tooltip</a></li>
+                        <li><a href="https://bootadmin.net/demo/base/dropdown">Dropdown</a></li>
+                        <li><a href="https://bootadmin.net/demo/base/navs">Navs</a></li>
+                        <li><a href="https://bootadmin.net/demo/base/collapse">Collapse</a></li>
+                        <li><a href="https://bootadmin.net/demo/base/lists">Lists</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://bootadmin.net/demo/icons"><i class="fa fa-fw fa-flag"></i> Icons</a></li>
+                <li><a href="https://bootadmin.net/demo/buttons"><i class="fa fa-fw fa-toggle-on"></i> Buttons</a></li>
+                <li><a href="https://bootadmin.net/demo/forms"><i class="fa fa-fw fa-edit"></i> Forms</a></li>
+                <li><a href="https://bootadmin.net/demo/datatables"><i class="fa fa-fw fa-table"></i> Datatables</a></li>
+                <li><a href="https://bootadmin.net/demo/cards"><i class="fa fa-fw fa-address-card"></i> Cards</a></li>
+                <li><a href="https://bootadmin.net/demo/calendar"><i class="fa fa-fw fa-calendar-alt"></i> Calendar</a></li>
+                <li><a href="https://bootadmin.net/demo/charts"><i class="fa fa-fw fa-chart-pie"></i> Charts</a></li>
+                <li><a href="https://bootadmin.net/demo/maps"><i class="fa fa-fw fa-map-marker-alt"></i> Maps</a></li>
+                <li>
+                    <a href="#sm_examples" data-toggle="collapse" aria-expanded="true">
+                        <i class="fa fa-fw fa-lightbulb"></i> Examples
+                    </a>
+                    <ul id="sm_examples" class="list-unstyled collapse show">
+                        <li class="active"><a href="https://bootadmin.net/demo/examples/blank">Blank/Starter</a></li>
+                        <li><a href="https://bootadmin.net/demo/examples/pricing">Pricing</a></li>
+                        <li><a href="https://bootadmin.net/demo/examples/invoice">Invoice</a></li>
+                        <li><a href="https://bootadmin.net/demo/examples/faq">FAQ</a></li>
+                        <li><a href="https://bootadmin.net/demo/examples/login">Login</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="https://bootadmin.net/demo/docs"><i class="fa fa-fw fa-book"></i> Documentation</a></li>
+            </ul>
+        </div>
+
+        <div class="content p-4">
+
+            <h2 class="mb-4">Blank/Starter</h2>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    This is a blank page you can use as a starting point.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/JSJQueryVersioin", "~/bundles/JSJQueryMin", "~/bundles/JSBootstrapBundle", "~/bundles/BootadminJS")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

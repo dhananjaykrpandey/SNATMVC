@@ -1,0 +1,132 @@
+﻿@model SNAT.Models.mLogin
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SNAT | Log in</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <link rel="stylesheet" href="../dist/modules/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../dist/modules/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="../dist/modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../dist/modules/bootstrap-social/bootstrap-social.css">
+
+    <link rel="stylesheet" href="../dist/modules/jqvmap/dist/jqvmap.min.css">
+    <link rel="stylesheet" href="../dist/modules/fullcalendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="../dist/modules/weather-icon/css/weather-icons.min.css">
+    <link rel="stylesheet" href="../dist/modules/weather-icon/css/weather-icons-wind.min.css">
+    <link rel="stylesheet" href="../dist/modules/summernote/summernote-lite.css">
+    <link rel="stylesheet" href="../dist/modules/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="../dist/modules/toastr/build/toastr.min.css">
+    <link rel="stylesheet" href="../dist/css/style.min.css">
+</head>
+<body class="bg-transparent">
+    @using (Html.BeginForm())
+    {
+
+        @Html.AntiForgeryToken();
+
+        <div class="container h-100">
+            <div class="row h-100 justify-content-center align-items-center">
+                <div class="col-md-4">
+                    <h1 class="text-center mb-4">BootAdmin</h1>
+                    <div class="card">
+                        <div class="card-header bg-white font-weight-bold">
+                            Sign in to start your session
+                        </div>
+
+                        <div class="card-body">
+                            <form>
+                                <div class="row">
+                                    <div class="btn-outline-danger">
+
+                                    </div>
+                                </div>
+                                <div class="input-group mb-3">
+
+                                    <div class="btn-outline-danger">
+                                        @Html.ValidationMessage("authenticationError", new { @class = "text-danger" })
+                                    </div>
+
+
+
+                                </div>
+                                <div class="input-group mb-3">
+
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    </div>
+                                    @Html.TextBoxFor(ml => ml.username, null, new { @class = "form-control", @placeholder = "Enter Login Email-Id", @required = "required", @type = "text" })
+                                    <div class="btn-outline-danger">
+                                        @Html.ValidationMessageFor(ml => ml.username, "", new { @class = "text-danger" })
+                                    </div>
+
+
+
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-key"></i></span>
+                                    </div>
+                                    @Html.PasswordFor(m => m.password, new { @class = "form-control", @placeholder = "Enter Login Password", @required = "required" })
+                                    <div class="btn-outline-danger">
+                                        @Html.ValidationMessageFor(m => m.password, "", new { @class = "text-danger" })
+                                    </div>
+
+                                </div>
+
+                                <div class="form-check mb-3">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" name="remember" class="form-check-input">
+                                        Remember Me
+                                    </label>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col pr-2">
+                                        <button type="submit" class="btn btn-block btn-primary">Login</button>
+                                    </div>
+                                    <div class="col pl-2">
+                                        <a class="btn btn-block btn-link" href="#">Forgot Password</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    }
+    <!-- /.login-box -->
+
+    <script src="../dist/modules/jquery.min.js"></script>
+    <script src="../dist/modules/popper.js"></script>
+    <script src="../dist/modules/tooltip.js"></script>
+    <script src="../dist/modules/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../dist/modules/nicescroll/jquery.nicescroll.min.js"></script>
+    <script src="../dist/modules/moment.min.js"></script>
+    <script src="../dist/modules/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
+    <script src="../dist/js/sa-functions.min.js"></script>
+
+    <script src="../dist/modules/simple-weather/jquery.simpleWeather.min.js"></script>
+    <script src="../dist/modules/chart.min.js"></script>
+    <script src="../dist/modules/fullcalendar/fullcalendar.min.js"></script>
+    <script src="../dist/modules/jqvmap/dist/jquery.vmap.min.js"></script>
+    <script src="../dist/modules/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="../dist/modules/summernote/summernote-lite.js"></script>
+    <script src="../dist/modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
+    <script src="../dist/modules/toastr/build/toastr.min.js"></script>
+
+    <script src="../dist/js/scripts.min.js"></script>
+    <script src="../dist/js/custom.js"></script>
+</body>
+</html>

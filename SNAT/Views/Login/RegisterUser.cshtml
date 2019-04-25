@@ -1,0 +1,108 @@
+﻿@model AdminDashBoard.Models.mRegister
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Page-Enter" content="blendTrans(Duration=0)">
+    <meta http-equiv="Page-Exit" content="blendTrans(Duration=0)">
+    <title>AdminLTE 2 | Forget Password</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    @Styles.Render("~/bundles/CSSbootstrapMin", "~/bundles/CSSfontAwesome", "~/bundles/CSSAdminLTE")
+    <!-- Google Font -->
+    @*<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">*@
+    @*<script src="~/Scripts/jquery-3.3.1.min.js"></script>*@
+    <style type="text/css">
+
+        input.error {
+            border: 2px dashed red;
+        }
+    </style>
+</head>
+<body class="hold-transition login-page">
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "FrmRegisterUser" }))
+    {
+
+        @Html.AntiForgeryToken();
+
+        <div class="login-box">
+            <div class="login-logo">
+                <a href="#"><b>Admin</b>LTE</a>
+            </div>
+            <!-- /.login-logo -->
+            <div class="login-box-body">
+                <p class="login-box-msg">Enter User Details For Registration</p>
+                @Html.ValidationMessage("ConfirmPasswordError", new { @class = "text-danger" })
+                <div class="form-group has-feedback">
+                    @Html.LabelFor(ml => ml.UserID)
+                    @Html.TextBoxFor(ml => ml.UserID, null, new { @class = "form-control", @placeholder = "Login Email-Id", @required = "required", @type = "email", @maxlength = "50", @oninvalid = "this.setCustomValidity('Please Enter valid email')", @oninput = "setCustomValidity('')", @onValid = "setCustomValidity('')" })
+                    @Html.ValidationMessageFor(ml => ml.UserID, "", new { @class = "text-danger" })
+                    @*<input type="email" class="form-control" placeholder="Email">*@
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    @Html.LabelFor(ml => ml.Password)
+                    @Html.PasswordFor(ml => ml.Password, new { @class = "form-control", @placeholder = "Login Password", @required = "required", @minlength = "8", @maxlength = "50" })
+                    @Html.ValidationMessageFor(ml => ml.Password, "", new { @class = "text-danger" })
+                    @*<input type="email" class="form-control" placeholder="Email">*@
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    @Html.LabelFor(ml => ml.ConfirmPassword)
+                    @Html.PasswordFor(ml => ml.ConfirmPassword, new { @class = "form-control", @placeholder = "Confirm Password", @required = "required", @minlength = "8", @maxlength = "50" })
+                    @Html.ValidationMessageFor(ml => ml.ConfirmPassword, "", new { @class = "text-danger" })
+                    @*<input type="email" class="form-control" placeholder="Email">*@
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    @Html.LabelFor(ml => ml.Name)
+                    @Html.TextBoxFor(ml => ml.Name, null, new { @class = "form-control", @placeholder = "Display Name", @required = "required", @maxlength = "50" })
+                    @Html.ValidationMessageFor(ml => ml.Name, "", new { @class = "text-danger" })
+                    @*<input type="email" class="form-control" placeholder="Email">*@
+                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                </div>
+
+                <div class="form-group has-feedback">
+                    @Html.LabelFor(ml => ml.Phone)
+                    @Html.TextBoxFor(ml => ml.Phone, null, new { @class = "form-control", @placeholder = "Contact No.[Format : 123-123456789]", @type = "tel", @pattern = "[0-9]{3}-[0-9]{9}", @mai = "13", @maxlength = "13" })
+                    @Html.ValidationMessageFor(ml => ml.Phone, "", new { @class = "text-danger" })
+                    @*<input type="email" class="form-control" placeholder="Email">*@
+                    <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4">
+
+                        @Html.ActionLink("Sign-In", "Index", "Login", new { @class = "btn btn-primary btn-block btn-flat" })
+                    </div>
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-success btn-block btn-flat">Register</button>
+                    </div>
+                    <div class="col-xs-4">
+                        @Html.ActionLink("Reset All", "RegisterUser", "Login", new { @class = "btn btn-danger btn-block btn-flat" })
+                    </div>
+                </div>
+                <!-- /.col -->
+            </div>
+        </div>
+        <!-- /.login-box-body -->
+
+        <!-- /.login-box -->
+
+        @Scripts.Render("~/bundles/JSJQueryVersioin", "~/bundles/JSJQueryMin")
+
+        <script>
+            document.getElementById("FrmRegisterUser").reset();
+            $(document).ready(function () {
+                $("#BtnReset").click(function () {
+                    $("#FrmRegisterUser")[0].reset();
+                });
+            });
+        </script>
+    }
+</body>
+</html>
