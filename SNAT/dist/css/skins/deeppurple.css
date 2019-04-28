@@ -193,3 +193,8 @@ a:hover {
 .bootstrap-tagsinput .tag {
 	background-color: #39065A;
 }
+.bg-userinfo {
+    background-color: red;
+    border-color: transparent !important;
+    color: #fff;
+}

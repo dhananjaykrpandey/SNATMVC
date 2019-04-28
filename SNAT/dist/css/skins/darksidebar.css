@@ -44,3 +44,8 @@
 .main-sidebar .sidebar-user .sidebar-user-details .user-name {
 	color: #ededed;	
 }
+.bg-userinfo {
+    background-color: red;
+    border-color: transparent !important;
+    color: #fff;
+}

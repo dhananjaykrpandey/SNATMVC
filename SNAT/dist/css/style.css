@@ -2351,3 +2351,8 @@ table tr:hover .table-links {
 @media (min-width: 992px) and (max-width: 1199.98px) {
 }
 @media (min-width: 1200px) { }
+.bg-userinfo {
+    background-color: red;
+    border-color: transparent !important;
+    color: #fff;
+}
