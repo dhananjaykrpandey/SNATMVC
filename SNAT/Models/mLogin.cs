@@ -5,7 +5,7 @@ namespace SNAT.Models
 {
     [Table("logintable")]
     public class mLogin
-    {
+    { 
         [NotMapped]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(TypeName = "int")]
