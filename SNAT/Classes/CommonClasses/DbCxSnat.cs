@@ -16,9 +16,13 @@ namespace SNAT.Classes.CommonClasses
             base.OnModelCreating(modelBuilder);
         }
  public DbSet<mLogin> MLogins { get; set; }
+
+        public DbSet<mMember> mMembers { get; set; }
+
+        public DbSet<mSchool> mSchools { get; set; }
         //public DbSet<mProjectMenu> MProjectMenu { get; set; }
         //public DbSet<mUserRights> MUserRights { get; set; }
-       
+
         //public DbSet<mDepartment> MDepartments { get; set; }
         //public DbSet<mDesignation> MDesignations { get; set; }
         //public DbSet<mEmployees> MEmployees { get; set; }

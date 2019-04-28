@@ -1,0 +1,260 @@
+﻿@model IEnumerable<SNAT.Models.mMember>
+
+@{
+    ViewBag.Title = "Member(s) List";
+    Layout = "~/Views/Shared/_LayoutMainMDI.cshtml";
+}
+
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>@ViewBag.Title</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="tblMemberList" class="table table-striped table-hover" cellspacing="0">
+                        <thead style="text-align:center" class="table-success">
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.nationalid)</th>
+                                <th>@Html.DisplayNameFor(model => model.memberid)</th>
+                                <th>@Html.DisplayNameFor(model => model.employeeno)</th>
+                                <th>@Html.DisplayNameFor(model => model.tscno)</th>
+                                <th>@Html.DisplayNameFor(model => model.membername)</th>
+                                <th>@Html.DisplayNameFor(model => model.dob)</th>
+                                <th>@Html.DisplayNameFor(model => model.sex)</th>
+                                <th>@Html.DisplayNameFor(model => model.wagesamount)</th>
+                                <th>@Html.DisplayNameFor(model => model.wageseffectivedete)</th>
+                                <th>@Html.DisplayNameFor(model => model.mritalstatus)</th>
+                                <th>@Html.DisplayNameFor(model => model.school)</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+
+                                    <td>@Html.DisplayFor(modelItem => item.nationalid)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.memberid)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.employeeno)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.tscno)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.membername)</td>
+
+                                    @{
+                                        if (item.dob.HasValue)
+                                        {
+                                            <td>
+                                                @item.dob.Value.ToString("MM/dd/yyyy")
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td></td>
+                                        }
+                                    }
+
+
+                                    @{
+                                        if (item.sex == "M")
+                                        {
+                                            <td>Male</td>
+                                        }
+                                        else
+                                        {
+                                            <td>Female</td>
+                                        }
+                                    }
+
+
+                                    <td>  @Html.DisplayFor(modelItem => item.wagesamount)</td>
+                                    @{
+                                        if (item.wageseffectivedete.HasValue)
+                                        {
+                                            <td>
+                                                @item.wageseffectivedete.Value.ToString("MM/dd/yyyy")
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td></td>
+                                        }
+                                    }
+
+                                    @{
+                                        switch (item.mritalstatus)
+                                        {
+                                            case "S":
+                                                <td>Single</td>
+                                                break;
+                                            case "M":
+                                                <td>Married</td>
+                                                break;
+                                            case "W":
+                                                <td>Widow</td>
+                                                break;
+                                            default:
+                                                <td></td>
+                                                break;
+
+                                        }
+                                    }
+
+                                    <td>  @Html.DisplayFor(modelItem => item.MSchoolCollectoin.name)</td>
+                                    <td><a href="@Url.Action("Details", "Members", new {  id=item.nationalid })" class="btn btn-info btn-sm" data-toggle="tooltip" title="Details"> Details </a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div></div></div>
+            <script>
+                $(document).ready(function () {
+                    $('#tblMemberList').DataTable();
+                });
+            </script>
+
+            @*<table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MSchoolCollectoin.name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.tscno)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.membername)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.dob)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.sex)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.contactno1)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.contactno2)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.residentaladdress)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.nomineenationalid)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.nomineename)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.wagesamount)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.wageseffectivedete)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.nomineereleation)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.livingstatus)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.deathdate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.mritalstatus)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.suposenationaid)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.suposename)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.suposegender)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.suposejoindate)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                                        {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MSchoolCollectoin.name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tscno)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.membername)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.dob)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.sex)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.contactno1)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.contactno2)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.residentaladdress)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nomineenationalid)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nomineename)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.wagesamount)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.wageseffectivedete)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nomineereleation)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.livingstatus)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.deathdate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.mritalstatus)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.suposenationaid)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.suposename)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.suposegender)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.suposejoindate)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                            </td>
+                        </tr>
+                    }
+
+                </table>*@

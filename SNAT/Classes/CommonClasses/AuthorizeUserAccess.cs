@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-
 namespace SNAT.Classes.CommonClasses
 {
-    public class SessionTimeOutAttribute : ActionFilterAttribute
+    public class AuthorizeUserAccess :ActionFilterAttribute
     {
         public override void OnActionExecuting(System.Web.Mvc.ActionExecutingContext filterContext)
         {
@@ -13,7 +14,7 @@ namespace SNAT.Classes.CommonClasses
             if (HttpContext.Current.Session["Login"] == null || Convert.ToBoolean(HttpContext.Current.Session["Login"]) == false)
             {
                 //FormsAuthentication.RedirectToLoginPage();
-                filterContext.HttpContext.Response.Redirect("~/Login", true);
+                filterContext.HttpContext.Response.Redirect("~/Login/index", true);
             }
             else if (context.Session != null)
             {
@@ -24,7 +25,7 @@ namespace SNAT.Classes.CommonClasses
                     if ((sessionCookie != null) && (sessionCookie.IndexOf("ASP.NET_SessionId") >= 0))
                     {
                         FormsAuthentication.SignOut();
-                        string redirectTo = "~/Login";
+                        string redirectTo = "~/Login/index";
                         if (!string.IsNullOrEmpty(context.Request.RawUrl))
                         {
                             redirectTo = string.Format("~/Login/index?ReturnUrl={0}", HttpUtility.UrlEncode(context.Request.RawUrl));

@@ -9,7 +9,7 @@ if ($.isFunction($.fn.dataTable)) {
             }
         ],
         lengthMenu: [5, 10, 25, 50, 100, 250, 500],
-        pageLength: 25,
+        pageLength: 5,
         language: {
             search: '',
             searchPlaceholder: 'Search'
