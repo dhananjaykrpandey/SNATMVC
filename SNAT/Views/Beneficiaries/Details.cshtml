@@ -1,0 +1,163 @@
+﻿@model SNAT.Models.mBeneficiary
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutMainMDI.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>mBeneficiary</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.memberid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.memberid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.membername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.membername)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.beneficiaryname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.beneficiaryname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dob)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dob)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateofsubmission)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateofsubmission)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.relationship)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.relationship)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contactno1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contactno1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contactno2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contactno2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.residentaladrees)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.residentaladrees)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nomineenationalid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomineenationalid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nomineename)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomineename)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.wages)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wages)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.effactivedate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.effactivedate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lstatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lstatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.livingstatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.livingstatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateofDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateofDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

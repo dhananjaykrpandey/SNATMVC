@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -17,7 +18,7 @@ namespace SNAT.Models
         [Display(Name = "National ID")]
         [StringLength(20)]
         public string nationalid { get; set; }
-
+                
         [Key]
         [Column("memberid", Order = 2)]
         [Display(Name = "Member ID")]

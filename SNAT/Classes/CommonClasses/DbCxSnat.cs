@@ -20,6 +20,8 @@ namespace SNAT.Classes.CommonClasses
         public DbSet<mMember> mMembers { get; set; }
 
         public DbSet<mSchool> mSchools { get; set; }
+
+        public System.Data.Entity.DbSet<SNAT.Models.mBeneficiary> mBeneficiaries { get; set; }
         //public DbSet<mProjectMenu> MProjectMenu { get; set; }
         //public DbSet<mUserRights> MUserRights { get; set; }
 

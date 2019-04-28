@@ -123,6 +123,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\snatburi_snat.mdf" />
+    <Content Include="App_Data\snatburi_snat_log.ldf">
+      <DependentUpon>snatburi_snat.mdf</DependentUpon>
+    </Content>
     <Content Include="Classes\CommonClasses\ClsMenu.cs" />
     <Content Include="Classes\CommonClasses\clsUtilityOLd.cs" />
     <Content Include="Classes\CommonClasses\gClsProjectVariables.cs" />
@@ -134,6 +138,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BeneficiariesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
@@ -141,6 +146,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\mLogin.cs" />
+    <Compile Include="Models\mBeneficiary.cs" />
     <Compile Include="Models\mMember.cs" />
     <Compile Include="Models\mSchool.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -3200,9 +3206,7 @@
     <Content Include="Views\Login\Index2.cshtml" />
     <Content Include="Views\Login\RegisterUser.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="libman.json" />
     <Content Include="dist\modules\bootstrap\css\bootstrap-grid.css.map" />
@@ -3332,6 +3336,11 @@
     <Content Include="Views\Members\Details.cshtml" />
     <Content Include="Views\Members\Edit.cshtml" />
     <Content Include="Views\Members\Index.cshtml" />
+    <Content Include="Views\Beneficiaries\Create.cshtml" />
+    <Content Include="Views\Beneficiaries\Delete.cshtml" />
+    <Content Include="Views\Beneficiaries\Details.cshtml" />
+    <Content Include="Views\Beneficiaries\Edit.cshtml" />
+    <Content Include="Views\Beneficiaries\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

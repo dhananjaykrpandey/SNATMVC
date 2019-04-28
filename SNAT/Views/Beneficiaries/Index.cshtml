@@ -1,0 +1,136 @@
+﻿@model IEnumerable<SNAT.Models.mBeneficiary>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutMainMDI.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.memberid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.membername)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.beneficiaryname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dob)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sex)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateofsubmission)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.relationship)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.contactno1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.contactno2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.residentaladrees)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nomineenationalid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nomineename)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.wages)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.effactivedate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lstatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.livingstatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateofDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.memberid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.membername)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.beneficiaryname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dob)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sex)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateofsubmission)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.relationship)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.contactno1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.contactno2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.residentaladrees)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nomineenationalid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nomineename)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.wages)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.effactivedate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lstatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.livingstatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateofDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
