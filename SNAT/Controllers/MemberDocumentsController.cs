@@ -11,115 +11,112 @@ using SNAT.Models;
 
 namespace SNAT.Controllers
 {
-    [AuthorizeUserAccess]
-    public class BeneficiariesController : Controller
+    public class MemberDocumentsController : Controller
     {
         private DbCxSnat db = new DbCxSnat();
 
-        // GET: Beneficiaries
+        // GET: MemberDocuments
         public ActionResult Index()
         {
-            return View(db.mBeneficiaries.ToList());
+            var mMemberDocuments = db.mMemberDocuments.Include(m => m.mDocumentTypeCollectoin);
+            return View(mMemberDocuments.ToList());
         }
 
-        public ActionResult BeneficiariesList(string Memberid)
-        {
-
-            var mBeneficiary = db.mBeneficiaries.Where(ben =>ben.membernationalid==Memberid).ToList();
-            return View(mBeneficiary);
-        }
-
-        // GET: Beneficiaries/Details/5
+        // GET: MemberDocuments/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            mBeneficiary mBeneficiary = db.mBeneficiaries.Find(id);
-            if (mBeneficiary == null)
+            mMemberDocument mMemberDocument = db.mMemberDocuments.Find(id);
+            if (mMemberDocument == null)
             {
                 return HttpNotFound();
             }
-            return View(mBeneficiary);
+            return View(mMemberDocument);
         }
 
-        // GET: Beneficiaries/Create
+        // GET: MemberDocuments/Create
         public ActionResult Create()
         {
+            ViewBag.doccode = new SelectList(db.mDocumentTypes, "code", "name");
             return View();
         }
 
-        // POST: Beneficiaries/Create
+        // POST: MemberDocuments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "membernationalid,beneficiarynatioanalid,memberid,membername,beneficiaryname,dob,sex,dateofsubmission,relationship,contactno1,contactno2,residentaladrees,nomineenationalid,nomineename,wages,effactivedate,email,lstatus,livingstatus,dateofDate")] mBeneficiary mBeneficiary)
+        public ActionResult Create([Bind(Include = "nationalid,memberid,doccode,membername,docLocation,docUploaded")] mMemberDocument mMemberDocument)
         {
             if (ModelState.IsValid)
             {
-                db.mBeneficiaries.Add(mBeneficiary);
+                db.mMemberDocuments.Add(mMemberDocument);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(mBeneficiary);
+            ViewBag.doccode = new SelectList(db.mDocumentTypes, "code", "name", mMemberDocument.doccode);
+            return View(mMemberDocument);
         }
 
-        // GET: Beneficiaries/Edit/5
+        // GET: MemberDocuments/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            mBeneficiary mBeneficiary = db.mBeneficiaries.Find(id);
-            if (mBeneficiary == null)
+            mMemberDocument mMemberDocument = db.mMemberDocuments.Find(id);
+            if (mMemberDocument == null)
             {
                 return HttpNotFound();
             }
-            return View(mBeneficiary);
+            ViewBag.doccode = new SelectList(db.mDocumentTypes, "code", "name", mMemberDocument.doccode);
+            return View(mMemberDocument);
         }
 
-        // POST: Beneficiaries/Edit/5
+        // POST: MemberDocuments/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "membernationalid,beneficiarynatioanalid,memberid,membername,beneficiaryname,dob,sex,dateofsubmission,relationship,contactno1,contactno2,residentaladrees,nomineenationalid,nomineename,wages,effactivedate,email,lstatus,livingstatus,dateofDate")] mBeneficiary mBeneficiary)
+        public ActionResult Edit([Bind(Include = "nationalid,memberid,doccode,membername,docLocation,docUploaded")] mMemberDocument mMemberDocument)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(mBeneficiary).State = EntityState.Modified;
+                db.Entry(mMemberDocument).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(mBeneficiary);
+            ViewBag.doccode = new SelectList(db.mDocumentTypes, "code", "name", mMemberDocument.doccode);
+            return View(mMemberDocument);
         }
 
-        // GET: Beneficiaries/Delete/5
+        // GET: MemberDocuments/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            mBeneficiary mBeneficiary = db.mBeneficiaries.Find(id);
-            if (mBeneficiary == null)
+            mMemberDocument mMemberDocument = db.mMemberDocuments.Find(id);
+            if (mMemberDocument == null)
             {
                 return HttpNotFound();
             }
-            return View(mBeneficiary);
+            return View(mMemberDocument);
         }
 
-        // POST: Beneficiaries/Delete/5
+        // POST: MemberDocuments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            mBeneficiary mBeneficiary = db.mBeneficiaries.Find(id);
-            db.mBeneficiaries.Remove(mBeneficiary);
+            mMemberDocument mMemberDocument = db.mMemberDocuments.Find(id);
+            db.mMemberDocuments.Remove(mMemberDocument);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

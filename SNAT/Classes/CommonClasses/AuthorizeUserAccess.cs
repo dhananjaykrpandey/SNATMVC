@@ -14,7 +14,7 @@ namespace SNAT.Classes.CommonClasses
             if (HttpContext.Current.Session["Login"] == null || Convert.ToBoolean(HttpContext.Current.Session["Login"]) == false)
             {
                 //FormsAuthentication.RedirectToLoginPage();
-                filterContext.HttpContext.Response.Redirect("~/Login/index", true);
+                filterContext.HttpContext.Response.Redirect("~/Login", true);
             }
             else if (context.Session != null)
             {
@@ -25,7 +25,7 @@ namespace SNAT.Classes.CommonClasses
                     if ((sessionCookie != null) && (sessionCookie.IndexOf("ASP.NET_SessionId") >= 0))
                     {
                         FormsAuthentication.SignOut();
-                        string redirectTo = "~/Login/index";
+                        string redirectTo = "~/Login";
                         if (!string.IsNullOrEmpty(context.Request.RawUrl))
                         {
                             redirectTo = string.Format("~/Login/index?ReturnUrl={0}", HttpUtility.UrlEncode(context.Request.RawUrl));

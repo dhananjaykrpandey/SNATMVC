@@ -11,115 +11,107 @@ using SNAT.Models;
 
 namespace SNAT.Controllers
 {
-    [AuthorizeUserAccess]
-    public class BeneficiariesController : Controller
+    public class SchoolsController : Controller
     {
         private DbCxSnat db = new DbCxSnat();
 
-        // GET: Beneficiaries
+        // GET: Schools
         public ActionResult Index()
         {
-            return View(db.mBeneficiaries.ToList());
+            return View(db.mSchools.ToList());
         }
 
-        public ActionResult BeneficiariesList(string Memberid)
-        {
-
-            var mBeneficiary = db.mBeneficiaries.Where(ben =>ben.membernationalid==Memberid).ToList();
-            return View(mBeneficiary);
-        }
-
-        // GET: Beneficiaries/Details/5
+        // GET: Schools/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            mBeneficiary mBeneficiary = db.mBeneficiaries.Find(id);
-            if (mBeneficiary == null)
+            mSchool mSchool = db.mSchools.Find(id);
+            if (mSchool == null)
             {
                 return HttpNotFound();
             }
-            return View(mBeneficiary);
+            return View(mSchool);
         }
 
-        // GET: Beneficiaries/Create
+        // GET: Schools/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Beneficiaries/Create
+        // POST: Schools/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "membernationalid,beneficiarynatioanalid,memberid,membername,beneficiaryname,dob,sex,dateofsubmission,relationship,contactno1,contactno2,residentaladrees,nomineenationalid,nomineename,wages,effactivedate,email,lstatus,livingstatus,dateofDate")] mBeneficiary mBeneficiary)
+        public ActionResult Create([Bind(Include = "code,name,status,remarks")] mSchool mSchool)
         {
             if (ModelState.IsValid)
             {
-                db.mBeneficiaries.Add(mBeneficiary);
+                db.mSchools.Add(mSchool);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(mBeneficiary);
+            return View(mSchool);
         }
 
-        // GET: Beneficiaries/Edit/5
+        // GET: Schools/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            mBeneficiary mBeneficiary = db.mBeneficiaries.Find(id);
-            if (mBeneficiary == null)
+            mSchool mSchool = db.mSchools.Find(id);
+            if (mSchool == null)
             {
                 return HttpNotFound();
             }
-            return View(mBeneficiary);
+            return View(mSchool);
         }
 
-        // POST: Beneficiaries/Edit/5
+        // POST: Schools/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "membernationalid,beneficiarynatioanalid,memberid,membername,beneficiaryname,dob,sex,dateofsubmission,relationship,contactno1,contactno2,residentaladrees,nomineenationalid,nomineename,wages,effactivedate,email,lstatus,livingstatus,dateofDate")] mBeneficiary mBeneficiary)
+        public ActionResult Edit([Bind(Include = "code,name,status,remarks")] mSchool mSchool)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(mBeneficiary).State = EntityState.Modified;
+                db.Entry(mSchool).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(mBeneficiary);
+            return View(mSchool);
         }
 
-        // GET: Beneficiaries/Delete/5
+        // GET: Schools/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            mBeneficiary mBeneficiary = db.mBeneficiaries.Find(id);
-            if (mBeneficiary == null)
+            mSchool mSchool = db.mSchools.Find(id);
+            if (mSchool == null)
             {
                 return HttpNotFound();
             }
-            return View(mBeneficiary);
+            return View(mSchool);
         }
 
-        // POST: Beneficiaries/Delete/5
+        // POST: Schools/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            mBeneficiary mBeneficiary = db.mBeneficiaries.Find(id);
-            db.mBeneficiaries.Remove(mBeneficiary);
+            mSchool mSchool = db.mSchools.Find(id);
+            db.mSchools.Remove(mSchool);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

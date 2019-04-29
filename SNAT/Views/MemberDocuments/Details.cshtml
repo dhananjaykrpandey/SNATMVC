@@ -1,0 +1,51 @@
+﻿@model SNAT.Models.mMemberDocument
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutMainMDI.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>mMemberDocument</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.mDocumentTypeCollectoin.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mDocumentTypeCollectoin.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.membername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.membername)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.docLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.docLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.docUploaded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.docUploaded)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

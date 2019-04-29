@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SNAT.Models.mMemberDocument>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutMainMDI.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.mDocumentTypeCollectoin.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.membername)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.docLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.docUploaded)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.mDocumentTypeCollectoin.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.membername)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.docLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.docUploaded)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

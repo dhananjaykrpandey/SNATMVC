@@ -139,15 +139,20 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BeneficiariesController.cs" />
+    <Compile Include="Controllers\DocumentTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MemberDocumentsController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
+    <Compile Include="Controllers\SchoolsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\mDocumentType.cs" />
     <Compile Include="Models\mLogin.cs" />
     <Compile Include="Models\mBeneficiary.cs" />
     <Compile Include="Models\mMember.cs" />
+    <Compile Include="Models\mMemberDocument.cs" />
     <Compile Include="Models\mSchool.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -3341,6 +3346,22 @@
     <Content Include="Views\Beneficiaries\Details.cshtml" />
     <Content Include="Views\Beneficiaries\Edit.cshtml" />
     <Content Include="Views\Beneficiaries\Index.cshtml" />
+    <Content Include="Views\Beneficiaries\BeneficiariesList.cshtml" />
+    <Content Include="Views\MemberDocuments\Create.cshtml" />
+    <Content Include="Views\MemberDocuments\Delete.cshtml" />
+    <Content Include="Views\MemberDocuments\Details.cshtml" />
+    <Content Include="Views\MemberDocuments\Edit.cshtml" />
+    <Content Include="Views\MemberDocuments\Index.cshtml" />
+    <Content Include="Views\Schools\Create.cshtml" />
+    <Content Include="Views\Schools\Delete.cshtml" />
+    <Content Include="Views\Schools\Details.cshtml" />
+    <Content Include="Views\Schools\Edit.cshtml" />
+    <Content Include="Views\Schools\Index.cshtml" />
+    <Content Include="Views\DocumentTypes\Create.cshtml" />
+    <Content Include="Views\DocumentTypes\Delete.cshtml" />
+    <Content Include="Views\DocumentTypes\Details.cshtml" />
+    <Content Include="Views\DocumentTypes\Edit.cshtml" />
+    <Content Include="Views\DocumentTypes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

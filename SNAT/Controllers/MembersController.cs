@@ -11,7 +11,7 @@ using SNAT.Models;
 
 namespace SNAT.Controllers
 {
-    [Authorize]
+   
     [AuthorizeUserAccess]
     public class MembersController : Controller
     {

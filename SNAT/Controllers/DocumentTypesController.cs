@@ -11,115 +11,107 @@ using SNAT.Models;
 
 namespace SNAT.Controllers
 {
-    [AuthorizeUserAccess]
-    public class BeneficiariesController : Controller
+    public class DocumentTypesController : Controller
     {
         private DbCxSnat db = new DbCxSnat();
 
-        // GET: Beneficiaries
+        // GET: DocumentTypes
         public ActionResult Index()
         {
-            return View(db.mBeneficiaries.ToList());
+            return View(db.mDocumentTypes.ToList());
         }
 
-        public ActionResult BeneficiariesList(string Memberid)
-        {
-
-            var mBeneficiary = db.mBeneficiaries.Where(ben =>ben.membernationalid==Memberid).ToList();
-            return View(mBeneficiary);
-        }
-
-        // GET: Beneficiaries/Details/5
+        // GET: DocumentTypes/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            mBeneficiary mBeneficiary = db.mBeneficiaries.Find(id);
-            if (mBeneficiary == null)
+            mDocumentType mDocumentType = db.mDocumentTypes.Find(id);
+            if (mDocumentType == null)
             {
                 return HttpNotFound();
             }
-            return View(mBeneficiary);
+            return View(mDocumentType);
         }
 
-        // GET: Beneficiaries/Create
+        // GET: DocumentTypes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Beneficiaries/Create
+        // POST: DocumentTypes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "membernationalid,beneficiarynatioanalid,memberid,membername,beneficiaryname,dob,sex,dateofsubmission,relationship,contactno1,contactno2,residentaladrees,nomineenationalid,nomineename,wages,effactivedate,email,lstatus,livingstatus,dateofDate")] mBeneficiary mBeneficiary)
+        public ActionResult Create([Bind(Include = "code,name,status,remarks")] mDocumentType mDocumentType)
         {
             if (ModelState.IsValid)
             {
-                db.mBeneficiaries.Add(mBeneficiary);
+                db.mDocumentTypes.Add(mDocumentType);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(mBeneficiary);
+            return View(mDocumentType);
         }
 
-        // GET: Beneficiaries/Edit/5
+        // GET: DocumentTypes/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            mBeneficiary mBeneficiary = db.mBeneficiaries.Find(id);
-            if (mBeneficiary == null)
+            mDocumentType mDocumentType = db.mDocumentTypes.Find(id);
+            if (mDocumentType == null)
             {
                 return HttpNotFound();
             }
-            return View(mBeneficiary);
+            return View(mDocumentType);
         }
 
-        // POST: Beneficiaries/Edit/5
+        // POST: DocumentTypes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "membernationalid,beneficiarynatioanalid,memberid,membername,beneficiaryname,dob,sex,dateofsubmission,relationship,contactno1,contactno2,residentaladrees,nomineenationalid,nomineename,wages,effactivedate,email,lstatus,livingstatus,dateofDate")] mBeneficiary mBeneficiary)
+        public ActionResult Edit([Bind(Include = "code,name,status,remarks")] mDocumentType mDocumentType)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(mBeneficiary).State = EntityState.Modified;
+                db.Entry(mDocumentType).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(mBeneficiary);
+            return View(mDocumentType);
         }
 
-        // GET: Beneficiaries/Delete/5
+        // GET: DocumentTypes/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            mBeneficiary mBeneficiary = db.mBeneficiaries.Find(id);
-            if (mBeneficiary == null)
+            mDocumentType mDocumentType = db.mDocumentTypes.Find(id);
+            if (mDocumentType == null)
             {
                 return HttpNotFound();
             }
-            return View(mBeneficiary);
+            return View(mDocumentType);
         }
 
-        // POST: Beneficiaries/Delete/5
+        // POST: DocumentTypes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            mBeneficiary mBeneficiary = db.mBeneficiaries.Find(id);
-            db.mBeneficiaries.Remove(mBeneficiary);
+            mDocumentType mDocumentType = db.mDocumentTypes.Find(id);
+            db.mDocumentTypes.Remove(mDocumentType);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
