@@ -30,6 +30,9 @@ namespace SNAT.Classes.CommonClasses
         public System.Data.Entity.DbSet<SNAT.Models.mClaimDocType> mClaimDocTypes { get; set; }
 
         public System.Data.Entity.DbSet<SNAT.Models.mChequeDocType> mChequeDocTypes { get; set; }
+        public System.Data.Entity.DbSet<SNAT.Models.mBeneficiryDocuments> mBeneficiryDocuments { get; set; }
+
+        public System.Data.Entity.DbSet<SNAT.Models.mMemberWegesProcess> mMemberWegesProcesses { get; set; }
         //public DbSet<mProjectMenu> MProjectMenu { get; set; }
         //public DbSet<mUserRights> MUserRights { get; set; }
 

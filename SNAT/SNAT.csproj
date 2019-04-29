@@ -139,6 +139,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BeneficiariesController.cs" />
+    <Compile Include="Controllers\BeneficiaryDocumentController.cs" />
     <Compile Include="Controllers\ChequeDocumentTypeController.cs" />
     <Compile Include="Controllers\ClaimDocumentTypeController.cs" />
     <Compile Include="Controllers\DocumentTypesController.cs" />
@@ -146,6 +147,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MemberDocumentsController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
+    <Compile Include="Controllers\MemberWegesProcessesController.cs" />
     <Compile Include="Controllers\SchoolsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -157,7 +159,9 @@
     <Compile Include="Models\mBeneficiary.cs" />
     <Compile Include="Models\mMember.cs" />
     <Compile Include="Models\mMemberDocument.cs" />
+    <Compile Include="Models\mMemberWegesProcess.cs" />
     <Compile Include="Models\mSchool.cs" />
+    <Compile Include="Models\mBeneficiryDocuments.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -3369,6 +3373,13 @@
     <Content Include="Views\MemberDocuments\MemberDocumentList.cshtml" />
     <Content Include="Views\ClaimDocumentType\Index.cshtml" />
     <Content Include="Views\ChequeDocumentType\Index.cshtml" />
+    <Content Include="Views\BeneficiaryDocument\Index.cshtml" />
+    <Content Include="Views\MemberWegesProcesses\Create.cshtml" />
+    <Content Include="Views\MemberWegesProcesses\Delete.cshtml" />
+    <Content Include="Views\MemberWegesProcesses\Details.cshtml" />
+    <Content Include="Views\MemberWegesProcesses\Edit.cshtml" />
+    <Content Include="Views\MemberWegesProcesses\Index.cshtml" />
+    <Content Include="Views\MemberWegesProcesses\MemberPremiumDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

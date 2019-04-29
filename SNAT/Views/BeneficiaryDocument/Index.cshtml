@@ -1,0 +1,202 @@
+﻿@model IEnumerable<SNAT.Models.mBeneficiryDocuments>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutMainMDI.cshtml";
+}
+
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="form-group col-md-3 col-sm-6">
+                        <label for="membernationalid ">@Html.DisplayNameFor(model => model.nationalid)</label>
+                        <div class="input-group">
+                            @{
+                                var membernationalid = Model.Select(mb => mb.nationalid).FirstOrDefault();
+                                if (membernationalid == null || membernationalid.ToString().Trim() == "")
+                                {
+                                    membernationalid = HttpContext.Current.Session["nationalid"] == null || HttpContext.Current.Session["nationalid"].ToString().Trim() == "" ? "" : HttpContext.Current.Session["nationalid"].ToString();
+                                }
+                                @Html.TextBox("nationalid", membernationalid, new { @class = "form-control bg-white", @name = "nationalid", @tabindex = "1", @readonly = "true" })
+                            }
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3 col-sm-6">
+                        <label for="memberid">@Html.DisplayNameFor(model => model.memberid)</label>
+                        <div class="input-group">
+                            @{
+                                var memberid = Model.Select(mb => mb.memberid).FirstOrDefault();
+                                if (memberid == null || memberid.ToString().Trim() == "")
+                                {
+                                    memberid = HttpContext.Current.Session["memberid"] == null || HttpContext.Current.Session["memberid"].ToString().Trim() == "" ? "" : HttpContext.Current.Session["memberid"].ToString();
+                                }
+                                @Html.TextBox("memberid2", memberid, new { @class = "form-control bg-white", @name = "memberid2", @tabindex = "1", @readonly = "true" })
+                            }
+                        </div>
+                    </div>
+                    <div class="form-group  col-md-3 col-sm-6">
+                        <label for="membername">@Html.DisplayNameFor(model => model.membername)</label>
+                        @{
+                            var membername = Model.Select(mb => mb.membername).FirstOrDefault();
+                            if (membername == null || membername.ToString().Trim() == "")
+                            {
+                                membername = HttpContext.Current.Session["membername"] == null || HttpContext.Current.Session["membername"].ToString().Trim() == "" ? "" : HttpContext.Current.Session["membername"].ToString();
+                            }
+                            @Html.TextBox("membername", membername.ToString(), new { @class = "form-control bg-white", @name = "membername", @tabindex = "3", @readonly = "true" })
+                        }
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3 col-sm-6">
+                        <label for="membernationalid ">@Html.DisplayNameFor(model => model.beneficirynationalid)</label>
+                        <div class="input-group">
+                            @{
+                                var beneficirynationalid = Model.Select(mb => mb.beneficirynationalid).FirstOrDefault();
+                                if (beneficirynationalid == null || beneficirynationalid.ToString().Trim() == "")
+                                {
+                                    beneficirynationalid = HttpContext.Current.Session["beneficiarynatioanalid"] == null || HttpContext.Current.Session["beneficiarynatioanalid"].ToString().Trim() == "" ? "" : HttpContext.Current.Session["beneficiarynatioanalid"].ToString();
+                                }
+                                @Html.TextBox("beneficirynationalid2", beneficirynationalid, new { @class = "form-control bg-white", @name = "beneficirynationalid2", @tabindex = "1", @readonly = "true" })
+                            }
+                        </div>
+                    </div>
+                    
+                    <div class="form-group  col-md-3 col-sm-6">
+                        <label for="membername">@Html.DisplayNameFor(model => model.beneficiaryname)</label>
+                        @{
+                            var beneficiaryname = Model.Select(mb => mb.beneficiaryname).FirstOrDefault();
+                            if (beneficiaryname == null || beneficiaryname.ToString().Trim() == "")
+                            {
+                                beneficiaryname = HttpContext.Current.Session["beneficiaryname"] == null || HttpContext.Current.Session["beneficiaryname"].ToString().Trim() == "" ? "" : HttpContext.Current.Session["beneficiaryname"].ToString();
+                            }
+                            @Html.TextBox("beneficiaryname", beneficiaryname.ToString(), new { @class = "form-control bg-white", @name = "beneficiaryname", @tabindex = "3", @readonly = "true" })
+                        }
+
+                    </div>
+                </div>
+                <h4>@ViewBag.Title</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="tblMemberList" class="table table-striped table-hover" cellspacing="0" width="100%">
+                        <thead style="text-align:center" class="table-success">
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.doccode)</th>
+                                <th>@Html.DisplayNameFor(model => model.mDocumentTypeCollectoin.name)</th>
+                                <th>@Html.DisplayNameFor(model => model.docUploaded)</th>
+
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+
+                                    <td>@Html.DisplayFor(modelItem => item.doccode)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.mDocumentTypeCollectoin.name)</td>
+                                    <td style="text-align:center">@Html.DisplayFor(modelItem => item.docUploaded)</td>
+
+                                    <td style="text-align:center">
+                                        <div class="row">
+                                            <div class="form-group col-md-2 col-sm-2">
+                                                <div class="input-group">
+                                                    <a href="@Url.Action("Details", "Members", new {  id=item.docLocation })" class="btn btn-success btn-sm" data-toggle="tooltip" title="View Document"><i class="fas fa-eye"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-2 col-sm-2">
+                                                <div class="input-group">
+                                                    <a href="@Url.Action("BeneficiariesList", "Beneficiaries", new {  Memberid=item.docLocation })" class="btn btn-danger btn-sm" data-toggle="tooltip" title="Download Document"><i class="fas fa-download"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-3 col-sm-3">
+                    @if (Request.UrlReferrer != null)
+                    {
+                    <a href="#" onclick="history.go(-1); return false;" class="btn btn-danger btn-sm" data-toggle="tooltip" title="Back to Beneficiaries List"><i class="fas fa-arrow-circle-left"></i> Back </a>
+                    }
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#tblMemberList').DataTable();
+    });
+</script>
+
+<!--#region Commented Code-->
+@*<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.mDocumentTypeCollectoin.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.memberid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.membername)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.beneficiaryname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.docLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.docUploaded)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.mDocumentTypeCollectoin.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.memberid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.membername)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.beneficiaryname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.docLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.docUploaded)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>*@
+<!--#endregion Commented Code-->

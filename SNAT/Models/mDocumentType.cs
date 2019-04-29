@@ -18,8 +18,8 @@ namespace SNAT.Models
         [Display(Name = "Document Code")]
         [StringLength(15)]
         public string code { get; set; }
-                public virtual ICollection<mMemberDocument> mMemberDocumentCollection { get; set; }
-
+        public virtual ICollection<mMemberDocument> mMemberDocumentCollection { get; set; }
+        public virtual ICollection<mBeneficiryDocuments> mBeneficiryDocumentsCollection { get; set; }
 
         [Column("name")]
         [Display(Name = "Document Name")]
