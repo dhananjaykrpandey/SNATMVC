@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using SNAT.Classes.CommonClasses;
 using SNAT.Models;
 
 namespace SNAT.Controllers
 {
+    [AuthorizeUserAccess]
     public class MemberDocumentsController : Controller
     {
         private DbCxSnat db = new DbCxSnat();
@@ -20,6 +18,25 @@ namespace SNAT.Controllers
         {
             var mMemberDocuments = db.mMemberDocuments.Include(m => m.mDocumentTypeCollectoin);
             return View(mMemberDocuments.ToList());
+        }
+
+        public ActionResult MemberDocumentList(string StrMemberNationalId)
+        {
+            if (StrMemberNationalId == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var vMemberDetails = db.mMembers.Where(mm => mm.nationalid == StrMemberNationalId).FirstOrDefault();
+            if (vMemberDetails!=null)
+            {
+                HttpContext.Session.Add("nationalid", vMemberDetails.nationalid);
+                HttpContext.Session.Add("memberid", vMemberDetails.memberid);
+                HttpContext.Session.Add("membername", vMemberDetails.membername);
+            }
+
+            var mMemberDocuments = db.mMemberDocuments.Include(m => m.mDocumentTypeCollectoin);
+            var MemberDocList = mMemberDocuments.Where(mb => mb.nationalid == StrMemberNationalId);
+            return View(MemberDocList.ToList());
         }
 
         // GET: MemberDocuments/Details/5

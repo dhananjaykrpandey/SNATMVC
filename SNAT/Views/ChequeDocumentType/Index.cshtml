@@ -1,7 +1,7 @@
-﻿@model IEnumerable<SNAT.Models.mDocumentType>
+﻿@model IEnumerable<SNAT.Models.mChequeDocType>
 
 @{
-    ViewBag.Title = "Document Type List";
+    ViewBag.Title = "Cheque Document List";
     Layout = "~/Views/Shared/_LayoutMainMDI.cshtml";
 }
 
@@ -19,7 +19,7 @@
                                 <th>@Html.DisplayNameFor(model => model.code)</th>
                                 <th>@Html.DisplayNameFor(model => model.name)</th>
                                 <th>@Html.DisplayNameFor(model => model.status)</th>
-                              
+                                <th>@Html.DisplayNameFor(model => model.mandatory)</th>
                                 <th>@Html.DisplayNameFor(model => model.remarks)</th>
                             </tr>
                         </thead>
@@ -30,8 +30,9 @@
 
                                 <td>@Html.DisplayFor(modelItem => item.code)</td>
                                 <td>@Html.DisplayFor(modelItem => item.name)</td>
+                                <td style="text-align:center">@Html.DisplayFor(modelItem => item.status )</td>
+                                <td style="text-align:center">@Html.DisplayFor(modelItem => item.mandatory)</td>
                                 
-                                <td style="text-align:center">@Html.DisplayFor(modelItem => item.status)</td>
                                 <td>@Html.DisplayFor(modelItem => item.remarks)</td>
                             </tr>
                             }
@@ -47,37 +48,3 @@
         $('#tblMemberList').DataTable();
     });
 </script>
-@*<table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.remarks)
-            </th>
-            <th></th>
-        </tr>
-
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.remarks)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.code }) |
-                @Html.ActionLink("Details", "Details", new { id=item.code }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.code })
-            </td>
-        </tr>
-    }
-
-    </table>*@

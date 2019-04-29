@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
 namespace SNAT.Models
 {
-   [Table("M_School")]
-    public class mSchool
+    [Table("M_ClaimDocType")]
+    public class mClaimDocType
     {
         [NotMapped]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -15,17 +13,18 @@ namespace SNAT.Models
 
         [Key]
         [Column("code")]
-        [Display(Name = "School Code")]
+        [Display(Name = "Document Code")]
         [StringLength(15)]
         public string code { get; set; }
-        [ForeignKey("code")]
-        public virtual ICollection<mMember> mMemberCollection { get; set; }
-
-
+        
         [Column("name")]
-        [Display(Name = "School Name")]
+        [Display(Name = "Document Name")]
         [StringLength(50)]
         public string name { get; set; }
+
+        [Column("mandatory")]
+        [Display(Name = "Mandatory")]
+        public bool mandatory { get; set; } = false;
 
         [Column("status")]
         [Display(Name = "Status")]

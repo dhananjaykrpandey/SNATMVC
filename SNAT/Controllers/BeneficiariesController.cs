@@ -24,7 +24,18 @@ namespace SNAT.Controllers
 
         public ActionResult BeneficiariesList(string Memberid)
         {
+            if (Memberid == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
 
+            var vMemberDetails = db.mMembers.Where(mm => mm.nationalid == Memberid).FirstOrDefault();
+            if (vMemberDetails != null)
+            {
+                HttpContext.Session.Add("nationalid", vMemberDetails.nationalid);
+                HttpContext.Session.Add("memberid", vMemberDetails.memberid);
+                HttpContext.Session.Add("membername", vMemberDetails.membername);
+            }
             var mBeneficiary = db.mBeneficiaries.Where(ben =>ben.membernationalid==Memberid).ToList();
             return View(mBeneficiary);
         }
@@ -36,7 +47,8 @@ namespace SNAT.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            mBeneficiary mBeneficiary = db.mBeneficiaries.Find(id);
+            var mBeneficiary = db.mBeneficiaries.Where(ben => ben.beneficiarynatioanalid == id).FirstOrDefault();
+                        
             if (mBeneficiary == null)
             {
                 return HttpNotFound();

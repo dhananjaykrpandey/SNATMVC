@@ -11,6 +11,7 @@ using SNAT.Models;
 
 namespace SNAT.Controllers
 {
+    [AuthorizeUserAccess]
     public class SchoolsController : Controller
     {
         private DbCxSnat db = new DbCxSnat();

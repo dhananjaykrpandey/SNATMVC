@@ -139,6 +139,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BeneficiariesController.cs" />
+    <Compile Include="Controllers\ChequeDocumentTypeController.cs" />
+    <Compile Include="Controllers\ClaimDocumentTypeController.cs" />
     <Compile Include="Controllers\DocumentTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -148,6 +150,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\mChequeDocType.cs" />
+    <Compile Include="Models\mClaimDocType.cs" />
     <Compile Include="Models\mDocumentType.cs" />
     <Compile Include="Models\mLogin.cs" />
     <Compile Include="Models\mBeneficiary.cs" />
@@ -3362,6 +3366,9 @@
     <Content Include="Views\DocumentTypes\Details.cshtml" />
     <Content Include="Views\DocumentTypes\Edit.cshtml" />
     <Content Include="Views\DocumentTypes\Index.cshtml" />
+    <Content Include="Views\MemberDocuments\MemberDocumentList.cshtml" />
+    <Content Include="Views\ClaimDocumentType\Index.cshtml" />
+    <Content Include="Views\ChequeDocumentType\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

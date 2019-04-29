@@ -1,163 +1,379 @@
 ﻿@model SNAT.Models.mBeneficiary
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Beneficiary Details";
     Layout = "~/Views/Shared/_LayoutMainMDI.cshtml";
 }
+@using (Html.BeginForm())
+{
 
-<h2>Details</h2>
 
-<div>
-    <h4>mBeneficiary</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.memberid)
-        </dt>
+    <form method="get" action="#" class="needs-validation" novalidate="">
+        <div class="card card-primary">
+            <div class="card-header"><h4>@ViewBag.Title</h4></div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="form-group col-md-2 col-sm-6">
+                        <label for="nationalid ">@Html.DisplayNameFor(model => model.membernationalid)</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.membernationalid, new { @class = "form-control bg-white", @name = "memberid", @tabindex = "1", @readonly = "true" })
+                        </div>
+                    </div>
+                    <div class="form-group col-md-2 col-sm-6">
+                        <label for="username">@Html.DisplayNameFor(model => model.memberid)</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.memberid, new { @class = "form-control bg-white", @name = "memberid", @tabindex = "2", @readonly = "true" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-4 col-sm-8">
+                        <label for="username">@Html.DisplayNameFor(model => model.membername)</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.membername, new { @class = "form-control bg-white", @name = "memberid", @tabindex = "5", @readonly = "true" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-2 col-sm-6">
+                        <label for="nationalid ">@Html.DisplayNameFor(model => model.beneficiarynatioanalid)</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.beneficiarynatioanalid, new { @class = "form-control bg-white", @name = "memberid", @tabindex = "1", @readonly = "true" })
+                        </div>
+                    </div>
+                    <div class="form-group col-md-2 col-sm-6">
+                        <label for="username">@Html.DisplayNameFor(model => model.relationship)</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.relationship, new { @class = "form-control bg-white", @name = "memberid", @tabindex = "2", @readonly = "true" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-4 col-sm-8">
+                        <label for="username">@Html.DisplayNameFor(model => model.beneficiaryname)</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.beneficiaryname, new { @class = "form-control bg-white", @name = "memberid", @tabindex = "5", @readonly = "true" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-2 col-sm-6">
+                        <label for="username">@Html.DisplayNameFor(model => model.dob)</label>
+                        <div class="input-group">
+                            @{
+                                if (Model.dob.HasValue)
+                                {
+                                    @Html.TextBox("dob", Model.dob.Value.ToShortDateString(), new { @class = "form-control bg-white", @name = "memberid", @tabindex = "6", @readonly = "true" })
+                                }
+                                else
+                                {
+                                    <input type="text" class="form-control bg-white" , name="dob" tabindex="6" readonly value="" />
+                                }
+                            }
 
-        <dd>
-            @Html.DisplayFor(model => model.memberid)
-        </dd>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-2 col-sm-6">
+                        <label for="username">@Html.DisplayNameFor(model => model.sex)</label>
+                        <div class="input-group">
+                            @{
+                                if (Model.sex == "F")
+                                {
+                                    <input type="text" class="form-control bg-white" , name="dob" tabindex="7" readonly value="Female" />
+                                }
+                                else
+                                {
+                                    <input type="text" class="form-control bg-white" , name="dob" tabindex="7" readonly value="Male" />
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-2 col-sm-6">
+                        <label for="username">@Html.DisplayNameFor(model => model.contactno1)</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.contactno1, new { @class = "form-control bg-white", @name = "memberid", @tabindex = "8", @readonly = "true" })
+                        </div>
+                    </div>
+                    <div class="form-group col-md-2 col-sm-6">
+                        <label for="username">@Html.DisplayNameFor(model => model.contactno2)</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.contactno2, new { @class = "form-control bg-white", @name = "memberid", @tabindex = "9", @readonly = "true" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-4 col-sm-8">
+                        <label for="username">@Html.DisplayNameFor(model => model.email)</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.email, new { @class = "form-control bg-white", @name = "memberid", @tabindex = "10", @readonly = "true" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-2 col-sm-6">
+                        <label for="username">@Html.DisplayNameFor(model => model.wages)</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.wages, new { @class = "form-control bg-white", @name = "memberid", @tabindex = "11", @readonly = "true" })
+                        </div>
+                    </div>
+                    <div class="form-group col-md-2 col-sm-6">
+                        <label for="username">@Html.DisplayNameFor(model => model.effactivedate)</label>
+                        <div class="input-group">
+                            @{
+                                if (Model.effactivedate.HasValue)
+                                {
+                                    @Html.TextBox("dob", Model.effactivedate.Value.ToShortDateString(), new { @class = "form-control bg-white", @name = "memberid", @tabindex = "12", @readonly = "true" })
+                                }
+                                else
+                                {
+                                    <input type="text" class="form-control bg-white" , name="dob" tabindex="12" readonly value="" />
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.membername)
-        </dt>
+                <div class="row">
+                    <div class="form-group col-md-6 col-sm-8">
+                        <div class="form-group ">
+                            <label for="username">@Html.DisplayNameFor(model => model.residentaladrees)</label>
+                            <div class="input-group">
+                                @Html.TextAreaFor(model => model.residentaladrees, new { @class = "form-control bg-white", @name = "memberid", @tabindex = "15", @readonly = "true" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-2 col-sm-6">
+                        <label for="username">@Html.DisplayNameFor(model => model.nomineenationalid)</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.nomineenationalid, new { @class = "form-control bg-white", @name = "memberid", @tabindex = "16", @readonly = "true" })
+                        </div>
+                    </div>
+                    <div class="form-group col-md-2 col-sm-6">
+                        <label for="username">@Html.DisplayNameFor(model => model.dateofsubmission)</label>
+                        <div class="input-group">
+                            @{
+                                if (Model.dateofsubmission.HasValue)
+                                {
+                                    @Html.TextBox("dob", Model.dateofsubmission.Value.ToShortDateString(), new { @class = "form-control bg-white", @name = "memberid", @tabindex = "22", @readonly = "true" })
+                                }
+                                else
+                                {
+                                    <input type="text" class="form-control bg-white" , name="dob" tabindex="22" readonly value="" />
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label for="username">@Html.DisplayNameFor(model => model.nomineename)</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.nomineename, new { @class = "form-control bg-white", @name = "memberid", @tabindex = "17", @readonly = "true" })
+                        </div>
+                    </div>
+                </div>
+               
 
-        <dd>
-            @Html.DisplayFor(model => model.membername)
-        </dd>
+                <div class="row">
+                    <div class="form-group col-md-2 col-sm-6">
+                        <label for="username">@Html.DisplayNameFor(model => model.livingstatus)</label>
+                        <div class="input-group">
+                            @{
+                                if (Model.livingstatus == "L")
+                                {
+                                    <input type="text" class="form-control bg-white" , name="dob" tabindex="23" readonly value="Live" />
+                                }
+                                else
+                                {
+                                    <input type="text" class="form-control bg-white" , name="dob" tabindex="23" readonly value="Dead" />
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="form-group col-md-2 col-sm-6">
+                        <label for="username">@Html.DisplayNameFor(model => model.dateofDate)</label>
+                        <div class="input-group">
+                            @{
+                                if (Model.dateofDate.HasValue)
+                                {
+                                    @Html.TextBox("dob", Model.dateofDate.Value.ToShortDateString(), new { @class = "form-control bg-white", @name = "memberid", @tabindex = "24", @readonly = "true" })
+                                }
+                                else
+                                {
+                                    <input type="text" class="form-control" , name="dob" tabindex="24" readonly value="" />
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-sm-2">
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary", @tabindex = "25" })
 
-        <dt>
-            @Html.DisplayNameFor(model => model.beneficiaryname)
-        </dt>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.beneficiaryname)
-        </dd>
+            </div>
+        </div>
+    </form>
+}
+<!--#region Commented Code-->
+@*<h2>Details</h2>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.dob)
-        </dt>
+    <div>
+        <h4>mBeneficiary</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.memberid)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.dob)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.memberid)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.sex)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.membername)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.sex)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.membername)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.dateofsubmission)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.beneficiaryname)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.dateofsubmission)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.beneficiaryname)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.relationship)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.dob)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.relationship)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.dob)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.contactno1)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.sex)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.contactno1)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.sex)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.contactno2)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.dateofsubmission)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.contactno2)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.dateofsubmission)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.residentaladrees)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.relationship)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.residentaladrees)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.relationship)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.nomineenationalid)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.contactno1)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.nomineenationalid)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.contactno1)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.nomineename)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.contactno2)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.nomineename)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.contactno2)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.wages)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.residentaladrees)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.wages)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.residentaladrees)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.effactivedate)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.nomineenationalid)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.effactivedate)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.nomineenationalid)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.email)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.nomineename)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.email)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.nomineename)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.lstatus)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.wages)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.lstatus)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.wages)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.livingstatus)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.effactivedate)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.livingstatus)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.effactivedate)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.dateofDate)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.email)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.dateofDate)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.email)
+            </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+            <dt>
+                @Html.DisplayNameFor(model => model.lstatus)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.lstatus)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.livingstatus)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.livingstatus)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.dateofDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.dateofDate)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@
+<!--#endregion Commented Code-->
