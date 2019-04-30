@@ -1,7 +1,7 @@
-﻿@model IEnumerable<SNAT.Models.mMemberWegesProcess>
+﻿@model IEnumerable<SNAT.Models.mWagesUpload>
 
 @{
-    ViewBag.Title = "MemberPremiumDetails";
+    ViewBag.Title = "Premium Details";
     Layout = "~/Views/Shared/_LayoutMainMDI.cshtml";
 }
 
@@ -63,28 +63,40 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="form-group col-md-3 col-sm-6">
+                    <div class="form-group col-md-4 col-sm-6">
                         <label for="">Total Premium</label>
                         <div class="input-group">
                             @{ string TotalPremium = Convert.ToString(ViewBag.TotalPremium); }
                             @Html.TextBox("TotalPremium", TotalPremium, new { @class = "form-control bg-white", @name = "nationalid", @tabindex = "5", @readonly = "true" })
                         </div>
                     </div>
-                    <div class="form-group col-md-3 col-sm-6">
-                        <label for="">Total Prending Premium</label>
-                        <div class="input-group">
-                            @{ string TotalPendingPremium = Convert.ToString(ViewBag.TotalPendingPremium); }
-                                @Html.TextBox("TotalPendingPremium",TotalPendingPremium, new { @class = "form-control bg-white", @name = "nationalid", @tabindex = "6", @readonly = "true" })
-                        </div>
-                    </div>
-                    <div class="form-group col-md-3 col-sm-6">
+
+                    <div class="form-group col-md-4 col-sm-6">
                         <label for="">Total Blance Premium</label>
                         <div class="input-group">
                             @{ string TotalBlancePremium = Convert.ToString(ViewBag.TotalBlancePremium); }
                             @Html.TextBox("TotalBlancePremium", TotalBlancePremium, new { @class = "form-control bg-white", @name = "nationalid", @tabindex = "7", @readonly = "true" })
                         </div>
                     </div>
-                    
+
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label for="">Total Premium Till Selected Month-Year </label>
+                        <div class="input-group">
+                            @{ string iTotalPremiumMonth = Convert.ToString(ViewBag.iTotalPremiumMonth); }
+                            @Html.TextBox("iTotalPremiumMonth", iTotalPremiumMonth, new { @class = "form-control bg-white", @name = "iTotalPremiumMonth", @tabindex = "5", @readonly = "true" })
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label for="">Total Blance Premium Till Selected Month-Year </label>
+                        <div class="input-group">
+                            @{ string iTotalBlancePremiumMonth = Convert.ToString(ViewBag.iTotalBlancePremiumMonth); }
+                            @Html.TextBox("iTotalBlancePremiumMonth", iTotalBlancePremiumMonth, new { @class = "form-control bg-white", @name = "iTotalBlancePremiumMonth", @tabindex = "7", @readonly = "true" })
+                        </div>
+                    </div>
+
                 </div>
                 <h4>@ViewBag.Title</h4>
             </div>
@@ -96,56 +108,89 @@
                                 <th>@Html.DisplayNameFor(model => model.wageMonthYear)</th>
                                 <th>@Html.DisplayNameFor(model => model.wageFrom)</th>
                                 <th>@Html.DisplayNameFor(model => model.wagecredit)</th>
-                                <th>@Html.DisplayNameFor(model => model.wagePending)</th>
                                 <th>@Html.DisplayNameFor(model => model.wagebalnace)</th>
-                                <th>@Html.DisplayNameFor(model => model.cProcessed)</th>
-                               
+                                <th>@Html.DisplayNameFor(model => model.processingdate)</th>
+                                <th>@Html.DisplayNameFor(model => model.lValidMemmber)</th>
+                                <th>@Html.DisplayNameFor(model => model.memWegeRemarks)</th>
+                                <th>@Html.DisplayNameFor(model => model.lWagesProcessed)</th>
+                                <th>@Html.DisplayNameFor(model => model.lApproved)</th>
+
                             </tr>
                         </thead>
                         <tbody>
-                           
+
                             @foreach (var item in Model.OrderByDescending(od => od.wageMonthYear))
                             {
-                                <tr>
+                            <tr>
 
-                                    <td>@Html.DisplayFor(modelItem => item.wageMonthYear)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.wageFrom)</td>
-                                    <td style="text-align:center">@Html.DisplayFor(modelItem => item.wagecredit)</td>
-                                    <td style="text-align:center">@Html.DisplayFor(modelItem => item.wagePending)</td>
-                                    <td style="text-align:center">@Html.DisplayFor(modelItem => item.wagebalnace)</td>
-                                    @{
-                                        if (item.cProcessed == "A")
-                                        {
-                                            <td>Approved</td>
-                                        }
-                                        else
-                                        {
-
-                                            <td>Under Process</td>
-
-                                        }
+                                <td>@Html.DisplayFor(modelItem => item.wageMonthYear)</td>
+                                <td>@Html.DisplayFor(modelItem => item.wageFrom)</td>
+                                <td style="text-align:center">@Html.DisplayFor(modelItem => item.wagecredit)</td>
+                                <td style="text-align:center">@Html.DisplayFor(modelItem => item.wagebalnace)</td>
+                                <td>@Html.DisplayFor(modelItem => item.wageFrom)</td>
+                                @{
+                                    if (item.lValidMemmber == true)
+                                    {
+                                        <td>Yes</td>
                                     }
+                                    else
+                                    {
 
+                                        <td>No</td>
 
-                                </tr>
+                                    }
+                                }
+                                <td>@Html.DisplayFor(modelItem => item.memWegeRemarks)</td>
+                                @{
+                                    if (item.lWagesProcessed == true)
+                                    {
+                                        <td>Premium Processed</td>
+                                    }
+                                    else
+                                    {
+
+                                        <td>Under Process</td>
+
+                                    }
+                                }
+                                @{
+                                    if (item.lApproved == true)
+                                    {
+                                        <td>Premium Approved</td>
+                                    }
+                                    else
+                                    {
+
+                                        <td>Approved Under Process</td>
+
+                                    }
+                                }
+
+                            </tr>
                             }
                         </tbody>
                     </table>
                 </div>
             </div>
-
             <div class="row">
                 <div class="form-group col-md-3 col-sm-3">
 
-                    <a href="@Url.Action("Index", "Members")" class="btn btn-danger btn-sm" data-toggle="tooltip" title="Document(s)"><i class="fas fa-arrow-circle-left"></i> Back to Member List</a>
+                    <a href="@Url.Action("Index", "WagesUpload")" class="btn btn-danger btn-sm" data-toggle="tooltip" title="Document(s)"><i class="fas fa-arrow-circle-left"></i> Back to Premium Details</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <script>
-    $(document).ready(function () {
-        $('#tblMemberList').DataTable({ ordering=false;});
-    });
-</script>
+      $(document).ready(function ()
+    {
+       // $('#tblMemberList').DataTable( {
+       //"order" :[2,'desc']
+        var table = $('#tblMemberList').DataTable();
 
+// Sort by columns 1 and 2 and redraw
+table
+    .order( [ 0, 'desc' ], [ 2, 'asc' ] )
+    .draw();
+    } );
+</script>

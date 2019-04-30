@@ -34,11 +34,11 @@ namespace SNAT.Controllers
                 HttpContext.Session.Add("nationalid", vMemberDetails.nationalid);
                 HttpContext.Session.Add("memberid", vMemberDetails.memberid);
                 HttpContext.Session.Add("membername", vMemberDetails.membername);
-                    HttpContext.Session.Add("EmployeeNo", vMemberDetails.employeeno);
+                HttpContext.Session.Add("EmployeeNo", vMemberDetails.employeeno);
             }
-          List<mMemberWegesProcess> mMemberWegesProcesses = db.mMemberWegesProcesses.Where(ben => ben.memNationalID == Memberid).OrderByDescending(od => od.cProcessed).ToList();
+            List<mMemberWegesProcess> mMemberWegesProcesses = db.mMemberWegesProcesses.Where(ben => ben.memNationalID == Memberid).OrderByDescending(od => od.cProcessed).ToList();
 
-          decimal  iTotalPremium = mMemberWegesProcesses.Sum(sm => sm.wagecredit);
+            decimal iTotalPremium = mMemberWegesProcesses.Sum(sm => sm.wagecredit);
             decimal iTotalPendingPremium = mMemberWegesProcesses.Sum(sm => sm.wagePending); ;
             decimal iTotalBlancePremium = mMemberWegesProcesses.Sum(sm => sm.wagebalnace); ;
 

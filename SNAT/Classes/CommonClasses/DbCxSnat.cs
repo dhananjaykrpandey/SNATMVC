@@ -36,6 +36,8 @@ namespace SNAT.Classes.CommonClasses
         public System.Data.Entity.DbSet<SNAT.Models.mBeneficiryDocuments> mBeneficiryDocuments { get; set; }
 
         public System.Data.Entity.DbSet<SNAT.Models.mMemberWegesProcess> mMemberWegesProcesses { get; set; }
+
+        public System.Data.Entity.DbSet<SNAT.Models.mWagesUpload> mWagesUploads { get; set; }
         //public DbSet<mProjectMenu> MProjectMenu { get; set; }
         //public DbSet<mUserRights> MUserRights { get; set; }
 

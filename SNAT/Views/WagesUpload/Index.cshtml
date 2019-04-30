@@ -1,0 +1,128 @@
+﻿@model IEnumerable<SNAT.Models.mWagesUpload>
+
+@{
+    ViewBag.Title = "Premium Details";
+    Layout = "~/Views/Shared/_LayoutMainMDI.cshtml";
+}
+
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>@ViewBag.Title</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="tblMemberList" class="table table-striped table-hover" cellspacing="0" width="100%">
+                        <thead style="text-align:center" class="table-success">
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.wageMonthYear)</th>
+                                <th>@Html.DisplayNameFor(model => model.wageFrom)</th>
+                                <th>@Html.DisplayNameFor(model => model.memNationalID)</th>
+                                <th>@Html.DisplayNameFor(model => model.memMemberID)</th>
+                                <th>@Html.DisplayNameFor(model => model.memEmployeeNo)</th>
+                                <th>@Html.DisplayNameFor(model => model.memTSCNo)</th>
+                                <th>@Html.DisplayNameFor(model => model.memName)</th>
+                                <th>@Html.DisplayNameFor(model => model.wagecredit)</th>
+                                <th>@Html.DisplayNameFor(model => model.wagebalnace)</th>
+                                <th>@Html.DisplayNameFor(model => model.processingdate)</th>
+                                <th>@Html.DisplayNameFor(model => model.lValidMemmber)</th>
+                                <th>@Html.DisplayNameFor(model => model.memWegeRemarks)</th>
+                                <th>@Html.DisplayNameFor(model => model.lWagesProcessed)</th>
+                                <th>@Html.DisplayNameFor(model => model.lApproved)</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model.OrderByDescending(od => od.wageMonthYear))
+                            {
+                            <tr>
+
+                                <td>@Html.DisplayFor(modelItem => item.wageMonthYear)</td>
+                                <td>@Html.DisplayFor(modelItem => item.wageFrom)</td>
+                                <td>@Html.DisplayFor(modelItem => item.memNationalID)</td>
+                                <td>@Html.DisplayFor(modelItem => item.memMemberID)</td>
+                                <td>@Html.DisplayFor(modelItem => item.memEmployeeNo)</td>
+                                <td>@Html.DisplayFor(modelItem => item.memTSCNo)</td>
+                                <td>@Html.DisplayFor(modelItem => item.memName)</td>
+
+                                <td style="text-align:center">@Html.DisplayFor(modelItem => item.wagecredit)</td>
+                                <td style="text-align:center">@Html.DisplayFor(modelItem => item.wagebalnace)</td>
+                                <td>@Html.DisplayFor(modelItem => item.wageFrom)</td>
+                                @{
+                                    if (item.lValidMemmber == true)
+                                    {
+                                        <td>Yes</td>
+                                    }
+                                    else
+                                    {
+
+                                        <td>No</td>
+
+                                    }
+                                }
+
+                                <td>@Html.DisplayFor(modelItem => item.memWegeRemarks)</td>
+                                @{
+                                    if (item.lWagesProcessed == true)
+                                    {
+                                        <td>Premium Processed</td>
+                                    }
+                                    else
+                                    {
+
+                                        <td>Under Process</td>
+
+                                    }
+                                }
+                                @{
+                                    if (item.lApproved == true)
+                                    {
+                                        <td>Premium Approved</td>
+                                    }
+                                    else
+                                    {
+
+                                        <td>Approved Under Process</td>
+
+                                    }
+                                }
+                                <td>
+                                    <div class="row">
+                                        <div class="form-group col-md-4 col-sm-4">
+                                            <div class="input-group">
+                                                <a href="@Url.Action("Details", "WagesUpload", new {  StrWageMonthYear=item.wageMonthYear,StrMemberID=item.memNationalID })" class="btn btn-success btn-sm" data-toggle="tooltip" title="Details"><i class="fas fa-list"></i></a>
+                                            </div>
+                                        </div>
+                                        @*<div class="form-group col-md-4 col-sm-4">
+                                            <div class="input-group">
+                                                <a href="@Url.Action("Index", "BeneficiaryDocument", new {  StrBeneficiaryID=item.beneficiarynatioanalid })" class="btn btn-danger btn-sm" data-toggle="tooltip" title="Document(s)"><i class="fas fa-file"></i></a>
+                                            </div>
+                                        </div>*@
+                                    </div>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+@*<!--"ordering": false-->*@
+    $(document).ready(function ()
+    {
+       // $('#tblMemberList').DataTable( {
+       //"order" :[2,'desc']
+        var table = $('#tblMemberList').DataTable();
+
+// Sort by columns 1 and 2 and redraw
+table
+    .order( [ 0, 'desc' ], [ 2, 'asc' ] )
+    .draw();
+    } );
+
+</script>
