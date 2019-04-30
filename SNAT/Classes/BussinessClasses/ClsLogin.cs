@@ -21,14 +21,15 @@ namespace SNAT.Classes.BussinessClasses
             {
                 using (DbCxSnat DbCxADB = new DbCxSnat())
                 {
-                    Models.mLogin User = DbCxADB.MLogins.Where(b => b.username == StrUserId & b.password == StrPassword).FirstOrDefault();
+                    mLogin User = DbCxADB.MLogins.Where(b => b.username == StrUserId & b.password == StrPassword).FirstOrDefault();
 
                     if (User != null)
                     {
-                        StrUserName =  ClsUtility.StringDbNull(User.emailid);
+                        
+                        StrUserName =  ClsUtility.StringDbNull(User.cName);
                         StrUserType = ClsUtility.StringDbNull(User.usertype);
-                        StrUserEmail = ClsUtility.StringDbNull(User.emailid);
-                        StrUserPhone = ClsUtility.StringDbNull(User.contactno);
+                        StrUserEmail = ClsUtility.StringDbNull(User.cEmailID);
+                        StrUserPhone = ClsUtility.StringDbNull(User.cContactNo);
                         return true;
                     }
                     else

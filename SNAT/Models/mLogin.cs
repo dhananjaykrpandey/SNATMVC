@@ -5,7 +5,7 @@ namespace SNAT.Models
 {
     [Table("logintable")]
     public class mLogin
-    { 
+    {
         [NotMapped]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column(TypeName = "int")]
@@ -42,11 +42,16 @@ namespace SNAT.Models
         [Display(Name = "User Type")]
         [StringLength(20)]
         public string employeeno { get; set; }
+        [ForeignKey("employeeno")]
+        public virtual mEmployeeDetails mEmployeeDetailsCollectoin { get; set; }
 
         [Column("Memnationalid")]
         [Display(Name = "User Type")]
         [StringLength(20)]
         public string Memnationalid { get; set; }
+        [ForeignKey("Memnationalid")]
+        public virtual mMember mMemberCollectoin { get; set; }
+
 
         [Column("remarks")]
         [Display(Name = "User Type")]
@@ -66,6 +71,81 @@ namespace SNAT.Models
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         [StringLength(50)]
         public string emailid { get; set; }
+
+        private string _cEmailID = "";
+        public string cEmailID
+        {
+            get
+            {
+                return _cEmailID;
+            }
+            set
+            {
+                if (employee == "E")
+                {
+                    _cEmailID = mEmployeeDetailsCollectoin.email;
+                }
+                else if (employee == "M")
+                {
+                    _cEmailID = mMemberCollectoin.email;
+                }
+                else
+                {
+                    _cEmailID = emailid;
+                }
+            }
+        }
+        private string _cContactNo = "";
+        public string cContactNo
+        {
+            get
+            {
+                return _cContactNo;
+            }
+            set
+            {
+                if (employee == "E")
+                {
+                    _cContactNo = mEmployeeDetailsCollectoin.contactno1;
+                }
+                else if (employee == "M")
+                {
+                    _cContactNo = mMemberCollectoin.contactno1;
+                }
+                else
+                {
+                    _cContactNo = contactno;
+                }
+            }
+        }
+        private string _cName = "";
+        public string cName
+        {
+            get
+            {
+                return _cName;
+            }
+            set
+            {
+                if (employee == "E")
+                {
+                    _cName = mEmployeeDetailsCollectoin.name;
+                }
+                else if (employee == "M")
+                {
+                    _cName = mMemberCollectoin.membername;
+                }
+                 else if (usertype.ToUpper() == "ADMIN")
+                {
+                    _cName = "Administrator";
+                }
+                else 
+                {
+                    _cName = username;
+                }
+            }
+        }
+
     }
 
     [NotMapped]

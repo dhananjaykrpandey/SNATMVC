@@ -154,8 +154,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\mChequeDocType.cs" />
+    <Compile Include="Models\mChequeDocuments.cs" />
+    <Compile Include="Models\mChequeEntry.cs" />
     <Compile Include="Models\mClaimDocType.cs" />
+    <Compile Include="Models\mClaimDocuments.cs" />
+    <Compile Include="Models\mClaimEntry.cs" />
+    <Compile Include="Models\mDepartment.cs" />
+    <Compile Include="Models\mDesignation.cs" />
     <Compile Include="Models\mDocumentType.cs" />
+    <Compile Include="Models\mEmployeeDetails.cs" />
     <Compile Include="Models\mLogin.cs" />
     <Compile Include="Models\mBeneficiary.cs" />
     <Compile Include="Models\mMember.cs" />
@@ -3179,6 +3186,7 @@
     <Content Include="dist\modules\toastr\toastr.js" />
     <Content Include="dist\modules\tooltip.js" />
     <Content Include="favicon.ico" />
+    <Content Include="GenralResourse.txt" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootadmin.js" />
     <Content Include="Scripts\bootadmin.min.js" />
@@ -3221,7 +3229,9 @@
     <Content Include="Views\Login\Index2.cshtml" />
     <Content Include="Views\Login\RegisterUser.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="libman.json" />
     <Content Include="dist\modules\bootstrap\css\bootstrap-grid.css.map" />

@@ -1,0 +1,10 @@
+﻿CREATE VIEW Vw_UserDetails
+AS 
+SELECT LG.id, LG.username, LG.password, LG.usertype, LG.userstatus, LG.employee, LG.employeeno, LG.Memnationalid, LG.remarks 
+,cEmailId=  CASE WHEN ISNULL(LG.emailid,'')='' THEN CASE When  LG.employee = 'E' then ted.email else tm.email  end else LG.emailid END 
+,cContactno= CASE WHEN ISNULL(LG.contactno,'')='' THEN CASE When  LG.employee = 'E' then ted.contactno1 else tm.contactno1  end else LG.contactno END 
+,cName=CASE WHEN LG.usertype='admin' THEN 'Administrator' ELSE ISNULL(CASE When  LG.employee = 'E' then ted.name else   tm.membername end ,  username) END 
+FROM logintable LG
+LEFT OUTER JOIN dbo.T_EmployeeDetails ted ON LG.employeeno = ted.employeeno
+LEFT OUTER JOIN dbo.T_Member tm ON lg.Memnationalid=tm.nationalid
+/**********************************************************************/
