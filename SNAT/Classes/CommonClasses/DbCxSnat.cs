@@ -6,50 +6,9 @@ namespace SNAT.Classes.CommonClasses
 {
     internal class DbCxSnat : DbContext
     {
-        private  string _ConnectionString = "";
-        public  string ConnectionString
+        
+        public DbCxSnat() : base("snatburi_snat")
         {
-            get
-            {
-                return _ConnectionString;
-            }
-            set
-            {
-                switch (System.Environment.MachineName.ToUpper())
-                {
-
-                    case "ADITYA":
-                        _ConnectionString = ConfigurationManager.ConnectionStrings["SNAT"].ToString();
-                        break;
-                    case "NW6877":
-                        _ConnectionString = "snatburi_snat";
-                        break;
-                    default:
-                        _ConnectionString = "";
-                        break;
-
-
-                }
-
-            }
-        }
-        public DbCxSnat(string StrConnectionString="SNAT") : base(StrConnectionString)
-        {
-            switch (System.Environment.MachineName.ToUpper())
-            {
-
-                case "ADITYA":
-                    StrConnectionString = ConfigurationManager.ConnectionStrings["SNAT"].ToString();
-                    break;
-                case "NW6877":
-                    StrConnectionString = "snatburi_snat";
-                    break;
-                default:
-                    StrConnectionString = "SNAT";
-                    break;
-
-
-            }
             Database.Initialize(false);
         }
 
