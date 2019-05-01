@@ -11,7 +11,7 @@ using SNAT.Models;
 
 namespace SNAT.Controllers
 {
-   
+
     [AuthorizeUserAccess]
     public class MembersController : Controller
     {
@@ -31,11 +31,68 @@ namespace SNAT.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            mMember mMember = db.mMembers.Where(mem => mem.nationalid ==id).FirstOrDefault();
+            mMember mMember = db.mMembers.Where(mem => mem.nationalid == id).FirstOrDefault();
             if (mMember == null)
             {
                 return HttpNotFound();
             }
+            return View(mMember);
+        }
+        [HttpGet]
+        public ActionResult SearchDetails()
+        {
+            HttpContext.Session["TotalMemberRecordCount"] = "0";
+            return View();
+        }
+        // GET: Members/Details/5
+        [HttpPost]
+
+        public ActionResult SearchDetails(string StrSearchCol, string StrSearchValue)
+        {
+            if (StrSearchCol == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            else if (StrSearchValue == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            StrSearchValue = StrSearchValue == null || StrSearchValue == "" ? "Dhananjay Kumar Pandey" : StrSearchValue;
+            List<mMember> mMember = null;
+            switch (StrSearchCol.ToUpper())
+            {
+                case "ID":
+                    mMember = db.mMembers.Where(mem => mem.nationalid.Contains(StrSearchValue)).ToList();
+                    break;
+                case "EMPNO":
+                    mMember = db.mMembers.Where(mem => mem.employeeno.Contains(StrSearchValue)).ToList();
+                    break;
+                case "MEMNO":
+                    mMember = db.mMembers.Where(mem => mem.memberid.Contains(StrSearchValue)).ToList();
+                    break;
+                case "TSCNO":
+                    mMember = db.mMembers.Where(mem => mem.tscno.Contains(StrSearchValue)).ToList();
+                    break;
+                case "NAME":
+                    mMember = db.mMembers.Where(mem => mem.membername.Contains(StrSearchValue)).ToList();
+                    break;
+                case "PHONE":
+                    mMember = db.mMembers.Where(mem => mem.contactno1.Contains(StrSearchValue)).ToList();
+                    break;
+                case "EMAIL":
+                    mMember = db.mMembers.Where(mem => mem.email.Contains(StrSearchValue)).ToList();
+                    break;
+                default:
+                    mMember = db.mMembers.Where(mem => mem.nationalid.Contains(StrSearchValue)).ToList();
+                    break;
+            }
+            HttpContext.Session["TotalMemberRecordCount"] = mMember == null || mMember.Count <= 0 ? "0" : mMember.Count.ToString();
+            if (mMember == null || mMember.Count <= 0)
+            {
+                
+                return View();
+            }
+            
             return View(mMember);
         }
 

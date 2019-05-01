@@ -174,8 +174,11 @@
             </div>
             <div class="row">
                 <div class="form-group col-md-3 col-sm-3">
-
-                    <a href="@Url.Action("Index", "WagesUpload")" class="btn btn-danger btn-sm" data-toggle="tooltip" title="Document(s)"><i class="fas fa-arrow-circle-left"></i> Back to Premium Details</a>
+                    @if (Request.UrlReferrer != null)
+                    {
+                        <a href="#" onclick="history.go(-1); return false;" class="btn btn-danger btn-sm" data-toggle="tooltip" title="Back to Premium List"><i class="fas fa-arrow-circle-left"></i> Back </a>
+                    }
+                    @*<a href="@Url.Action("Index", "WagesUpload")" class="btn btn-danger btn-sm" data-toggle="tooltip" title="Document(s)">@*<i class="fas fa-arrow-circle-left"></i>Back to Premium Details</a>*@
                 </div>
             </div>
         </div>

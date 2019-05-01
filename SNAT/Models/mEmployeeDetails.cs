@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace SNAT.Models
 {
+    [Table("T_EmployeeDetails")]
     public class mEmployeeDetails
     {
         [NotMapped]
@@ -16,10 +17,7 @@ namespace SNAT.Models
         [Display(Name = "Employee No.")]
         [StringLength(10)]
         public string employeeno { get; set; }
-
-        //[ForeignKey("employeeno")]
-        public virtual ICollection<mLogin> mLoginCollection { get; set; }
-
+                
         [Column("nationalid")]
         [Display(Name = "National ID")]
         [StringLength(20)]

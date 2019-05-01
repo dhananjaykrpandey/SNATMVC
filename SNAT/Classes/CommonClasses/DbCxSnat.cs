@@ -17,6 +17,8 @@ namespace SNAT.Classes.CommonClasses
         {
             Database.SetInitializer<DbCxSnat>(null);
             base.OnModelCreating(modelBuilder);
+
+
         }
         public DbSet<mLogin> MLogins { get; set; }
 
@@ -38,12 +40,8 @@ namespace SNAT.Classes.CommonClasses
         public DbSet<mMemberWegesProcess> mMemberWegesProcesses { get; set; }
 
         public DbSet<mWagesUpload> mWagesUploads { get; set; }
+        public DbSet<mEmployeeDetails> mEmployeeDetails { get; set; }
+        
 
-        //public DbSet<mProjectMenu> MProjectMenu { get; set; }
-        //public DbSet<mUserRights> MUserRights { get; set; }
-
-        //public DbSet<mDepartment> MDepartments { get; set; }
-        //public DbSet<mDesignation> MDesignations { get; set; }
-        //public DbSet<mEmployees> MEmployees { get; set; }
     }
 }

@@ -20,7 +20,75 @@ namespace SNAT.Controllers
         }
         private int _IPremiumMonth = 0;
         private int _IPremiumYear = 0;
+        [HttpGet]
+        public ActionResult SearchPremium()
+        {
+            HttpContext.Session["TotalPremiumRecordCount"] = "0";
+            return View();
+        }
+        [HttpPost]
+        public ActionResult SearchPremium(string StrSearchCol, string StrSearchValue)
+        {
+            if (StrSearchCol == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            else if (StrSearchValue == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            StrSearchValue = StrSearchValue == null || StrSearchValue == "" ? "Dhananjay Kumar Pandey" : StrSearchValue;
+           
+            List<mWagesUpload> mWagesUploads = null;
+            switch (StrSearchCol.ToUpper())
+            {
+                case "MEMID":
+                    mWagesUploads = db.mWagesUploads.Where(mem => mem.memNationalID.Contains(StrSearchValue)).ToList();
+                    break;
+                case "NAME":
+                    mWagesUploads = db.mWagesUploads.Where(mem => mem.memName.Contains(StrSearchValue)).ToList();
+                    break;
+                case "MEMNO":
+                    mWagesUploads = db.mWagesUploads.Where(mem => mem.memMemberID.Contains(StrSearchValue)).ToList();
+                    break;
+                case "EMPNO":
+                    mWagesUploads = db.mWagesUploads.Where(mem => mem.memEmployeeNo.Contains(StrSearchValue)).ToList();
+                    break;
+                case "TSCNO":
+                    mWagesUploads = db.mWagesUploads.Where(mem => mem.memTSCNo.Contains(StrSearchValue)).ToList();
+                    break;
+                case "MONYEAR":
+                    mWagesUploads = db.mWagesUploads.Where(mem => mem.wageMonthYear.Contains(StrSearchValue)).ToList();
+                    break;
+                case "FROM":
+                    mWagesUploads = db.mWagesUploads.Where(mem => mem.wageFrom.Contains(StrSearchValue)).ToList();
+                    break;
+                case "INVALID":
+                    bool lINVALID = StrSearchValue == null || StrSearchValue == "" || StrSearchValue == "0" || StrSearchValue == "Dhananjay Kumar Pandey" ? false : true;
+                    mWagesUploads = db.mWagesUploads.Where(mem => mem.lValidMemmber == lINVALID).ToList();
+                    break;
+                case "PROCESSED":
+                    bool lUpload = StrSearchValue == null || StrSearchValue == "" || StrSearchValue == "0" || StrSearchValue == "Dhananjay Kumar Pandey" ? false : true;
+                    mWagesUploads = db.mWagesUploads.Where(mem => mem.lWagesProcessed == lUpload).ToList();
+                    break;
+                case "APPROVED":
+                    bool lApproved = StrSearchValue == null || StrSearchValue == "" || StrSearchValue == "0" || StrSearchValue == "Dhananjay Kumar Pandey" ? false : true;
+                    StrSearchValue = StrSearchValue == null || StrSearchValue == "" ? "Dhananjay Kumar Pandey" : StrSearchValue;
+                    mWagesUploads = db.mWagesUploads.Where(mem => mem.lApproved== lApproved).ToList();
+                    break;
+                default:
+                    mWagesUploads = db.mWagesUploads.Where(mem => mem.wageFrom.Contains(StrSearchValue)).ToList();
+                    break;
+            }
+            HttpContext.Session["TotalPremiumRecordCount"] = mWagesUploads == null || mWagesUploads.Count <= 0 ? "0" : mWagesUploads.Count.ToString();
+            if (mWagesUploads == null || mWagesUploads.Count <= 0)
+            {
+                return View();
+            }
+            return View(mWagesUploads);
 
+
+        }
         public ActionResult Details(string StrWageMonthYear, string StrMemberID)
         {
             if (StrWageMonthYear == null)

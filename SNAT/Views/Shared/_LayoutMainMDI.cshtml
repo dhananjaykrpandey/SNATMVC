@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - SNAT</title>
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
     @*<link rel="stylesheet" href="../dist/modules/bootstrap/css/bootstrap.min.css">*@
     <link rel="stylesheet" href="../dist/modules/ionicons/css/ionicons.min.css">
@@ -18,7 +18,7 @@
     <script src="../dist/modules/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-
+    <link rel="icon" type="image/png" href="~/SNAT.png" />
 </head>
 <body class="bg-light">
     @*<nav class="navbar navbar-expand navbar-dark bg-primary">
@@ -51,20 +51,20 @@
                 <form class="form-inline mr-auto">
                     <ul class="navbar-nav mr-3">
                         <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="ion ion-navicon-round"></i></a></li>
-                        <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="ion ion-search"></i></a></li>
+                        <li>@*<a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="ion ion-search"></i></a>*@</li>
                     </ul>
-                    <div class="search-element">
+                    @*<div class="search-element">
                         <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn" type="submit"><i class="ion ion-search"></i></button>
-                    </div>
+                    </div>*@
                 </form>
                 <ul class="navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                            <img alt="image" src="../dist/img/avatar/avatar-1.jpeg" width="35" class="rounded-circle mr-1">
+                            <img alt="image" src="~/Jay.jpg" width="35" class="rounded-circle mr-1">
                             <div class="d-sm-none d-lg-inline-block">Hi,  @HttpContext.Current.User.Identity.Name</div>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right ">
+                        <div class="dropdown-menu dropdown-menu-right w-auto">
                             <div class="dropdown-header">User Details</div>
                             <a href="features-profile.html" class="dropdown-item has-icon">
                                 <i class="ion ion-android-person"></i> @Session["UserType"]
@@ -86,24 +86,24 @@
             </nav>
             <div class="main-sidebar">
                 <aside id="sidebar-wrapper">
-                    <div class="sidebar-brand">
-                        <a href="index.html">Stisla Lite</a>
+                    <div class="sidebar-brand text-left">
+                        <img alt="image" src="~/SNAT.png" width="70" class="rounded-circle mr-1"><a href="index.html">Stisla Lite</a>
                     </div>
                     <div class="sidebar-user">
                         <div class="sidebar-user-picture">
-                            <img alt="image" src="../dist/img/avatar/avatar-1.jpeg">
+                            <img alt="image" src="~/Jay.jpg">
                         </div>
                         <div class="sidebar-user-details">
                             <div class="user-name">@HttpContext.Current.User.Identity.Name</div>
                             <div class="user-role">
-                                Administrator
+                                @Session["UserType"]
                             </div>
                         </div>
                     </div>
                     <ul class="sidebar-menu">
                         <li class="menu-header">Dashboard</li>
                         <li class="active">
-                            <a href="index.html"><i class="ion ion-speedometer"></i><span>Dashboard</span></a>
+                            <a href="@Url.Action("Home", "Home")"><i class="ion ion-speedometer"></i><span>Dashboard</span></a>
                         </li>
 
                         <li class="menu-header">Member(s)</li>
@@ -113,7 +113,8 @@
                                 <li><a href="@Url.Action("Index", "Members")"><i class="ion ion-ios-circle-outline"></i> Member(s)</a></li>
                                 <li><a href="@Url.Action("Index", "Beneficiaries")"><i class="ion ion-ios-circle-outline"></i> Beneficiarie(s)</a></li>
                                 <li><a href="@Url.Action("Index", "MemberDocuments")"><i class="ion ion-ios-circle-outline"></i> Document(s)</a></li>
-
+                                <li><a href="@Url.Action("SearchDetails", "Members")"><i class="ion ion-ios-circle-outline"></i> Search Member(s)</a></li>
+                                <li><a href="@Url.Action("SearchBeneficiaries", "Beneficiaries")"><i class="ion ion-ios-circle-outline"></i> Search Beneficiarie(s)</a></li>
                             </ul>
                         </li>
                         <li class="menu-header">Premium</li>
@@ -121,7 +122,7 @@
                             <a href="#" class="has-dropdown"><i class="fas fa-dollar-sign"></i><span>Premium Detail(s)</span></a>
                             <ul class="menu-dropdown">
                                 <li><a href="@Url.Action("Index", "WagesUpload")"><i class="ion ion-ios-circle-outline"></i> Premium Uploaded</a></li>
-                                @*<li><a href="@Url.Action("Index", "MemberWegesProcesses")"><i class="ion ion-ios-circle-outline"></i> Premium Approved</a></li>*@
+                                <li><a href="@Url.Action("SearchPremium", "WagesUpload")"><i class="ion ion-ios-circle-outline"></i> Search Premium</a></li>
                             </ul>
                         </li>
                         <li class="menu-header">Claim(s)</li>

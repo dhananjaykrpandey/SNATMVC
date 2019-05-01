@@ -1,0 +1,160 @@
+﻿@model IEnumerable<SNAT.Models.mBeneficiary>
+
+@{
+    ViewBag.Title = "Search Beneficiaries";
+    Layout = "~/Views/Shared/_LayoutMainMDI.cshtml";
+}
+@using (Html.BeginForm())
+{
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>@ViewBag.Title</h4>
+                    <div class="row">
+                        <div class="form-group col-md-4 col-sm-6">
+                            <div class="input-group">
+                                <label for="ddSearch">Search In &nbsp;&nbsp;  </label>
+                                <select class="form-control-sm" name="StrSearchCol" id="StrSearchCol">
+                                    <option value="MEMID">Member National Id</option>
+                                    <option value="MEMNO">Member ID</option>
+                                    <option value="MEMNAME">Member  Name</option>
+                                    <option value="BENID">Beneficiariy National ID</option>
+                                    <option value="NAME">Beneficiariy Name</option>
+                                    <option value="PHONE">Beneficiariy Contact - 1</option>
+                                    <option value="EMAIL">Beneficiariy E-Mail ID</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3 col-sm-6">
+                            <div class="input-group">
+                                <label for="txtSearch">Search Value &nbsp;&nbsp;  </label>
+                                <input type="text" name="StrSearchValue" id="StrSearchValue" class="form-control bg-white" tabindex="1" />
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2 col-sm-6">
+                            <div class="input-group">
+                                @*                               <a href="@Url.Action("SearchDetails", "Members", new { StrSearchCol = "StrSearchColValue", StrSearchValue = "StrSearchKeyWord" })" name="BtnSearch" id="BtnSearch" class="btn btn-info btn-lg" data-toggle="tooltip" title="Search"><i class="fas fa-search"></i></a>*@
+                                <button type="submit" class="btn btn-info btn-lg" data-toggle="tooltip" title="Search" value="Search"> <i class="fas fa-search"></i> Search </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-3 col-sm-6">
+                            <label for="TxtRecordCount">Total Record(s) Found :</label>
+                            <div class="input-group">
+                                @{
+                                    <input type="text" id="TxtRecordCount" name="TxtRecordCount" value="@Session["TotalBeneficiryRecordCount"]" readonly class="form-control bg-white" />
+                                }
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="tblMemberList" class="table table-striped table-hover" cellspacing="0" width="100%">
+                            <thead style="text-align:center" class="table-success">
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.membernationalid)</th>
+                                    <th>@Html.DisplayNameFor(model => model.memberid)</th>
+                                    <th>@Html.DisplayNameFor(model => model.membername)</th>
+                                    <th>@Html.DisplayNameFor(model => model.beneficiarynatioanalid)</th>
+                                    <th>@Html.DisplayNameFor(model => model.beneficiaryname)</th>
+                                    <th>@Html.DisplayNameFor(model => model.dob)</th>
+                                    <th>@Html.DisplayNameFor(model => model.sex)</th>
+                                    <th>@Html.DisplayNameFor(model => model.wages)</th>
+                                    <th>@Html.DisplayNameFor(model => model.effactivedate)</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    if (Model != null)
+                                    {
+                                        foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@Html.DisplayFor(modelItem => item.membernationalid)</td>
+                                                <td>@Html.DisplayFor(modelItem => item.memberid)</td>
+                                                <td>@Html.DisplayFor(modelItem => item.membername)</td>
+                                                <td>@Html.DisplayFor(modelItem => item.beneficiarynatioanalid)</td>
+                                                <td>@Html.DisplayFor(modelItem => item.beneficiaryname)</td>
+
+                                                @{
+                                                    if (item.dob.HasValue)
+                                                    {
+                                                        <td>
+                                                            @item.dob.Value.ToString("MM/dd/yyyy")
+                                                        </td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td></td>
+                                                    }
+                                                }
+
+
+                                                @{
+                                                    if (item.sex == "M")
+                                                    {
+                                                        <td>Male</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td>Female</td>
+                                                    }
+                                                }
+
+
+                                                <td>  @Html.DisplayFor(modelItem => item.wages)</td>
+                                                @{
+                                                    if (item.effactivedate.HasValue)
+                                                    {
+                                                        <td>
+                                                            @item.effactivedate.Value.ToString("MM/dd/yyyy")
+                                                        </td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td></td>
+                                                    }
+                                                }
+                                                <td>
+                                                    <div class="row">
+                                                        <div class="form-group col-md-4 col-sm-4">
+                                                            <div class="input-group">
+                                                                <a href="@Url.Action("Details", "Beneficiaries", new { id = item.beneficiarynatioanalid })" class="btn btn-success btn-sm" data-toggle="tooltip" title="Details"><i class="fas fa-list"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-md-4 col-sm-4">
+                                                            <div class="input-group">
+                                                                <a href="@Url.Action("Index", "BeneficiaryDocument", new { StrBeneficiaryID = item.beneficiarynatioanalid })" class="btn btn-danger btn-sm" data-toggle="tooltip" title="Document(s)"><i class="fas fa-file"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                        }
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#tblMemberList').DataTable();
+            $('BtnSearch').click(function () {
+                var StrSearchValue = $('txtSearch').text;
+                var StrSearchCol = $('ddSearch').val();
+                this.href = this.href.replace('StrSearchColValue', StrSearchCol);
+                this.href = this.href.replace('StrSearchKeyWord', StrSearchValue);
+            })
+        });
+    </script>
+}

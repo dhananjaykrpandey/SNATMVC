@@ -123,6 +123,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Jay.jpg" />
     <Content Include="App_Data\snatburi_snat.mdf" />
     <Content Include="App_Data\snatburi_snat_log.ldf">
       <DependentUpon>snatburi_snat.mdf</DependentUpon>
@@ -3207,6 +3208,9 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="SNAT.ico" />
+    <Content Include="SNAT.jpg" />
+    <Content Include="SNAT.png" />
     <Content Include="webfonts\fa-brands-400.svg" />
     <Content Include="webfonts\fa-regular-400.svg" />
     <Content Include="webfonts\fa-solid-900.svg" />
@@ -3394,6 +3398,9 @@
     <Content Include="Views\MemberWegesProcesses\MemberPremiumDetails.cshtml" />
     <Content Include="Views\WagesUpload\Index.cshtml" />
     <Content Include="Views\WagesUpload\Details.cshtml" />
+    <Content Include="Views\Members\SearchDetails.cshtml" />
+    <Content Include="Views\Beneficiaries\SearchBeneficiaries.cshtml" />
+    <Content Include="Views\WagesUpload\SearchPremium.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -3404,6 +3411,9 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>SNAT.ico</ApplicationIcon>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />

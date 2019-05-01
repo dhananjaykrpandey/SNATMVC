@@ -18,10 +18,7 @@ namespace SNAT.Models
         [Display(Name = "National ID")]
         [StringLength(20)]
         public string nationalid { get; set; }
-
-        //[ForeignKey("nationalid")]
-        public virtual ICollection<mLogin> mLoginCollection { get; set; }
-
+        
         [Key]
         [Column("memberid", Order = 2)]
         [Display(Name = "Member ID")]

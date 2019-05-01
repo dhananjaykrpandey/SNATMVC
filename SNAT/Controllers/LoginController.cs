@@ -42,7 +42,7 @@ namespace SNAT.Controllers
                 {
                     Web.HttpContext.Current.Session["Login"] = true;
                     FormsAuthentication.SetAuthCookie(ClsLogin.StrUserName, false);
-
+                    Web.HttpContext.Current.Session["UserName"] = ClsLogin.StrUserName;
                     Web.HttpContext.Current.Session["UserType"] = ClsLogin.StrUserType;
                     Web.HttpContext.Current.Session["UserEmail"] = ClsLogin.StrUserEmail;
                     Web.HttpContext.Current.Session["UserPhone"] = ClsLogin.StrUserPhone;

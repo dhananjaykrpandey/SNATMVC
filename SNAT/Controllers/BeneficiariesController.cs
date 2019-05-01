@@ -37,9 +37,64 @@ namespace SNAT.Controllers
                 HttpContext.Session.Add("membername", vMemberDetails.membername);
             }
             var mBeneficiary = db.mBeneficiaries.Where(ben =>ben.membernationalid==Memberid).ToList();
+
+
             return View(mBeneficiary);
         }
-
+        [HttpGet]
+        public ActionResult SearchBeneficiaries()
+        {
+            HttpContext.Session["TotalBeneficiryRecordCount"] = "0";
+            return View();
+        }
+        [HttpPost]
+        public ActionResult SearchBeneficiaries(string StrSearchCol, string StrSearchValue)
+        {
+            if (StrSearchCol == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            else if (StrSearchValue == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            StrSearchValue = StrSearchValue == null || StrSearchValue == "" ? "Dhananjay Kumar Pandey" : StrSearchValue;
+            List<mBeneficiary> mBeneficiarys = null;
+            switch (StrSearchCol.ToUpper())
+            {
+                case "MEMID":
+                    mBeneficiarys = db.mBeneficiaries.Where(mem => mem.membernationalid.Contains(StrSearchValue)).ToList();
+                    break;
+                case "MEMNAME":
+                    mBeneficiarys = db.mBeneficiaries.Where(mem => mem.membername.Contains(StrSearchValue)).ToList();
+                    break;
+                case "MEMNO":
+                    mBeneficiarys = db.mBeneficiaries.Where(mem => mem.memberid.Contains(StrSearchValue)).ToList();
+                    break;
+                case "BENID":
+                    mBeneficiarys = db.mBeneficiaries.Where(mem => mem.beneficiarynatioanalid.Contains(StrSearchValue)).ToList();
+                    break;
+                case "NAME":
+                    mBeneficiarys = db.mBeneficiaries.Where(mem => mem.beneficiaryname.Contains(StrSearchValue)).ToList();
+                    break;
+                case "PHONE":
+                    mBeneficiarys = db.mBeneficiaries.Where(mem => mem.contactno1.Contains(StrSearchValue)).ToList();
+                    break;
+                case "EMAIL":
+                    mBeneficiarys = db.mBeneficiaries.Where(mem => mem.email.Contains(StrSearchValue)).ToList();
+                    break;
+                default:
+                    mBeneficiarys = db.mBeneficiaries.Where(mem => mem.membernationalid.Contains(StrSearchValue)).ToList();
+                    break;
+            }
+            HttpContext.Session["TotalBeneficiryRecordCount"] = mBeneficiarys == null || mBeneficiarys.Count <= 0 ? "0" : mBeneficiarys.Count.ToString();
+            if (mBeneficiarys == null || mBeneficiarys.Count <= 0)
+            {
+                return View();
+            }
+            return View(mBeneficiarys);
+            
+        }
         // GET: Beneficiaries/Details/5
         public ActionResult Details(string id)
         {

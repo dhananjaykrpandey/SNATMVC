@@ -283,8 +283,11 @@
                     </div>
                 </div>
                 <div class="form-group col-sm-2">
-                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary", @tabindex = "25" })
-
+                    @*@Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary", @tabindex = "25" })*@
+                    @if (Request.UrlReferrer != null)
+                    {
+                        <a href="#" onclick="history.go(-1); return false;" class="btn btn-danger btn-sm" data-toggle="tooltip" title="Back to Member List"><i class="fas fa-arrow-circle-left"></i> Back </a>
+                    }
                 </div>
 
             </div>
