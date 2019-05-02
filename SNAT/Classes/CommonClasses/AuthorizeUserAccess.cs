@@ -15,6 +15,7 @@ namespace SNAT.Classes.CommonClasses
             {
                 //FormsAuthentication.RedirectToLoginPage();
                 filterContext.HttpContext.Response.Redirect("~/Login", true);
+                
             }
             else if (context.Session != null)
             {
