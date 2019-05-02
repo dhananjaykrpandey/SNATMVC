@@ -124,6 +124,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\HomePageStyle.css" />
+    <Content Include="img\BongiweMangoKhumalo.png" />
+    <Content Include="img\FreedomDlamini.png" />
+    <Content Include="img\GcebileDlamini.jpg" />
+    <Content Include="img\SceloMatsenjwa.jpg" />
+    <Content Include="img\SceloMatsenjwa.png" />
+    <Content Include="img\SenzoMazibuko.jpg" />
+    <Content Include="img\IMG-20170215-WA00001.gif" />
+    <Content Include="img\SikelelaDlamini.png" />
+    <Content Include="img\SNAT.png" />
+    <Content Include="img\VusiSibanyoni.png" />
+    <Content Include="img\ZwelithiniMndzebele.jpg" />
+    <Content Include="img\FreedomDlamini.jpg" />
+    <Content Include="img\SikelelaDlamini.jpg" />
+    <Content Include="img\BongiweMangoKhumalo.jpg" />
+    <Content Include="img\VusiSibanyoni.jpg" />
+    <Content Include="img\ZwelithiniMndzebele.png" />
     <Content Include="Jay.jpg" />
     <Content Include="App_Data\snatburi_snat.mdf" />
     <Content Include="App_Data\snatburi_snat_log.ldf">
@@ -3267,9 +3283,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\ForgetPassword.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />

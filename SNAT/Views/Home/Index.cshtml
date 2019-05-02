@@ -1,6 +1,4 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,24 +16,20 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
 
     <!-- Bootstrap CSS File -->
-    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Libraries CSS Files -->
-    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="~/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="~/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
     <!-- Main Stylesheet File -->
     <link href="~/Content/HomePageStyle.css" rel="stylesheet">
 
-    <!-- =======================================================
-      Theme Name: NewBiz
-      Theme URL: https://bootstrapmade.com/newbiz-bootstrap-business-template/
-      Author: BootstrapMade.com
-      License: https://bootstrapmade.com/license/
-    ======================================================= -->
+
 </head>
 
 <body>
@@ -59,28 +53,28 @@
                     <li class="active"><a href="#intro">Home</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li class="drop-down">
-                        <a href="#services">Services</a>
+                        <a href="#">Services</a>
                         <ul>
-                            <li><a href="#">CO-OP</a></li>
-                            <li><a href="#">Burial</a></li>
+                            <li><a href="#services">CO-OP</a></li>
+                            <li><a href="#why-us">Burial</a></li>
                         </ul>
                     </li>
                     @*<li><a href="#services">CO-OP</a></li>
-                    <li><a href="#services">Burial</a></li>*@
+                        <li><a href="#services">Burial</a></li>*@
                     @*<li><a href="#portfolio">Media</a></li>*@
                     <li class="drop-down">
                         <a href="">Media</a>
                         <ul>
-                            <li><a href="#">Amendments</a></li>
-                            <li><a href="#">News-Letter</a></li>
+                            <li><a href="#portfolio">Amendments</a></li>
+                            <li><a href="#testimonials">News-Letter</a></li>
                         </ul>
                     </li>
                     <li><a href="#team">Team</a></li>
                     <li class="drop-down">
                         <a href="">Contact Us</a>
                         <ul>
-                            <li><a href="#">Branches</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="#clients">Branches</a></li>
+                            <li><a href="#contact">Contact</a></li>
                         </ul>
                     </li>
                     <li class="drop-down">
@@ -89,7 +83,7 @@
                             <li><a href="#"><i class="fa fa-user-circle">  Employee</i></a></li>
 
                             <li><a href="#"><i class="fa fa-user-circle"> Member </i></a></li>
-                            
+
                         </ul>
                     </li>
 
@@ -101,26 +95,116 @@
     <!--==========================
       Intro Section
     ============================-->
-    <section id="intro" class="clearfix">
+    s<section id="intro" class="clearfix">
         <div class="container">
 
             <div class="intro-img">
-                <img src="img/intro-img.svg" alt="" class="img-fluid">
+                <img src="~/Jay.jpg" alt="" class="img-fluid">
             </div>
 
             <div class="intro-info">
-                <h2>We provide<br><span>solutions</span><br>for your business!</h2>
+                <h2 class="text-info">Welcome To<br><span>JAY</span><br>Not By Favour <br>But By Merit!</h2>
                 <div>
-                    <a href="#about" class="btn-get-started scrollto">Get Started</a>
-                    <a href="#services" class="btn-services scrollto">Our Services</a>
+                    @*<a href="#about" class="btn-get-started scrollto">Get Started</a>
+                        <a href="#services" class="btn-services scrollto">Our Services</a>*@
                 </div>
             </div>
-
         </div>
+
     </section><!-- #intro -->
 
     <main id="main">
+        <!--==========================
+          Home Section
+        ============================-->
+        <section id="home">
+            <div class="container">
+                <header class="section-header">
+                    <h3>Home</h3>
+                    <p>
+                        @*The Swaziland National Association of Teachers shall strive to improve the professional socio-economic status of teachers,
+                            enhance collective bargaining for teachers and encourage maximum participation and dynamic provision of quality education to the learner and the Swazi Nation at large*@
+                    </p>
+                </header>
+                <div class="row home-container">
+                    <div class="col-lg-6 content order-lg-1 order-2">
+                        <p>
 
+                        </p>
+                        <div class="icon-box wow fadeInUp">
+                            <div class="icon"><i class="fas fa-tasks"></i></div>
+                            <h4 class="title"><a href="">Mission Statement</a></h4>
+                            <p class="description">
+                                The Swaziland National Association of Teachers shall strive to improve the professional socio-economic status of teachers,
+                                enhance collective bargaining for teachers and encourage maximum participation and dynamic provision of quality education to the learner and the Swazi Nation at large
+                            </p>
+                        </div>
+
+                        <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="icon"><i class="fas fa-eye"></i></div>
+                            <h4 class="title"><a href="">Vision</a></h4>
+                            <p class="description">To become a trade union organization that effectively provides the best service to its members, the profession and the nation through embracing current and relevant industrial and educational practices.</p>
+                        </div>
+
+                        <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="icon"><i class="fas fa-bar-chart"></i></div>
+                            <h4 class="title"><a href="">Organization  Background</a></h4>
+                            <p class="description">The Swaziland National Association of Teachers(SNAT) was founded in 1928, while Swaziland was still under the British Protectorate with a discriminatory education system, largely under the influence and educational practices.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
+                        <img src="img/home-img.svg" class="img-fluid" alt="">
+                    </div>
+                </div>
+
+                <div class="row home-extra">
+                    <div class="col-lg-6 wow fadeInUp">
+                        <img src="img/home-extra-1.svg" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
+                        <h4>Join Snat And Enjoy These Benefits</h4>
+                        <ul>
+                            <li>Protection from unfair dismissal and ill-treatment</li>
+                            <li>Better wages</li>
+                            <li>Better Pension packages and Death benefits</li>
+                            <li>Education on worker rights and life betterment strategies</li>
+                            <li>Legal represantation in idustrial issues</li>
+                            <li>Protection from abuse in the workplace</li>
+                            <li>Paid meternity leave</li>
+                            <li>Better and healthy accomodation facilities</li>
+                            <li>Provision of Credit and Savings Scheme (SNAT Co-operative)</li>
+                            <li>Provision of Burial Scheme services</li>
+                            <li>Good relations between management and employees</li>
+                            <li>Provision for entertainment and sporting activities</li>
+                        </ul>
+                    </div>
+                </div>
+
+                @*<div class="row about-extra">
+                        <div class="col-lg-6 wow fadeInUp order-1 order-lg-2">
+                            <img src="img/about-extra-2.svg" class="img-fluid" alt="">
+                        </div>
+
+                        <div class="col-lg-6 wow fadeInUp pt-4 pt-lg-0 order-2 order-lg-1">
+                            <h4>Neque saepe temporibus repellat ea ipsum et. Id vel et quia tempora facere reprehenderit.</h4>
+                            <p>
+                                Delectus alias ut incidunt delectus nam placeat in consequatur. Sed cupiditate quia ea quis. Voluptas nemo qui aut distinctio. Cumque fugit earum est quam officiis numquam. Ducimus corporis autem at blanditiis beatae incidunt sunt.
+                            </p>
+                            <p>
+                                Voluptas saepe natus quidem blanditiis. Non sunt impedit voluptas mollitia beatae. Qui esse molestias. Laudantium libero nisi vitae debitis. Dolorem cupiditate est perferendis iusto.
+                            </p>
+                            <p>
+                                Eum quia in. Magni quas ipsum a. Quis ex voluptatem inventore sint quia modi. Numquam est aut fuga mollitia exercitationem nam accusantium provident quia.
+                            </p>
+                        </div>
+
+                    </div>*@
+
+            </div>
+        </section><!-- #Home -->
+        <!--==========================
         <!--==========================
           About Us Section
         ============================-->
@@ -129,72 +213,100 @@
 
                 <header class="section-header">
                     <h3>About Us</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <h4 class="text-center">Welcome to the Swaziland National Teachers Association</h4>
+                    <p>
+
+                    </p>
                 </header>
 
                 <div class="row about-container">
 
-                    <div class="col-lg-6 content order-lg-1 order-2">
+                    <div class="col-lg-12 content order-lg-1 order-2">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            The Swaziland Nation Association of Teachers shall strive to improve the professional, socio-economic status of teachers, enhance collective bargaining for teachers and encourage maximum participation and dynamic provosion of quality education to the learner.
                         </p>
 
-                        <div class="icon-box wow fadeInUp">
-                            <div class="icon"><i class="fa fa-shopping-bag"></i></div>
-                            <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-                            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-                        </div>
+                        @*<div class="icon-box wow fadeInUp">
+                                <div class="icon"><i class="fa fa-shopping-bag"></i></div>
+                                <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
+                                <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+                            </div>
 
-                        <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
-                            <div class="icon"><i class="fa fa-photo"></i></div>
-                            <h4 class="title"><a href="">Magni Dolores</a></h4>
-                            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                        </div>
+                            <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
+                                <div class="icon"><i class="fa fa-photo"></i></div>
+                                <h4 class="title"><a href="">Magni Dolores</a></h4>
+                                <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                            </div>
 
-                        <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
-                            <div class="icon"><i class="fa fa-bar-chart"></i></div>
-                            <h4 class="title"><a href="">Dolor Sitema</a></h4>
-                            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-                        </div>
+                            <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+                                <div class="icon"><i class="fa fa-bar-chart"></i></div>
+                                <h4 class="title"><a href="">Dolor Sitema</a></h4>
+                                <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+                            </div>*@
 
                     </div>
 
-                    <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
-                        <img src="img/about-img.svg" class="img-fluid" alt="">
-                    </div>
+                    @*<div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
+                            <img src="img/about-img.svg" class="img-fluid" alt="">
+                        </div>*@
                 </div>
 
-                <div class="row about-extra">
-                    <div class="col-lg-6 wow fadeInUp">
-                        <img src="img/about-extra-1.svg" class="img-fluid" alt="">
-                    </div>
-                    <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
-                        <h4>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h4>
-                        <p>
-                            Ipsum in aspernatur ut possimus sint. Quia omnis est occaecati possimus ea. Quas molestiae perspiciatis occaecati qui rerum. Deleniti quod porro sed quisquam saepe. Numquam mollitia recusandae non ad at et a.
-                        </p>
-                        <p>
-                            Ad vitae recusandae odit possimus. Quaerat cum ipsum corrupti. Odit qui asperiores ea corporis deserunt veritatis quidem expedita perferendis. Qui rerum eligendi ex doloribus quia sit. Porro rerum eum eum.
-                        </p>
-                    </div>
-                </div>
+                @*<div class="row about-extra">
+                        <div class="col-lg-6 wow fadeInUp">
+                            <img src="img/about-extra-1.svg" class="img-fluid" alt="">
+                        </div>
+                        <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
+                            <h4>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h4>
+                            <p>
+                                Ipsum in aspernatur ut possimus sint. Quia omnis est occaecati possimus ea. Quas molestiae perspiciatis occaecati qui rerum. Deleniti quod porro sed quisquam saepe. Numquam mollitia recusandae non ad at et a.
+                            </p>
+                            <p>
+                                Ad vitae recusandae odit possimus. Quaerat cum ipsum corrupti. Odit qui asperiores ea corporis deserunt veritatis quidem expedita perferendis. Qui rerum eligendi ex doloribus quia sit. Porro rerum eum eum.
+                            </p>
+                        </div>
+                    </div>*@
 
                 <div class="row about-extra">
                     <div class="col-lg-6 wow fadeInUp order-1 order-lg-2">
                         <img src="img/about-extra-2.svg" class="img-fluid" alt="">
                     </div>
 
-                    <div class="col-lg-6 wow fadeInUp pt-4 pt-lg-0 order-2 order-lg-1">
-                        <h4>Neque saepe temporibus repellat ea ipsum et. Id vel et quia tempora facere reprehenderit.</h4>
+                    <div class="col-lg-12 wow fadeInUp pt-5 pt-lg-0 order-2 order-lg-1">
+                        <h4>Aims And Objectives</h4>
                         <p>
-                            Delectus alias ut incidunt delectus nam placeat in consequatur. Sed cupiditate quia ea quis. Voluptas nemo qui aut distinctio. Cumque fugit earum est quam officiis numquam. Ducimus corporis autem at blanditiis beatae incidunt sunt.
+                            To promote interest in members in professional and socio-economic development
                         </p>
                         <p>
-                            Voluptas saepe natus quidem blanditiis. Non sunt impedit voluptas mollitia beatae. Qui esse molestias. Laudantium libero nisi vitae debitis. Dolorem cupiditate est perferendis iusto.
+                            To promote the status and welfare of teachers through the professionalizing the teaching service
                         </p>
                         <p>
-                            Eum quia in. Magni quas ipsum a. Quis ex voluptatem inventore sint quia modi. Numquam est aut fuga mollitia exercitationem nam accusantium provident quia.
+                            To foster the draft and implementation of educational policies and code of conduct
                         </p>
+                        <p>
+                            To combat discrimination on basis of gender, religion and political affiliation
+                        </p>
+                        <p>
+                            To combat sexual harassment of teachers and pupils
+                        </p>
+                        <p>
+                            To enhance the status of women and maximize participation of women teachers at all levels.
+                        </p>
+                        <p>
+                            To take whatever legal proceedings in pursuance of the enshrined aims and objectives as well as protect teachers against victimization by the employer or agents
+                        </p>
+                        <p>
+                            To promote unity amongst all independent and democratic unions both locally and internationally in educational authorities.
+                        </p>
+                        <p>
+                            To regulate the relations and settlement of disputes between members and their employers; being either the government or other educational authorities.
+                        </p>
+                        <p>
+                            To collectively bargain for members with employer
+                        </p>
+                        <p>
+                            To advise, consult, defend and promote collective interest of members or any other issues that may be of interest to its members; including matters of public policy and administration.
+                        </p>
+
                     </div>
 
                 </div>
@@ -208,59 +320,256 @@
             <div class="container">
 
                 <header class="section-header">
-                    <h3>Services</h3>
-                    <p>Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>
+                    <h3>CO-OP</h3>
+                    <p></p>
                 </header>
 
                 <div class="row">
+                    <div class="row about-container">
+                        <div class="col-md-6 col-lg-5 offset-lg-1 wow bounceInUp" data-wow-duration="1.4s">
+                            <div class="box">
+                                <h4 class="title"><a href="">Vision</a></h4>
+                                @*<div class="icon"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>*@
 
-                    <div class="col-md-6 col-lg-5 offset-lg-1 wow bounceInUp" data-wow-duration="1.4s">
-                        <div class="box">
-                            <div class="icon"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
-                            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-                            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                                <p class="description">To be the best savings and credit co-operative in Africa with a financially secured and independent membership</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-5 wow bounceInUp" data-wow-duration="1.4s">
-                        <div class="box">
-                            <div class="icon"><i class="ion-ios-bookmarks-outline" style="color: #e9bf06;"></i></div>
-                            <h4 class="title"><a href="">Dolor Sitema</a></h4>
-                            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+                        <div class="col-md-6 col-lg-5 wow bounceInUp" data-wow-duration="1.4s">
+                            <div class="box">
+                                @*<div class="icon"><i class="ion-ios-bookmarks-outline" style="color: #e9bf06;"></i></div>*@
+                                <h4 class="title"><a href="">Mission</a></h4>
+                                <p class="description">To be the best savings and credit co-operative in Africa with a financially secured and independent membership</p>
+                            </div>
                         </div>
-                    </div>
+                        <div class="col-md-12 col-lg-10 offset-lg-1 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                            <div class="box">
+                                @*<div class="icon"><i class="ion-ios-paper-outline" style="color: #3fcdc7;"></i></div>*@
+                                <h4 class="title"><a href="">Joining</a></h4>
+                                <p class="description">
+                                    The members who join the Co-op are all allowed through a Core Bond (open to teachers only).
+                                </p>
+                                <p class="description">
+                                    The main purpose of joining the SACCO is to promote a culture of saving and self development.
+                                </p>
+                                <p class="description">
+                                    To join a member has to first join SNAT Union and be a fully subscribing member.
+                                </p>
+                                <p class="description">
+                                    A Joining form and a stop-order form is then filled by the joining member
+                                </p>
+                                <p class="description">
+                                    When the stop order has started to run in the pay-slip the member visits the office to have a pass-book made for him/her.
+                                </p>
+                                <p class="description">
+                                    The stop order has to run for 6 months, until then the member will be eligible to get a loan product which he/she qualifies for.
+                                </p>
+                                <p class="description">
+                                    Members are regarded as full members if they have fully paid shares which currently stand at E3000.00 and subject to change depending on net worth status of the SACCO.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-10 offset-lg-1 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                            <div class="box">
+                                @*<div class="icon"><i class="ion-ios-speedometer-outline" style="color:#41cf2e;"></i></div>*@
+                                <h4 class="title"><a href="">Savings</a></h4>
+                                <p class="description">
+                                    There are two savings; non withdraw-able savings which require a compulsory minimum savings of E100.00 for every month and withdraw-able savings (school fees savings) in which a member saves only to withdraw once in every three months.
+                                </p>
+                                <p class="description">
+                                    If a member wants to increase savings to the excess of E15 000.00 in one month apart from what comes from the stop order he/she will wait for three (3) months before he/she can borrow against his/her savings.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-10 offset-lg-1 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                            <div class="box">
+                                @*<div class="icon"><i class="ion-ios-speedometer-outline" style="color:#41cf2e;"></i></div>*@
+                                <h4 class="title"><a href="">Long Term Loan Products</a></h4>
+                                <div class="row">
+                                    <div class="box col-md-12 col-lg-12">
 
-                    <div class="col-md-6 col-lg-5 offset-lg-1 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-                        <div class="box">
-                            <div class="icon"><i class="ion-ios-paper-outline" style="color: #3fcdc7;"></i></div>
-                            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-                            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-5 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-                        <div class="box">
-                            <div class="icon"><i class="ion-ios-speedometer-outline" style="color:#41cf2e;"></i></div>
-                            <h4 class="title"><a href="">Magni Dolores</a></h4>
-                            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                        </div>
-                    </div>
+                                        <h4 class="title"><a href="">Standard Loan</a></h4>
+                                        <p class="description">
+                                            It is a loan twice the member savings and the maximum repayment of eighty months depending on the amount borrowed at a rate of 0.75% interest per month. The member shall have an
+                                            operational stop order that can cover the repayment installment for repayment and a member will currently have to wait for a month after clearing in order to access
+                                            the loan again.
+                                        </p>
+                                        <p class="description">
+                                            <strong>Other requirements of the loan include;</strong>
+                                        </p>
+                                        <p class="description">
+                                            Current pay-slip (original)
+                                        </p>
+                                        <p class="description">
+                                            Passbook
+                                        </p>
+                                        <p class="description">
+                                            National Identity Card
+                                        </p>
+                                        <p class="description">
+                                            Net pay still within the third(⅓) as per the requirement of the employment act of 1980, section 56(4)(c)
+                                        </p>
+                                        <p class="description">
+                                            Loans exceeding E60000. 00 are referred to the credit committee for approval
+                                        </p>
+                                    </div>
 
-                    <div class="col-md-6 col-lg-5 offset-lg-1 wow bounceInUp" data-wow-delay="0.2s" data-wow-duration="1.4s">
-                        <div class="box">
-                            <div class="icon"><i class="ion-ios-world-outline" style="color: #d6ff22;"></i></div>
-                            <h4 class="title"><a href="">Nemo Enim</a></h4>
-                            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+
+                                    @*<div class="box col-md-6 col-lg-5">
+
+                                            <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
+                                            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+                                        </div>*@
+                                </div>
+                                <div class="row">
+                                    <div class="box col-md-12 col-lg-12">
+
+                                        <h4 class="title"><a href="">Business Loan</a></h4>
+                                        <p class="description">
+                                            It is for empowering members in their business entities and the maximum amount accessible is E200 000.00 and payable at three (3) years maximum or retirement age depending on which one comes first. It has a 0.95 interest charge.
+                                        </p>
+                                        <p class="description">
+                                            <strong>Other requirements</strong>
+                                        </p>
+                                        <p class="description">
+                                            15% deposit/commitment fee for the loan sourced
+                                        </p>
+                                        <p class="description">
+                                            0.5% initiation/application which shall be non refundable even if the loan fails( minimum fee shall be E500.00)
+                                        </p>
+                                        <p class="description">
+                                            Unbroken membership for at least two consecutive years
+                                        </p>
+                                        <p class="description">
+                                            Business plan and cash flow projections
+                                        </p>
+                                        <p class="description">
+                                            Two passport sized photos
+                                        </p>
+                                        <p class="description">
+                                            Sketch map giving directions to the business and residential premises
+                                        </p>
+                                        <p class="description">
+                                            Two passport sized photos
+                                        </p>
+                                        <p class="description">
+                                            Valid quotations
+                                        </p>
+                                        <p class="description">
+                                            National Identity Card
+                                        </p>
+                                        <p class="description">
+                                            Copy of trading license or permit
+                                        </p>
+                                        <p class="description">
+                                            Lease agreement
+                                        </p>
+                                        <p class="description">
+                                            Letter from umphakatsi if business is on Swazi Nation Land
+                                        </p>
+                                        <p class="description">
+                                            Stop order from salary should cater for half the repayment installment
+                                        </p>
+
+                                    </div>
+
+
+                                    @*<div class="box col-md-6 col-lg-5">
+
+                                            <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
+                                            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+                                        </div>*@
+                                </div>
+                                <div class="row">
+                                    <div class="box col-md-12 col-lg-12">
+
+                                        <h4 class="title"><a href="">Special Loan</a></h4>
+                                        <p class="description">
+                                            For buying or developing property in Title Deed immovable property(s) at the maximum amount of E500 000.00 repayable in 15 years or the retirement age whichever comes first. The interest charged is 0.65% per month
+                                        </p>
+                                        <p class="description">
+                                            <strong>Other requirements</strong>
+                                        </p>
+                                        <p class="description">
+                                            Title deed/ deed of sale
+                                        </p>
+                                        <p class="description">
+                                            Rates clearance certificate
+                                        </p>
+                                        <p class="description">
+                                            Current evaluation report
+                                        </p>
+                                        <p class="description">
+                                            Current pay slip
+                                        </p>
+                                        <p class="description">
+                                            Unbroken membership for at least two consecutive years
+                                        </p>
+                                        <p class="description">
+                                            Minimum savings of E50 000.00
+                                        </p>
+                                        <p class="description">
+                                            City council approved plan
+                                        </p>
+                                        <p class="description">
+                                            National Identity Card
+                                        </p>
+
+                                    </div>
+
+
+                                    @*<div class="box col-md-6 col-lg-5">
+
+                                            <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
+                                            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+                                        </div>*@
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-5 wow bounceInUp" data-wow-delay="0.2s" data-wow-duration="1.4s">
-                        <div class="box">
-                            <div class="icon"><i class="ion-ios-clock-outline" style="color: #4680ff;"></i></div>
-                            <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-                            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+                        <div class="col-md-12 col-lg-10 offset-lg-1 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                            <div class="box">
+                                @*<div class="icon"><i class="ion-ios-speedometer-outline" style="color:#41cf2e;"></i></div>*@
+                                <h4 class="title"><a href="">Short Term Loan Products</a></h4>
+
+                                <div class="row">
+                                    <div class="box col-md-6 col-lg-5">
+
+                                        <h4 class="title"><a href="">Personal Loan</a></h4>
+                                        <p class="description">Please Contact SNAT Office For Details</p>
+                                    </div>
+
+
+                                    <div class="box col-md-6 col-lg-5">
+
+                                        <h4 class="title"><a href="">Short Loan</a></h4>
+                                        <p class="description">Accessed as cash over the cover to cater for minor things such as car problems. A maximum of E2000.00 repayable in a maximum of four (4) months at an interest rate of 25%.</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="box col-md-6 col-lg-10">
+
+                                        <h4 class="title"><a href="">Help-Line Lone</a></h4>
+                                        <p class="description">
+                                            Borrowing power is independent of member’s savings and it is aimed at helping members with pressing financial needs that are not covered in the other loan products.
+                                        </p>
+                                        <p class="description">
+                                            The maximum amount accessible can be E20 000.00 or if a member’s savings are less than this amount the member will receive a loan equivalent to his/her savings at a rate of 1.8% interest per month for a maximum period of twelve (12) months.
+                                        </p>
+                                        <p class="description">
+                                            It can be accessed if member’s salary can accommodate a stop order increase without violating the third (⅓) rule on net pay.
+                                        </p>
+                                        <p class="description">
+                                            A member can be allowed to revolve if 50% of this loan inclusive of interests has been paid.
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
+
+
                     </div>
 
                 </div>
-
             </div>
         </section><!-- #services -->
         <!--==========================
@@ -269,8 +578,8 @@
         <section id="why-us" class="wow fadeIn">
             <div class="container">
                 <header class="section-header">
-                    <h3>Why choose us?</h3>
-                    <p>Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>
+                    <h3>Burial</h3>
+                    <p></p>
                 </header>
 
                 <div class="row row-eq-height justify-content-center">
@@ -279,9 +588,12 @@
                         <div class="card wow bounceInUp">
                             <i class="fa fa-diamond"></i>
                             <div class="card-body">
-                                <h5 class="card-title">Corporis dolorem</h5>
-                                <p class="card-text">Deleniti optio et nisi dolorem debitis. Aliquam nobis est temporibus sunt ab inventore officiis aut voluptatibus.</p>
-                                <a href="#" class="readmore">Read more </a>
+                                <h5 class="card-title">Joining</h5>
+                                <p class="card-text">
+                                    Be a SNAT fully paid member
+                                    <br /> Pay a once-off joining fee of E100 through bank deposit
+                                </p>
+
                             </div>
                         </div>
                     </div>
@@ -290,49 +602,104 @@
                         <div class="card wow bounceInUp">
                             <i class="fa fa-language"></i>
                             <div class="card-body">
-                                <h5 class="card-title">Voluptates dolores</h5>
-                                <p class="card-text">Voluptates nihil et quis omnis et eaque omnis sint aut. Ducimus dolorum aspernatur.</p>
-                                <a href="#" class="readmore">Read more </a>
+                                <h5 class="card-title">Monthly Subscriptions and Cover</h5>
+                                <p class="card-text">
+                                    Basic cover at E50
+                                    Member benefits E15 000
+                                    Covers 5 beneficiaries at E6 000
+                                </p>
+
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-4 mb-4">
                         <div class="card wow bounceInUp">
-                            <i class="fa fa-object-group"></i>
+                            <i class="fas fa-hourglass"></i>
                             <div class="card-body">
-                                <h5 class="card-title">Eum ut aspernatur</h5>
-                                <p class="card-text">Autem quod nesciunt eos ea aut amet laboriosam ab. Eos quis porro in non nemo ex. </p>
-                                <a href="#" class="readmore">Read more </a>
+                                <h5 class="card-title">Waiting Period  <br /><span class="btn btn-success">A Member</span></h5>
+                                <p class="card-text">
+                                    There is no waiting period for a a member and cover is staggered
+                                    1 to 3 months E2 000
+                                    3 to 6 months E5 000
+                                    Above 6 months E15 000
+                                    The Spouse and other benefitiaries have a waiting period of 12 months
+                                </p>
+
                             </div>
                         </div>
                     </div>
 
                 </div>
 
-                <div class="row counters">
+                <div class="row row-eq-height justify-content-center">
 
-                    <div class="col-lg-3 col-6 text-center">
-                        <span data-toggle="counter-up">274</span>
-                        <p>Clients</p>
+                    <div class="col-lg-4 mb-4">
+                        <div class="card wow bounceInUp">
+                            <i class="fa fa-file"></i>
+                            <div class="card-body">
+                                <h5 class="card-title">Documents required <br />for a claim</h5>
+                                <p class="card-text">
+                                    Members passbook
+                                    Current payslip
+                                    Members ID certified
+                                    Death certificate certified
+                                    Birth certificate/ID for deceased certified
+                                    Marriage/Teka certificate for spouse certified
+                                </p>
+
+                            </div>
+                        </div>
                     </div>
+                    <div class="col-lg-4 mb-4">
+                        <div class="card wow bounceInUp">
+                            <i class="fa fa-object-group"></i>
+                            <div class="card-body">
+                                <h5 class="card-title">Claiming Period</h5>
+                                <p class="card-text">
 
-                    <div class="col-lg-3 col-6 text-center">
-                        <span data-toggle="counter-up">421</span>
-                        <p>Projects</p>
+                                    A claim must be within 2 months of death of beneficiary/member.
+                                </p>
+
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="col-lg-3 col-6 text-center">
-                        <span data-toggle="counter-up">1,364</span>
-                        <p>Hours Of Support</p>
+                    <div class="col-lg-4 mb-4">
+                        <div class="card wow bounceInUp">
+                            <i class="fas fa-user-plus"></i>
+                            <div class="card-body">
+                                <h5 class="card-title"></h5>
+                                <p class="card-text">
+                                </p>
+                                <a href="#" class="readmore btn btn-success">Sign Up Now! </a>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="col-lg-3 col-6 text-center">
-                        <span data-toggle="counter-up">18</span>
-                        <p>Hard Workers</p>
-                    </div>
-
                 </div>
+
+                @*<div class="row counters">
+
+                        <div class="col-lg-3 col-6 text-center">
+                            <span data-toggle="counter-up">274</span>
+                            <p>Clients</p>
+                        </div>
+
+                        <div class="col-lg-3 col-6 text-center">
+                            <span data-toggle="counter-up">421</span>
+                            <p>Projects</p>
+                        </div>
+
+                        <div class="col-lg-3 col-6 text-center">
+                            <span data-toggle="counter-up">1,364</span>
+                            <p>Hours Of Support</p>
+                        </div>
+
+                        <div class="col-lg-3 col-6 text-center">
+                            <span data-toggle="counter-up">18</span>
+                            <p>Hard Workers</p>
+                        </div>
+
+                    </div>*@
 
             </div>
         </section>
@@ -344,148 +711,90 @@
             <div class="container">
 
                 <header class="section-header">
-                    <h3 class="section-title">Our Portfolio</h3>
+                    <h3 class="section-title">Amendments</h3>
                 </header>
 
                 <div class="row">
                     <div class="col-lg-12">
                         <ul id="portfolio-flters">
                             <li data-filter="*" class="filter-active">All</li>
-                            <li data-filter=".filter-app">App</li>
-                            <li data-filter=".filter-card">Card</li>
-                            <li data-filter=".filter-web">Web</li>
+                            <li data-filter=".filter-app">Acts / Bills</li>
+                            <li data-filter=".filter-card">Policies</li>
+                            <li data-filter=".filter-web">Constitution</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="row portfolio-container">
-
                     <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                        <div class="portfolio-wrap">
-                            <img src="img/portfolio/app1.jpg" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4><a href="#">App 1</a></h4>
-                                <p>App</p>
-                                <div>
-                                    <a href="img/portfolio/app1.jpg" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                                    <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                        <h6><a href="#">Code Of Ethics</a></h6>
                     </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web" data-wow-delay="0.1s">
-                        <div class="portfolio-wrap">
-                            <img src="img/portfolio/web3.jpg" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4><a href="#">Web 3</a></h4>
-                                <p>Web</p>
-                                <div>
-                                    <a href="img/portfolio/web3.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 3" title="Preview"><i class="ion ion-eye"></i></a>
-                                    <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app" data-wow-delay="0.1s">
+                        <h6><a href="#">Employment Act</a></h6>
+                    </div>
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app" data-wow-delay="0.2s">
+                        <h6><a href="#">Occupational Safety And Health Act</a></h6>
+                    </div>
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                        <h6><a href="#">Retirement Funds Act</a></h6>
+                    </div>
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app" data-wow-delay="0.1s">
+                        <h6><a href="#">The Education Act, 1981</a></h6>
                     </div>
 
                     <div class="col-lg-4 col-md-6 portfolio-item filter-app" data-wow-delay="0.2s">
-                        <div class="portfolio-wrap">
-                            <img src="img/portfolio/app2.jpg" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4><a href="#">App 2</a></h4>
-                                <p>App</p>
-                                <div>
-                                    <a href="img/portfolio/app2.jpg" class="link-preview" data-lightbox="portfolio" data-title="App 2" title="Preview"><i class="ion ion-eye"></i></a>
-                                    <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                        <h6><a href="#">The Public Order Act</a></h6>
                     </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                        <div class="portfolio-wrap">
-                            <img src="img/portfolio/card2.jpg" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4><a href="#">Card 2</a></h4>
-                                <p>Card</p>
-                                <div>
-                                    <a href="img/portfolio/card2.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 2" title="Preview"><i class="ion ion-eye"></i></a>
-                                    <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                        <h6><a href="#">The Prevention Of Corruption Act</a></h6>
                     </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web" data-wow-delay="0.1s">
-                        <div class="portfolio-wrap">
-                            <img src="img/portfolio/web2.jpg" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4><a href="#">Web 2</a></h4>
-                                <p>Web</p>
-                                <div>
-                                    <a href="img/portfolio/web2.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 2" title="Preview"><i class="ion ion-eye"></i></a>
-                                    <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app" data-wow-delay="0.1s">
+                        <h6><a href="#">Women Compansation Act</a></h6>
                     </div>
 
                     <div class="col-lg-4 col-md-6 portfolio-item filter-app" data-wow-delay="0.2s">
-                        <div class="portfolio-wrap">
-                            <img src="img/portfolio/app3.jpg" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4><a href="#">App 3</a></h4>
-                                <p>App</p>
-                                <div>
-                                    <a href="img/portfolio/app3.jpg" class="link-preview" data-lightbox="portfolio" data-title="App 3" title="Preview"><i class="ion ion-eye"></i></a>
-                                    <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                        <h6><a href="#">The TSC Act</a></h6>
                     </div>
-
+                    <!--------------------------->
                     <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                        <div class="portfolio-wrap">
-                            <img src="img/portfolio/card1.jpg" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4><a href="#">Card 1</a></h4>
-                                <p>Card</p>
-                                <div>
-                                    <a href="img/portfolio/card1.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 1" title="Preview"><i class="ion ion-eye"></i></a>
-                                    <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                        <h6><a href="#">Chapter Six Conflict and its Resolution</a></h6>
                     </div>
-
                     <div class="col-lg-4 col-md-6 portfolio-item filter-card" data-wow-delay="0.1s">
-                        <div class="portfolio-wrap">
-                            <img src="img/portfolio/card3.jpg" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4><a href="#">Card 3</a></h4>
-                                <p>Card</p>
-                                <div>
-                                    <a href="img/portfolio/card3.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 3" title="Preview"><i class="ion ion-eye"></i></a>
-                                    <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                        <h6><a href="#">Dispute Prevention Manual CMAC</a></h6>
+                    </div>
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-card" data-wow-delay="0.2s">
+                        <h6><a href="#">Education Policy Statement</a></h6>
+                    </div>
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                        <h6><a href="#">Government General Orders</a></h6>
+                    </div>
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-card" data-wow-delay="0.1s">
+                        <h6><a href="#">IRA(AMENDED)</a></h6>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web" data-wow-delay="0.2s">
-                        <div class="portfolio-wrap">
-                            <img src="img/portfolio/web1.jpg" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4><a href="#">Web 1</a></h4>
-                                <p>Web</p>
-                                <div>
-                                    <a href="img/portfolio/web1.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 1" title="Preview"><i class="ion ion-eye"></i></a>
-                                    <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-card" data-wow-delay="0.2s">
+                        <h6><a href="#">Public Charter (2002)</a></h6>
+                    </div>
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                        <h6><a href="#">Recognition Agreement</a></h6>
+                    </div>
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-card" data-wow-delay="0.1s">
+                        <h6><a href="#">Teaching Service Regulations 1983</a></h6>
                     </div>
 
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-card" data-wow-delay="0.2s">
+                        <h6><a href="#">The Education Sector Policy</a></h6>
+                    </div>
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-card" data-wow-delay="0.2s">
+                        <h6><a href="#">The-National-Development-Strategy</a></h6>
+                    </div>
+                    <!--------------------------->
+                    <!--------------------------->
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                        <h6><a href="#">Swazi Constitution</a></h6>
+                    </div>
+
+                    <!--------------------------->
                 </div>
 
             </div>
@@ -493,71 +802,7 @@
         <!--==========================
           Clients Section
         ============================-->
-        <section id="testimonials" class="section-bg">
-            <div class="container">
-
-                <header class="section-header">
-                    <h3>Testimonials</h3>
-                </header>
-
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-
-                        <div class="owl-carousel testimonials-carousel wow fadeInUp">
-
-                            <div class="testimonial-item">
-                                <img src="img/testimonial-1.jpg" class="testimonial-img" alt="">
-                                <h3>Saul Goodman</h3>
-                                <h4>Ceo &amp; Founder</h4>
-                                <p>
-                                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                                </p>
-                            </div>
-
-                            <div class="testimonial-item">
-                                <img src="img/testimonial-2.jpg" class="testimonial-img" alt="">
-                                <h3>Sara Wilsson</h3>
-                                <h4>Designer</h4>
-                                <p>
-                                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                                </p>
-                            </div>
-
-                            <div class="testimonial-item">
-                                <img src="img/testimonial-3.jpg" class="testimonial-img" alt="">
-                                <h3>Jena Karlis</h3>
-                                <h4>Store Owner</h4>
-                                <p>
-                                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                                </p>
-                            </div>
-
-                            <div class="testimonial-item">
-                                <img src="img/testimonial-4.jpg" class="testimonial-img" alt="">
-                                <h3>Matt Brandon</h3>
-                                <h4>Freelancer</h4>
-                                <p>
-                                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                                </p>
-                            </div>
-
-                            <div class="testimonial-item">
-                                <img src="img/testimonial-5.jpg" class="testimonial-img" alt="">
-                                <h3>John Larson</h3>
-                                <h4>Entrepreneur</h4>
-                                <p>
-                                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                                </p>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-
-
-            </div>
-        </section><!-- #testimonials -->
+ 
         <!--==========================
           Team Section
         ============================-->
@@ -565,18 +810,16 @@
             <div class="container">
                 <div class="section-header">
                     <h3>Team</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+                    <p>SNAT Team Member - Always Happy to Help!!</p>
                 </div>
-
                 <div class="row">
-
                     <div class="col-lg-3 col-md-6 wow fadeInUp">
                         <div class="member">
-                            <img src="img/team-1.jpg" class="img-fluid" alt="">
+                            <img src="~/img/FreedomDlamini.png" class="img-fluid" alt="">
                             <div class="member-info">
                                 <div class="member-info-content">
-                                    <h4>Walter White</h4>
-                                    <span>Chief Executive Officer</span>
+                                    <h4>Freedom Dlamini</h4>
+                                    <span>President</span>
                                     <div class="social">
                                         <a href=""><i class="fa fa-twitter"></i></a>
                                         <a href=""><i class="fa fa-facebook"></i></a>
@@ -587,14 +830,13 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="member">
-                            <img src="img/team-2.jpg" class="img-fluid" alt="">
+                            <img src="~/img/VusiSibanyoni.png" class="img-fluid" alt="">
                             <div class="member-info">
                                 <div class="member-info-content">
-                                    <h4>Sarah Jhonson</h4>
-                                    <span>Product Manager</span>
+                                    <h4>Vusi Sibanyoni</h4>
+                                    <span>DP</span>
                                     <div class="social">
                                         <a href=""><i class="fa fa-twitter"></i></a>
                                         <a href=""><i class="fa fa-facebook"></i></a>
@@ -605,14 +847,153 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                         <div class="member">
-                            <img src="img/team-3.jpg" class="img-fluid" alt="">
+                            <img src="~/img/ZwelithiniMndzebele.png" class="img-fluid" alt="">
                             <div class="member-info">
                                 <div class="member-info-content">
-                                    <h4>William Anderson</h4>
-                                    <span>CTO</span>
+                                    <h4>Zwelithini Mndzebele</h4>
+                                    <span>GS</span>
+                                    <div class="social">
+                                        <a href=""><i class="fa fa-twitter"></i></a>
+                                        <a href=""><i class="fa fa-facebook"></i></a>
+                                        <a href=""><i class="fa fa-google-plus"></i></a>
+                                        <a href=""><i class="fa fa-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="member">
+                            <img src="~/img/SceloMatsenjwa.png" class="img-fluid" alt="" />
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>Scelo Matsenjwa</h4>
+                                    <span>Treasure</span>
+                                    <div class="social">
+                                        <a href=""><i class="fa fa-twitter"></i></a>
+                                        <a href=""><i class="fa fa-facebook"></i></a>
+                                        <a href=""><i class="fa fa-google-plus"></i></a>
+                                        <a href=""><i class="fa fa-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 wow fadeInUp">
+                        <div class="member">
+                            <img src="~/img/SikelelaDlamini.png" class="img-fluid" alt="">
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>Sikelela Dlamini</h4>
+                                    <span>DGS</span>
+                                    <div class="social">
+                                        <a href=""><i class="fa fa-twitter"></i></a>
+                                        <a href=""><i class="fa fa-facebook"></i></a>
+                                        <a href=""><i class="fa fa-google-plus"></i></a>
+                                        <a href=""><i class="fa fa-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="member">
+                            <img src="~/img/GcebileDlamini.jpg" class="img-fluid" alt="">
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>Gcebile Dlamini</h4>
+                                    <span>OS</span>
+                                    <div class="social">
+                                        <a href=""><i class="fa fa-twitter"></i></a>
+                                        <a href=""><i class="fa fa-facebook"></i></a>
+                                        <a href=""><i class="fa fa-google-plus"></i></a>
+                                        <a href=""><i class="fa fa-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="member">
+                            <img src="~/img/SNAT.png" class="img-fluid" alt="">
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>Japhter Matsebula</h4>
+                                    <span>RS</span>
+                                    <div class="social">
+                                        <a href=""><i class="fa fa-twitter"></i></a>
+                                        <a href=""><i class="fa fa-facebook"></i></a>
+                                        <a href=""><i class="fa fa-google-plus"></i></a>
+                                        <a href=""><i class="fa fa-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="member">
+                            <img src="~/img/SNAT.png" " class="img-fluid" alt="">
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>Futhile Dlamini </h4>
+                                    <span>Sub Editor</span>
+                                    <div class="social">
+                                        <a href=""><i class="fa fa-twitter"></i></a>
+                                        <a href=""><i class="fa fa-facebook"></i></a>
+                                        <a href=""><i class="fa fa-google-plus"></i></a>
+                                        <a href=""><i class="fa fa-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 wow fadeInUp">
+                        <div class="member">
+                            <img src="~/img/SNAT.png" class="img-fluid" alt="">
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>Japhter Matsebula</h4>
+                                    <span>RS</span>
+                                    <div class="social">
+                                        <a href=""><i class="fa fa-twitter"></i></a>
+                                        <a href=""><i class="fa fa-facebook"></i></a>
+                                        <a href=""><i class="fa fa-google-plus"></i></a>
+                                        <a href=""><i class="fa fa-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="member">
+                            <img src="~/img/SenzoMazibuko.jpg" class="img-fluid" alt="">
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>Senzo Mazibuko</h4>
+                                    <span>Sub Editor</span>
+                                    <div class="social">
+                                        <a href=""><i class="fa fa-twitter"></i></a>
+                                        <a href=""><i class="fa fa-facebook"></i></a>
+                                        <a href=""><i class="fa fa-google-plus"></i></a>
+                                        <a href=""><i class="fa fa-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="member">
+                            <img src="~/img/BongiweMangoKhumalo.png" class="img-fluid" alt="">
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>Bongiwe Mango Khumalo</h4>
+                                    <span>OS</span>
                                     <div class="social">
                                         <a href=""><i class="fa fa-twitter"></i></a>
                                         <a href=""><i class="fa fa-facebook"></i></a>
@@ -624,27 +1005,30 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="member">
-                            <img src="img/team-4.jpg" class="img-fluid" alt="">
-                            <div class="member-info">
-                                <div class="member-info-content">
-                                    <h4>Amanda Jepson</h4>
-                                    <span>Accountant</span>
-                                    <div class="social">
-                                        <a href=""><i class="fa fa-twitter"></i></a>
-                                        <a href=""><i class="fa fa-facebook"></i></a>
-                                        <a href=""><i class="fa fa-google-plus"></i></a>
-                                        <a href=""><i class="fa fa-linkedin"></i></a>
+
+
+                    @*<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="member">
+                                <img src="~/img/SNAT.png" " class="img-fluid" alt="">
+                                <div class="member-info">
+                                    <div class="member-info-content">
+                                        <h4>Futhile Dlamini </h4>
+                                        <span>Sub Editor</span>
+                                        <div class="social">
+                                            <a href=""><i class="fa fa-twitter"></i></a>
+                                            <a href=""><i class="fa fa-facebook"></i></a>
+                                            <a href=""><i class="fa fa-google-plus"></i></a>
+                                            <a href=""><i class="fa fa-linkedin"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </div>*@
 
                 </div>
 
             </div>
+
         </section><!-- #team -->
         <!--==========================
           Clients Section
@@ -654,57 +1038,86 @@
             <div class="container">
 
                 <div class="section-header">
-                    <h3>Our CLients</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque dere santome nida.</p>
+                    <h3>Our Branches</h3>
+                    <p>Please Feel To Free Contact SNAT Branches</p>
                 </div>
-
                 <div class="row no-gutters clients-wrap clearfix wow fadeInUp">
 
                     <div class="col-lg-3 col-md-4 col-xs-6">
-                        <div class="client-logo">
-                            <img src="img/clients/client-1.png" class="img-fluid" alt="">
+                        <div class="client-logo bg-info text-white">
+                            <h6>Big Bend</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="client-logo bg-dark text-white" ">
+                            <h6>Mhlume</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="client-logo bg-danger text-white" ">
+                            <h6>Manzini</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="client-logo bg-warning text-primary">
+                            <h6>Mankayane</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="client-logo bg-secondary text-white">
+                            <h6>Usuthu</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="client-logo bg-success text-white">
+                            <h6>Mliba</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 ">
+                        <div class="client-logo bg-primary text-white">
+                            <h6>Madlangampisi</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 ">
+                        <div class="client-logo bg-light text-black">
+                            <h6>Piggs Peak</h6>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-xs-6">
-                        <div class="client-logo">
-                            <img src="img/clients/client-2.png" class="img-fluid" alt="">
+                        <div class="client-logo bg-primary text-white">
+                            <h6>Mbabane</h6>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-xs-6">
-                        <div class="client-logo">
-                            <img src="img/clients/client-3.png" class="img-fluid" alt="">
+                        <div class="client-logo bg-warning text-danger">
+                            <h6>Gege</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-xs-6 ">
+                        <div class="client-logo bg-dark  text-white">
+                            <h6>Mbulungwane</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-xs-6 ">
+                        <div class="client-logo bg-info text-white">
+                            <h6>Mhlosheni</h6>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-xs-6 ">
+                        <div class="client-logo bg-success text-white">
+                            <h6>Hlatikhulu</h6>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-xs-6">
-                        <div class="client-logo">
-                            <img src="img/clients/client-4.png" class="img-fluid" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-xs-6">
-                        <div class="client-logo">
-                            <img src="img/clients/client-5.png" class="img-fluid" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-xs-6">
-                        <div class="client-logo">
-                            <img src="img/clients/client-6.png" class="img-fluid" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-xs-6">
-                        <div class="client-logo">
-                            <img src="img/clients/client-7.png" class="img-fluid" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-xs-6">
-                        <div class="client-logo">
-                            <img src="img/clients/client-8.png" class="img-fluid" alt="">
+                        <div class="client-logo  bg-secondary text-white" ">
+                            @*<img src="img/clients/client-8.png" class="img-fluid" alt="">*@
+                            <h6>Nhlangano</h6>
                         </div>
                     </div>
 
@@ -728,7 +1141,8 @@
 
                     <div class="col-lg-6">
                         <div class="map mb-4 mb-lg-0">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 312px;" allowfullscreen></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1785.5157331061546!2d31.372713!3d-26.4869317!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1eef4ebe8680ad95%3A0x5f4f4e796df53617!2sWilliam+Pitcher+College!5e0!3m2!1sen!2sae!4v1556801311220!5m2!1sen!2sae" frameborder="0" style="border:0; width: 100%; height: 400px;" allowfullscreen></iframe>
+                           
                         </div>
                     </div>
 
@@ -736,15 +1150,23 @@
                         <div class="row">
                             <div class="col-md-5 info">
                                 <i class="ion-ios-location-outline"></i>
-                                <p>A108 Adam Street, NY 535022</p>
+                                <p>Manzini Opposite William Pitcher. Address is P. O. Box 1575 Manzini</p>
                             </div>
                             <div class="col-md-4 info">
                                 <i class="ion-ios-email-outline"></i>
-                                <p>info@example.com</p>
+                                <p>info@snat.co.sz</p>
                             </div>
                             <div class="col-md-3 info">
                                 <i class="ion-ios-telephone-outline"></i>
-                                <p>+1 5589 55488 55</p>
+                                <p>Tel: +268 505 2603</p>
+                            </div>
+                            <div class="col-md-3 info">
+                                <i class="ion-ios-telephone-outline"></i>
+                                <p>Fax: +268 505 7884</p>
+                            </div>
+                            <div class="col-md-3 info">
+                                <i class="ion-ios-telephone-outline"></i>
+                                <p>Sms: +268 7602 1139</p>
                             </div>
                         </div>
 
@@ -781,7 +1203,6 @@
         </section><!-- #contact -->
 
     </main>
-
     <!--==========================
       Footer
     ============================-->
@@ -791,11 +1212,11 @@
                 <div class="row">
 
                     <div class="col-lg-4 col-md-6 footer-info">
-                        <h3>NewBiz</h3>
-                        <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
+                        <h3>SNAT</h3>
+                        <p>The Swaziland Nation Association of Teachers shall strive to improve the professional, socio-economic status of teachers, enhance collective bargaining for teachers and encourage maximum participation and dynamic provosion of quality education to the learner.</p>
                     </div>
 
-                    <div class="col-lg-2 col-md-6 footer-links">
+                    @*<div class="col-lg-2 col-md-6 footer-links">
                         <h4>Useful Links</h4>
                         <ul>
                             <li><a href="#">Home</a></li>
@@ -832,7 +1253,7 @@
                         <form action="" method="post">
                             <input type="email" name="email"><input type="submit" value="Subscribe">
                         </form>
-                    </div>
+                    </div>*@
 
                 </div>
             </div>
@@ -840,7 +1261,7 @@
 
         <div class="container">
             <div class="copyright">
-                &copy; Copyright <strong>NewBiz</strong>. All Rights Reserved
+                &copy; Copyright @DateTime.Now.Year <strong>Swaziland National Teachers Association</strong>. All Rights Reserved
             </div>
             <div class="credits">
                 <!--
@@ -849,7 +1270,7 @@
                   Licensing information: https://bootstrapmade.com/license/
                   Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=NewBiz
                 -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                Designed by <a href="#">A&amp;A Technology</a>
             </div>
         </div>
     </footer><!-- #footer -->
@@ -858,17 +1279,17 @@
     <!-- Uncomment below i you want to use a preloader -->
     <!-- <div id="preloader"></div> -->
     <!-- JavaScript Libraries -->
-    <script src="lib/jquery/jquery.min.js"></script>
-    <script src="lib/jquery/jquery-migrate.min.js"></script>
-    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/mobile-nav/mobile-nav.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/jquery/jquery-migrate.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/easing/easing.min.js"></script>
+    <script src="~/lib/mobile-nav/mobile-nav.js"></script>
+    <script src="~/lib/wow/wow.min.js"></script>
+    <script src="~/lib/waypoints/waypoints.min.js"></script>
+    <script src="~/lib/counterup/counterup.min.js"></script>
+    <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="~/lib/lightbox/js/lightbox.min.js"></script>
     <!-- Contact Form JavaScript File -->
     @*<script src="contactform/contactform.js"></script>*@
 
