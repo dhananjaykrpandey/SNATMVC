@@ -29,7 +29,7 @@ namespace SNAT.Models
 
         [Column("status")]
         [Display(Name = "Status")]
-        public bool status { get; set; } = false;
+        public bool? status { get; set; }
 
         [Column("remarks")]
         [Display(Name = "Remarks")]

@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -52,9 +51,6 @@
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -125,14 +121,19 @@
   <ItemGroup>
     <Content Include="Content\HomePageStyle.css" />
     <Content Include="img\BongiweMangoKhumalo.png" />
+    <Content Include="img\Document.png" />
+    <Content Include="img\First.jpg" />
     <Content Include="img\FreedomDlamini.png" />
     <Content Include="img\GcebileDlamini.jpg" />
+    <Content Include="img\Logo.png" />
     <Content Include="img\SceloMatsenjwa.jpg" />
     <Content Include="img\SceloMatsenjwa.png" />
+    <Content Include="img\Second.jpg" />
     <Content Include="img\SenzoMazibuko.jpg" />
     <Content Include="img\IMG-20170215-WA00001.gif" />
     <Content Include="img\SikelelaDlamini.png" />
     <Content Include="img\SNAT.png" />
+    <Content Include="img\Third.jpg" />
     <Content Include="img\VusiSibanyoni.png" />
     <Content Include="img\ZwelithiniMndzebele.jpg" />
     <Content Include="img\FreedomDlamini.jpg" />
@@ -205,45 +206,6 @@
     <Content Include="dist\css\skins\deeppurple.css" />
     <Content Include="dist\css\skins\lightblue.css" />
     <Content Include="dist\css\style.css" />
-    <Content Include="dist\img\americanexpress.png" />
-    <Content Include="dist\img\avatar\avatar-1.jpeg" />
-    <Content Include="dist\img\avatar\avatar-2.jpeg" />
-    <Content Include="dist\img\avatar\avatar-3.jpeg" />
-    <Content Include="dist\img\avatar\avatar-4.jpeg" />
-    <Content Include="dist\img\avatar\avatar-5.jpeg" />
-    <Content Include="dist\img\browsers\chrome.png" />
-    <Content Include="dist\img\browsers\firefox.png" />
-    <Content Include="dist\img\browsers\internet-explorer.png" />
-    <Content Include="dist\img\browsers\opera.png" />
-    <Content Include="dist\img\browsers\safari.png" />
-    <Content Include="dist\img\dinersclub.png" />
-    <Content Include="dist\img\discover.png" />
-    <Content Include="dist\img\example-image.jpeg" />
-    <Content Include="dist\img\jcb.png" />
-    <Content Include="dist\img\mastercard.png" />
-    <Content Include="dist\img\news\img01.jpg" />
-    <Content Include="dist\img\news\img02.jpg" />
-    <Content Include="dist\img\news\img03.jpg" />
-    <Content Include="dist\img\news\img04.jpg" />
-    <Content Include="dist\img\news\img05.jpg" />
-    <Content Include="dist\img\news\img06.jpg" />
-    <Content Include="dist\img\news\img07.jpg" />
-    <Content Include="dist\img\news\img08.jpg" />
-    <Content Include="dist\img\news\img09.jpg" />
-    <Content Include="dist\img\news\img10.jpg" />
-    <Content Include="dist\img\news\img11.jpg" />
-    <Content Include="dist\img\news\img12.jpg" />
-    <Content Include="dist\img\news\img13.jpg" />
-    <Content Include="dist\img\news\img14.jpg" />
-    <Content Include="dist\img\news\img15.jpg" />
-    <Content Include="dist\img\news\img16.jpg" />
-    <Content Include="dist\img\news\img17.jpg" />
-    <Content Include="dist\img\p-250.png" />
-    <Content Include="dist\img\p-50.png" />
-    <Content Include="dist\img\paypal.png" />
-    <Content Include="dist\img\spinner.svg" />
-    <Content Include="dist\img\typing.svg" />
-    <Content Include="dist\img\visa.png" />
     <Content Include="dist\js\app.js" />
     <Content Include="dist\js\custom.js" />
     <Content Include="dist\js\demo.js" />
@@ -3290,7 +3252,9 @@
     <Content Include="Views\Login\RegisterUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="dist\img\avatar\" />
+    <Folder Include="dist\img\browsers\" />
+    <Folder Include="dist\img\news\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="libman.json" />
@@ -3466,6 +3430,8 @@
     <Content Include="Views\Members\SearchDetails.cshtml" />
     <Content Include="Views\Beneficiaries\SearchBeneficiaries.cshtml" />
     <Content Include="Views\WagesUpload\SearchPremium.cshtml" />
+    <None Include="Properties\PublishProfiles\SNATFTP.pubxml" />
+    <None Include="Properties\PublishProfiles\SNATLOCAL.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -3505,12 +3471,6 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

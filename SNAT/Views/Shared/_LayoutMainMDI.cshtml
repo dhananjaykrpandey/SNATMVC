@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - SNAT</title>
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
-    @*<link rel="stylesheet" href="../dist/modules/bootstrap/css/bootstrap.min.css">*@
-    <link rel="stylesheet" href="../dist/modules/ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="../dist/modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css">
+    @*<link rel="stylesheet" href="~/dist/modules/bootstrap/css/bootstrap.min.css">*@
+    <link rel="stylesheet" href="~/dist/modules/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/dist/modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css">
 
-    <link rel="stylesheet" href="../dist/modules/summernote/summernote-lite.css">
-    <link rel="stylesheet" href="../dist/modules/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="../dist/css/demo.css">
-    <link rel="stylesheet" href="../dist/css/style.css">
+    <link rel="stylesheet" href="~/dist/modules/summernote/summernote-lite.css">
+    <link rel="stylesheet" href="~/dist/modules/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="~/dist/css/demo.css">
+    <link rel="stylesheet" href="~/dist/css/style.css">
     <link rel="stylesheet" href="~/Content/datatables.min.css">
 
-    <script src="../dist/modules/jquery.min.js"></script>
+    <script src="~/dist/modules/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <link rel="icon" type="image/png" href="~/SNAT.png" />
+    <link rel="icon" type="image/png" href="~/img/SNAT.png" />
 </head>
 <body class="bg-light">
     @*<nav class="navbar navbar-expand navbar-dark bg-primary">
@@ -61,7 +61,7 @@
                 <ul class="navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                            <img alt="image" src="~/Jay.jpg" width="35" class="rounded-circle mr-1">
+                            <img alt="image" src="~/img/snat.png" width="35" class="rounded-circle mr-1">
                             <div class="d-sm-none d-lg-inline-block">Hi,  @HttpContext.Current.User.Identity.Name</div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right w-auto">
@@ -87,11 +87,11 @@
             <div class="main-sidebar">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand text-left">
-                        <img alt="image" src="~/SNAT.png" width="70" class="rounded-circle mr-1"><a href="index.html">Stisla Lite</a>
+                        <img alt="image" src="~/img/SNAT.png" width="70" class="rounded-circle mr-1"><a href="@Url.Action("Home", "Home")" style="text-decoration:none" class="text-danger">SNAT</a>
                     </div>
                     <div class="sidebar-user">
                         <div class="sidebar-user-picture">
-                            <img alt="image" src="~/Jay.jpg">
+                            <img alt="image" src="~/img/snat.png">
                         </div>
                         <div class="sidebar-user-details">
                             <div class="user-name">@HttpContext.Current.User.Identity.Name</div>
@@ -186,18 +186,18 @@
     </div>
 
 
-    <script src="../dist/modules/popper.js"></script>
-    <script src="../dist/modules/tooltip.js"></script>
-    <script src="../dist/modules/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/dist/modules/popper.js"></script>
+    <script src="~/dist/modules/tooltip.js"></script>
+    <script src="~/dist/modules/bootstrap/js/bootstrap.min.js"></script>
     <script src="~/Scripts/bootstrap.bundle.min.js"></script>
-    <script src="../dist/modules/nicescroll/jquery.nicescroll.min.js"></script>
-    <script src="../dist/modules/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
-    <script src="../dist/js/sa-functions.js"></script>
-    <script src="../dist/modules/chart.min.js"></script>
-    <script src="../dist/modules/summernote/summernote-lite.js"></script>
-    <script src="../dist/js/scripts.js"></script>
-    <script src="../dist/js/custom.js"></script>
-    <script src="../dist/js/demo.js"></script>
+    <script src="~/dist/modules/nicescroll/jquery.nicescroll.min.js"></script>
+    <script src="~/dist/modules/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
+    <script src="~/dist/js/sa-functions.js"></script>
+    <script src="~/dist/modules/chart.min.js"></script>
+    <script src="~/dist/modules/summernote/summernote-lite.js"></script>
+    <script src="~/dist/js/scripts.js"></script>
+    <script src="~/dist/js/custom.js"></script>
+    <script src="~/dist/js/demo.js"></script>
     <script src="~/Scripts/datatables.min.js"></script>
     <script src="~/Scripts/bootadmin.min.js"></script>
 </body>
