@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.Reporting.WebForms;
 using SNAT.Classes.BussinessClasses;
 using SNAT.Classes.CommonClasses;
 using SNAT.Models;
@@ -190,6 +191,32 @@ namespace SNAT.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult Print(string memberid)
+        {
+          
+//D:\Web Project\SNATMVC\SNAT\Reports\Report1.rdlc
+            Warning[] warnings;
+            string mimeType;
+            string[] streamids;
+            string encoding;
+            string filenameExtension;
+
+            var rptPath = Server.MapPath(@"~/Reports/MemberDetails.rdlc");
+            var viewer = new ReportViewer();
+            viewer.LocalReport.ReportPath = rptPath;
+            //var shipLabel = new ShippingLabel { ShipmentId = shipment.FBAShipmentId, Barcode = GetBarcode(shipment.FBAShipmentId) };
+            var RptMemberData = db.mMembers.Where(x => x.memberid == memberid).ToList();
+
+            viewer.LocalReport.DataSources.Add(new ReportDataSource("RptMemberData", RptMemberData));
+            viewer.LocalReport.Refresh();
+
+            var bytes = viewer.LocalReport.Render("PDF", null, out mimeType, out encoding, out filenameExtension, out streamids, out warnings);
+
+            return new FileContentResult(bytes, mimeType);
+
+            //return File(bytes, mimeType, shipment.FBAShipmentId + "_PackingSlip.pdf");
         }
     }
 }
