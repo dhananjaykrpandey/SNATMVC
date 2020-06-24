@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using SNAT.Classes.BussinessClasses;
 using SNAT.Classes.CommonClasses;
 using SNAT.Models;
 
@@ -13,6 +14,7 @@ namespace SNAT.Controllers
 {
 
     [AuthorizeUserAccess]
+    [CompressContent]
     public class MembersController : Controller
     {
         private DbCxSnat db = new DbCxSnat();
@@ -20,6 +22,7 @@ namespace SNAT.Controllers
         // GET: Members
         public ActionResult Index()
         {
+            
             var mMembers = db.mMembers.Include(m => m.MSchoolCollectoin);
             return View(mMembers.ToList());
         }

@@ -1,4 +1,5 @@
-﻿using SNAT.Classes.CommonClasses;
+﻿using SNAT.Classes.BussinessClasses;
+using SNAT.Classes.CommonClasses;
 using SNAT.Models;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Web.Mvc;
 namespace SNAT.Controllers
 {
     [AuthorizeUserAccess]
+    [CompressContent]
     public class WagesUploadController : Controller
     {
         private DbCxSnat db = new DbCxSnat();

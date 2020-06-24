@@ -1,4 +1,5 @@
-﻿using SNAT.Classes.CommonClasses;
+﻿using SNAT.Classes.BussinessClasses;
+using SNAT.Classes.CommonClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 namespace SNAT.Controllers
 {
     [AuthorizeUserAccess]
+    [CompressContent]
     public class ChequeDocumentTypeController : Controller
     {
         // GET: ChequeDocumentType

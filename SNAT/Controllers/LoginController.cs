@@ -11,6 +11,7 @@ using SNAT.Models;
 
 namespace SNAT.Controllers
 {
+    [CompressContent]
     public class LoginController : Controller
     {
         [Route("Login/{Index}")]

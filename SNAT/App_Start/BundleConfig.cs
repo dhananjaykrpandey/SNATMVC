@@ -27,8 +27,7 @@ namespace SNAT
             /*bootstrap*/
 
             /*BootAdmin CSS*/
-            bundles.Add(new StyleBundle("~/bundles/BootadminCSS").Include(
-                            "~/Content/bootadmin.min.css"));
+            bundles.Add(new StyleBundle("~/bundles/BootadminCSS").Include("~/Content/bootadmin.min.css"));
             /*BootAdmin CSS*/
 
             #endregion Style Sheets

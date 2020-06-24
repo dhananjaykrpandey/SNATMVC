@@ -3,12 +3,14 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using SNAT.Classes.BussinessClasses;
 using SNAT.Classes.CommonClasses;
 using SNAT.Models;
 
 namespace SNAT.Controllers
 {
     [AuthorizeUserAccess]
+    [CompressContent]
     public class MemberDocumentsController : Controller
     {
         private DbCxSnat db = new DbCxSnat();

@@ -10,6 +10,7 @@ namespace SNAT.Classes.CommonClasses
         public DbCxSnat() : base("snatburi_snat")
         {
             Database.Initialize(false);
+           
         }
 
 

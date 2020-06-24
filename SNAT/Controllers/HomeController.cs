@@ -1,4 +1,5 @@
-﻿using SNAT.Classes.CommonClasses;
+﻿using SNAT.Classes.BussinessClasses;
+using SNAT.Classes.CommonClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,8 @@ using System.Web.Mvc;
 
 namespace SNAT.Controllers
 {
-   // [AuthorizeUserAccess]
+    // [AuthorizeUserAccess]
+    [CompressContent]
     public class HomeController : Controller
     {
         public ActionResult Index()
