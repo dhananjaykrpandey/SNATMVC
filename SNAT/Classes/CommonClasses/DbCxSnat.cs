@@ -1,5 +1,4 @@
 ﻿using SNAT.Models;
-using System.Configuration;
 using System.Data.Entity;
 
 namespace SNAT.Classes.CommonClasses
@@ -10,7 +9,7 @@ namespace SNAT.Classes.CommonClasses
         public DbCxSnat() : base("snatburi_snat")
         {
             Database.Initialize(false);
-           
+
         }
 
 
@@ -42,7 +41,8 @@ namespace SNAT.Classes.CommonClasses
 
         public DbSet<mWagesUpload> mWagesUploads { get; set; }
         public DbSet<mEmployeeDetails> mEmployeeDetails { get; set; }
-        
+        public DbSet<mClaimEntry> mClaimEntries { get; set; }
+
 
     }
 }

@@ -42,13 +42,13 @@ namespace SNAT.Models
         [Display(Name = "User Type")]
         [StringLength(20)]
         public string employeeno { get; set; }
-        
+
 
         [Column("Memnationalid")]
         [Display(Name = "User Type")]
         [StringLength(20)]
         public string Memnationalid { get; set; }
-      
+
 
         [Column("remarks")]
         [Display(Name = "User Type")]

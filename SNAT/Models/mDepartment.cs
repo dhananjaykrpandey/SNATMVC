@@ -22,7 +22,7 @@ namespace SNAT.Models
         [Display(Name = "Department Name")]
         [StringLength(50)]
         public string name { get; set; }
-        
+
         [Column("status")]
         [Display(Name = "Status")]
         public bool status { get; set; } = false;

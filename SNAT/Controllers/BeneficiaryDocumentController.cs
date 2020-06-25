@@ -1,9 +1,6 @@
 ﻿using SNAT.Classes.BussinessClasses;
 using SNAT.Classes.CommonClasses;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace SNAT.Controllers
@@ -24,7 +21,7 @@ namespace SNAT.Controllers
                 HttpContext.Session.Add("membername", vMemberDetails.membername);
                 HttpContext.Session.Add("beneficiarynatioanalid", vMemberDetails.beneficiarynatioanalid);
                 HttpContext.Session.Add("beneficiaryname", vMemberDetails.beneficiaryname);
-             
+
             }
             var mBeneficiary = db.mBeneficiryDocuments.Where(ben => ben.beneficirynationalid == StrBeneficiaryID).ToList();
             return View(mBeneficiary);

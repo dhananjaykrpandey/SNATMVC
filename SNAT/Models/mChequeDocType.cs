@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace SNAT.Models
 {
@@ -16,7 +15,7 @@ namespace SNAT.Models
         [Display(Name = "Document Code")]
         [StringLength(15)]
         public string code { get; set; }
-        
+
         [Column("name")]
         [Display(Name = "Document Name")]
         [StringLength(50)]

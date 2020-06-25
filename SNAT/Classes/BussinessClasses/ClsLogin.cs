@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using SNAT.Classes.CommonClasses;
+﻿using SNAT.Classes.CommonClasses;
 using SNAT.Models;
+using System.Linq;
 namespace SNAT.Classes.BussinessClasses
 {
     public class ClsLogin
@@ -30,14 +27,14 @@ namespace SNAT.Classes.BussinessClasses
                         {
                             case "E":
                                 var vEmployeeDetails = DbCxADB.mEmployeeDetails.Where(emp => emp.employeeno == User.employeeno).FirstOrDefault();
-                                if (vEmployeeDetails !=null )
+                                if (vEmployeeDetails != null)
                                 {
                                     StrUserName = ClsUtility.StringDbNull(vEmployeeDetails.name);
                                     StrUserType = ClsUtility.StringDbNull(User.usertype);
                                     StrUserEmail = ClsUtility.StringDbNull(vEmployeeDetails.email);
                                     StrUserPhone = ClsUtility.StringDbNull(vEmployeeDetails.contactno1);
                                 }
-                                
+
                                 break;
                             case "M":
                                 var vMemberDetails = DbCxADB.mMembers.Where(emp => emp.nationalid == User.Memnationalid).FirstOrDefault();

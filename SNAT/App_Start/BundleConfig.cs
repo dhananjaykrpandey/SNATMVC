@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace SNAT
 {
@@ -62,12 +61,12 @@ namespace SNAT
 
             string JSDataTables = "https://cdn.datatables.net/v/bs4-4.1.1/datatables.min.js";
             bundles.Add(new ScriptBundle("~/bundles/JSDataTables", JSDataTables).Include("~/Scripts/dataTables.bootstrap.min.js"));
-                        /*BootStrap*/
+            /*BootStrap*/
 
             ///*BootAdmin*/
             bundles.Add(new ScriptBundle("~/bundles/BootadminJS").Include("~/Scripts/bootadmin.min.js", "~/Scripts/bootadmin.min.js"));
             ///*BootAdmin*/
-           
+
             #endregion (Java Scripts/JQuery/Other JS)
         }
     }

@@ -17,7 +17,7 @@ namespace SNAT.Models
         [Display(Name = "Member National ID")]
         [StringLength(20)]
         public string membernationalid { get; set; }
-       
+
 
         [Column("memberid")]
         [Display(Name = "Member ID")]
@@ -117,6 +117,6 @@ namespace SNAT.Models
         [Display(Name = "Date Of Death")]
 
         public DateTime? dateofDate { get; set; }
-       
+
     }
 }

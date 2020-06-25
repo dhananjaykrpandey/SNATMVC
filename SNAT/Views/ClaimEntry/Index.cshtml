@@ -1,0 +1,131 @@
+﻿@model IEnumerable<SNAT.Models.mClaimEntry>
+@{
+    ViewBag.Title = "Claim Entry Details";
+    Layout = "~/Views/Shared/_LayoutMainMDI.cshtml";
+}
+
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>@ViewBag.Title</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="tblMemberList" class="table table-light table-hover table-bordered" cellspacing="0" width="100%">
+                        <thead style="text-align:center" class="table-success">
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.LetPerson)</th>
+                                <th>@Html.DisplayNameFor(model => model.MemNationalID)</th>
+                                <th>@Html.DisplayNameFor(model => model.MemberID)</th>
+                                <th>@Html.DisplayNameFor(model => model.MemName)</th>
+                                <th>@Html.DisplayNameFor(model => model.BenfNationalID)</th>
+                                <th>@Html.DisplayNameFor(model => model.BenfName)</th>
+                                <th>@Html.DisplayNameFor(model => model.DateOfBurial)</th>
+                                <th>@Html.DisplayNameFor(model => model.ClaimStatus)</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null)
+                            {
+
+
+                                foreach (var item in Model)
+                                {
+                                    <tr>
+                                        @{
+                                            if (item.LetPerson == "M")
+                                            {
+                                                <td>
+                                                    Member
+                                                </td>
+                                            }
+                                            else
+                                            {
+                                                <td> Beneficiary </td>
+                                            }
+                                        }
+                                        <td>@Html.DisplayFor(modelItem => item.MemNationalID)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.MemberID)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.MemName)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.BenfNationalID)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.BenfName)</td>
+                                        @{
+                                            if (item.DateOfBurial != null && item.DateOfBurial.HasValue)
+                                            {
+                                                <td>
+                                                    @item.DateOfBurial.Value.ToString("MM/dd/yyy")
+                                                </td>
+                                            }
+                                            else
+                                            {
+                                                <td></td>
+                                            }
+                                        }
+
+
+                                        @{
+                                            if (item.ClaimStatus == "M")
+                                            {
+                                                <td>Male</td>
+                                            }
+                                            else
+                                            {
+                                                <td>Female</td>
+                                            }
+                                        }
+
+                                        <td>
+                                            <div class="row">
+                                                <div class="form-group  col-sm-2">
+
+                                                    <a href="@Url.Action("Details", "Members", new {  id=item.ID })" class="btn btn-success btn-sm" data-toggle="tooltip" title="Details"><i class="fas fa-list"></i></a>
+
+                                                </div>
+                                                <div class="form-group  col-sm-2">
+
+                                                    <a href="@Url.Action("BeneficiariesList", "Beneficiaries", new {  Memberid=item.ID })" class="btn btn-warning btn-sm " data-toggle="tooltip" title="Beneficiary Details"><i class="fas fa-user"></i></a>
+
+                                                </div>
+
+
+                                                <div class="form-group col-sm-2">
+
+                                                    <a href="@Url.Action("Print", "Members", new {  memberid=item.ID })" class="btn btn-primary btn-sm" data-toggle="tooltip" title="Print Details" target="_blank"><i class="fas fa-print"></i></a>
+
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                        <tfoot class="table-dark">
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.LetPerson)</th>
+                                <th>@Html.DisplayNameFor(model => model.MemNationalID)</th>
+                                <th>@Html.DisplayNameFor(model => model.MemberID)</th>
+                                <th>@Html.DisplayNameFor(model => model.MemName)</th>
+                                <th>@Html.DisplayNameFor(model => model.BenfNationalID)</th>
+                                <th>@Html.DisplayNameFor(model => model.BenfName)</th>
+                                <th>@Html.DisplayNameFor(model => model.DateOfBurial)</th>
+                                <th>@Html.DisplayNameFor(model => model.ClaimStatus)</th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#tblMemberList').DataTable();
+        });
+    </script>
+
+
+

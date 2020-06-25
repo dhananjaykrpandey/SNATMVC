@@ -1,11 +1,11 @@
-﻿using System.Data;
+﻿using SNAT.Classes.BussinessClasses;
+using SNAT.Classes.CommonClasses;
+using SNAT.Models;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using SNAT.Classes.BussinessClasses;
-using SNAT.Classes.CommonClasses;
-using SNAT.Models;
 
 namespace SNAT.Controllers
 {
@@ -29,7 +29,7 @@ namespace SNAT.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var vMemberDetails = db.mMembers.Where(mm => mm.nationalid == StrMemberNationalId).FirstOrDefault();
-            if (vMemberDetails!=null)
+            if (vMemberDetails != null)
             {
                 HttpContext.Session.Add("nationalid", vMemberDetails.nationalid);
                 HttpContext.Session.Add("memberid", vMemberDetails.memberid);

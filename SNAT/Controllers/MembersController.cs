@@ -1,15 +1,13 @@
-﻿using System;
+﻿using Microsoft.Reporting.WebForms;
+using SNAT.Classes.BussinessClasses;
+using SNAT.Classes.CommonClasses;
+using SNAT.Models;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using Microsoft.Reporting.WebForms;
-using SNAT.Classes.BussinessClasses;
-using SNAT.Classes.CommonClasses;
-using SNAT.Models;
 
 namespace SNAT.Controllers
 {
@@ -23,7 +21,7 @@ namespace SNAT.Controllers
         // GET: Members
         public ActionResult Index()
         {
-            
+
             var mMembers = db.mMembers.Include(m => m.MSchoolCollectoin);
             return View(mMembers.ToList());
         }
@@ -93,10 +91,10 @@ namespace SNAT.Controllers
             HttpContext.Session["TotalMemberRecordCount"] = mMember == null || mMember.Count <= 0 ? "0" : mMember.Count.ToString();
             if (mMember == null || mMember.Count <= 0)
             {
-                
+
                 return View();
             }
-            
+
             return View(mMember);
         }
 
@@ -195,8 +193,8 @@ namespace SNAT.Controllers
 
         public ActionResult Print(string memberid)
         {
-          
-//D:\Web Project\SNATMVC\SNAT\Reports\Report1.rdlc
+
+            //D:\Web Project\SNATMVC\SNAT\Reports\Report1.rdlc
             Warning[] warnings;
             string mimeType;
             string[] streamids;

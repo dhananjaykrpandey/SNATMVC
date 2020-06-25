@@ -134,6 +134,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ClaimEntryController.cs" />
     <Compile Include="Reports\ReportData.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -3469,6 +3470,7 @@
     <Content Include="Reports\ReportData.xss">
       <DependentUpon>ReportData.xsd</DependentUpon>
     </Content>
+    <Content Include="Views\ClaimEntry\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

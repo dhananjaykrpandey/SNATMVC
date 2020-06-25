@@ -12,7 +12,7 @@ namespace SNAT.Models
         public int id { get; set; }
 
         [Key]
-        [Column("code",Order =1)]
+        [Column("code", Order = 1)]
         [Display(Name = "Designation Code")]
         [StringLength(15)]
         public string code { get; set; }
@@ -29,7 +29,7 @@ namespace SNAT.Models
         public string DepartCode { get; set; }
         [ForeignKey("DepartCode")]
         public virtual mDepartment mDepartmentCollectoin { get; set; }
-   
+
 
         [Column("HeadofDepartment")]
         [Display(Name = "Head of Department")]

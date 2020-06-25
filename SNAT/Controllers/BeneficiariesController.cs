@@ -1,14 +1,12 @@
-﻿using System;
+﻿using SNAT.Classes.BussinessClasses;
+using SNAT.Classes.CommonClasses;
+using SNAT.Models;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using SNAT.Classes.BussinessClasses;
-using SNAT.Classes.CommonClasses;
-using SNAT.Models;
 
 namespace SNAT.Controllers
 {
@@ -38,7 +36,7 @@ namespace SNAT.Controllers
                 HttpContext.Session.Add("memberid", vMemberDetails.memberid);
                 HttpContext.Session.Add("membername", vMemberDetails.membername);
             }
-            var mBeneficiary = db.mBeneficiaries.Where(ben =>ben.membernationalid==Memberid).ToList();
+            var mBeneficiary = db.mBeneficiaries.Where(ben => ben.membernationalid == Memberid).ToList();
 
 
             return View(mBeneficiary);
@@ -95,7 +93,7 @@ namespace SNAT.Controllers
                 return View();
             }
             return View(mBeneficiarys);
-            
+
         }
         // GET: Beneficiaries/Details/5
         public ActionResult Details(string id)
@@ -105,7 +103,7 @@ namespace SNAT.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var mBeneficiary = db.mBeneficiaries.Where(ben => ben.beneficiarynatioanalid == id).FirstOrDefault();
-                        
+
             if (mBeneficiary == null)
             {
                 return HttpNotFound();

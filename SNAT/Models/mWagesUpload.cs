@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -13,7 +12,7 @@ namespace SNAT.Models
         [Column(TypeName = "int")]
         public string id { get; set; }
 
-       
+
         [Key]
         [Column("wageMonthYear", Order = 1)]
         [Display(Name = "Premium Month-Year")]

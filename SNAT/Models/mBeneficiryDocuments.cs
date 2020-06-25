@@ -34,7 +34,7 @@ namespace SNAT.Models
         [Display(Name = "Beneficiry National ID")]
         [StringLength(20)]
         public string beneficirynationalid { get; set; }
-                       
+
         [Column("beneficiaryname")]
         [Display(Name = "Beneficiary Name")]
         [StringLength(20)]

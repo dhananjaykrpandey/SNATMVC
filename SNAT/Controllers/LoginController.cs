@@ -1,12 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using SNAT.Classes.BussinessClasses;
+using SNAT.Models;
 using System.Data;
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
 using Web = System.Web;
-using SNAT.Classes.BussinessClasses;
-using SNAT.Classes.CommonClasses;
-using SNAT.Models;
 
 
 namespace SNAT.Controllers
@@ -37,8 +35,8 @@ namespace SNAT.Controllers
                     return View(mLog);
                 }
 
-              
-                bool userLoging =ClsLogin.IsValidUser(mLog.username, mLog.password);
+
+                bool userLoging = ClsLogin.IsValidUser(mLog.username, mLog.password);
                 if (userLoging == true)
                 {
                     Web.HttpContext.Current.Session["Login"] = true;

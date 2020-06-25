@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 namespace SNAT.Classes.CommonClasses
 {
-    public class AuthorizeUserAccess :ActionFilterAttribute
+    public class AuthorizeUserAccess : ActionFilterAttribute
     {
         public override void OnActionExecuting(System.Web.Mvc.ActionExecutingContext filterContext)
         {
@@ -15,7 +13,7 @@ namespace SNAT.Classes.CommonClasses
             {
                 //FormsAuthentication.RedirectToLoginPage();
                 filterContext.HttpContext.Response.Redirect("~/Login", true);
-                
+
             }
             else if (context.Session != null)
             {

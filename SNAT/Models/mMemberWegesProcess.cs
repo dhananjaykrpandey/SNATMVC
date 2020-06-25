@@ -36,7 +36,7 @@ namespace SNAT.Models
         public string memMemberID { get; set; }
 
         [Key]
-        [Column("memEmployeeNo", Order =5)]
+        [Column("memEmployeeNo", Order = 5)]
         [Display(Name = "Employee No.")]
         [StringLength(20)]
         public string memEmployeeNo { get; set; }
@@ -50,7 +50,7 @@ namespace SNAT.Models
         [Display(Name = "Member Name")]
         [StringLength(20)]
         public string memName { get; set; }
-               
+
         [Column("wagecredit")]
         [Display(Name = "Credited Premium")]
         public decimal wagecredit { get; set; }

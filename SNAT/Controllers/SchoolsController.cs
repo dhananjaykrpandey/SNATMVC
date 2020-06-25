@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using SNAT.Classes.BussinessClasses;
+using SNAT.Classes.CommonClasses;
+using SNAT.Models;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using SNAT.Classes.BussinessClasses;
-using SNAT.Classes.CommonClasses;
-using SNAT.Models;
 
 namespace SNAT.Controllers
 {

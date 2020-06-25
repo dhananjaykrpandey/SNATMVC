@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 
 namespace SNAT.Controllers
@@ -40,7 +39,7 @@ namespace SNAT.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             StrSearchValue = StrSearchValue == null || StrSearchValue == "" ? "Dhananjay Kumar Pandey" : StrSearchValue;
-           
+
             List<mWagesUpload> mWagesUploads = null;
             switch (StrSearchCol.ToUpper())
             {
@@ -76,7 +75,7 @@ namespace SNAT.Controllers
                 case "APPROVED":
                     bool lApproved = StrSearchValue == null || StrSearchValue == "" || StrSearchValue == "0" || StrSearchValue == "Dhananjay Kumar Pandey" ? false : true;
                     StrSearchValue = StrSearchValue == null || StrSearchValue == "" ? "Dhananjay Kumar Pandey" : StrSearchValue;
-                    mWagesUploads = db.mWagesUploads.Where(mem => mem.lApproved== lApproved).ToList();
+                    mWagesUploads = db.mWagesUploads.Where(mem => mem.lApproved == lApproved).ToList();
                     break;
                 default:
                     mWagesUploads = db.mWagesUploads.Where(mem => mem.wageFrom.Contains(StrSearchValue)).ToList();
