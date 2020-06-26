@@ -16,7 +16,7 @@ namespace SNAT.Controllers
     [CompressContent]
     public class MembersController : Controller
     {
-        private DbCxSnat db = new DbCxSnat();
+        private readonly DbCxSnat db = new DbCxSnat();
 
         // GET: Members
         public ActionResult Index()
@@ -46,6 +46,7 @@ namespace SNAT.Controllers
             HttpContext.Session["TotalMemberRecordCount"] = "0";
             return View();
         }
+
         // GET: Members/Details/5
         [HttpPost]
 
@@ -97,7 +98,28 @@ namespace SNAT.Controllers
 
             return View(mMember);
         }
+        public ActionResult Print(string memberid)
+        {
 
+            //D:\Web Project\SNATMVC\SNAT\Reports\Report1.rdlc
+
+            var rptPath = Server.MapPath(@"~/Reports/MemberDetails.rdlc");
+            var viewer = new ReportViewer();
+            viewer.LocalReport.ReportPath = rptPath;
+            //var shipLabel = new ShippingLabel { ShipmentId = shipment.FBAShipmentId, Barcode = GetBarcode(shipment.FBAShipmentId) };
+            var RptMemberData = db.mMembers.Where(x => x.memberid == memberid).ToList();
+
+            viewer.LocalReport.DataSources.Add(new ReportDataSource("RptMemberData", RptMemberData));
+            viewer.LocalReport.Refresh();
+
+            var bytes = viewer.LocalReport.Render("PDF", null, out string mimeType, out string encoding, out string filenameExtension, out string[] streamids, out Warning[] warnings);
+
+            return new FileContentResult(bytes, mimeType);
+
+            //return File(bytes, mimeType, shipment.FBAShipmentId + "_PackingSlip.pdf");
+        }
+
+        /*
         // GET: Members/Create
         public ActionResult Create()
         {
@@ -190,31 +212,7 @@ namespace SNAT.Controllers
             }
             base.Dispose(disposing);
         }
+        */
 
-        public ActionResult Print(string memberid)
-        {
-
-            //D:\Web Project\SNATMVC\SNAT\Reports\Report1.rdlc
-            Warning[] warnings;
-            string mimeType;
-            string[] streamids;
-            string encoding;
-            string filenameExtension;
-
-            var rptPath = Server.MapPath(@"~/Reports/MemberDetails.rdlc");
-            var viewer = new ReportViewer();
-            viewer.LocalReport.ReportPath = rptPath;
-            //var shipLabel = new ShippingLabel { ShipmentId = shipment.FBAShipmentId, Barcode = GetBarcode(shipment.FBAShipmentId) };
-            var RptMemberData = db.mMembers.Where(x => x.memberid == memberid).ToList();
-
-            viewer.LocalReport.DataSources.Add(new ReportDataSource("RptMemberData", RptMemberData));
-            viewer.LocalReport.Refresh();
-
-            var bytes = viewer.LocalReport.Render("PDF", null, out mimeType, out encoding, out filenameExtension, out streamids, out warnings);
-
-            return new FileContentResult(bytes, mimeType);
-
-            //return File(bytes, mimeType, shipment.FBAShipmentId + "_PackingSlip.pdf");
-        }
     }
 }

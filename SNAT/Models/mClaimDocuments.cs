@@ -23,6 +23,8 @@ namespace SNAT.Models
         public string beneficiaryname { get; set; }
         [Display(Name = "Document Code")]
         public string doccode { get; set; }
+        [ForeignKey("code")]
+        public virtual mClaimDocType MClaimDocTypeCollection { get; set; }
         
     
         [Display(Name = "Mandatory")]

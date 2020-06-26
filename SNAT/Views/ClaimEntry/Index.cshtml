@@ -66,33 +66,56 @@
 
 
                                         @{
-                                            if (item.ClaimStatus == "M")
+
+                                            switch (item.ClaimStatus)
                                             {
-                                                <td>Male</td>
-                                            }
-                                            else
-                                            {
-                                                <td>Female</td>
+                                                case "E":
+                                                    <td>Claim Entered</td>
+                                                    break;
+                                                case "P":
+                                                    <td>Claim posted for approval</td>
+                                                    break;
+                                                case "CA":
+                                                    <td>Claim approved by chairperson</td>
+                                                    break;
+                                                case "CR":
+                                                    <td>Claim rejected by chairperson</td>
+                                                    break;
+                                                case "SA":
+                                                    <td>Claim approved by secretary</td>
+                                                    break;
+                                                case "SR":
+                                                    <td>Claim rejected by secretary</td>
+                                                    break;
+                                                case "TA":
+                                                    <td>Claim approved by Treasurer</td>
+                                                    break;
+                                                case "TR":
+                                                    <td>Claim rejected by Treasurer</td>
+                                                    break;
+
+                                                default:
+                                                    <td>Claim Entered</td>
+                                                    break;
                                             }
                                         }
+
 
                                         <td>
                                             <div class="row">
                                                 <div class="form-group  col-sm-2">
 
-                                                    <a href="@Url.Action("Details", "Members", new {  id=item.ID })" class="btn btn-success btn-sm" data-toggle="tooltip" title="Details"><i class="fas fa-list"></i></a>
+                                                    <a href="@Url.Action("Details", "ClaimEntry", new {  id=item.ID })" class="btn btn-success btn-sm" data-toggle="tooltip" title="Details"><i class="fas fa-list"></i></a>
 
                                                 </div>
                                                 <div class="form-group  col-sm-2">
-
-                                                    <a href="@Url.Action("BeneficiariesList", "Beneficiaries", new {  Memberid=item.ID })" class="btn btn-warning btn-sm " data-toggle="tooltip" title="Beneficiary Details"><i class="fas fa-user"></i></a>
-
+                                                    <a href="@Url.Action("ClaimDocumemts", "ClaimEntry", new {  id=item.ID })" class="btn btn-warning btn-sm " data-toggle="tooltip" title="Claim Document"><i class="fas fa-file"></i></a>
                                                 </div>
 
 
                                                 <div class="form-group col-sm-2">
 
-                                                    <a href="@Url.Action("Print", "Members", new {  memberid=item.ID })" class="btn btn-primary btn-sm" data-toggle="tooltip" title="Print Details" target="_blank"><i class="fas fa-print"></i></a>
+                                                    <a href="@Url.Action("Print", "ClaimEntry", new {  memberid=item.ID })" class="btn btn-primary btn-sm" data-toggle="tooltip" title="Print Details" target="_blank"><i class="fas fa-print"></i></a>
 
                                                 </div>
                                             </div>
@@ -120,12 +143,12 @@
             </div>
         </div>
     </div>
-
-    <script>
-        $(document).ready(function () {
-            $('#tblMemberList').DataTable();
-        });
-    </script>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#tblMemberList').DataTable();
+    });
+</script>
 
 
 

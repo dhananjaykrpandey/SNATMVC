@@ -1,0 +1,130 @@
+﻿@model IEnumerable<SNAT.Models.mChequeEntry>
+@{
+    ViewBag.Title = "Cheque Request Details";
+    Layout = "~/Views/Shared/_LayoutMainMDI.cshtml";
+}
+
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>@ViewBag.Title</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="tblMemberList" class="table table-light table-hover table-bordered" cellspacing="0" width="100%">
+                        <thead style="text-align:center" class="table-success">
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.id)</th>
+                                <th>@Html.DisplayNameFor(model => model.MemNationalID)</th>
+                                <th>@Html.DisplayNameFor(model => model.MemberID)</th>
+                                <th>@Html.DisplayNameFor(model => model.MemName)</th>
+                                <th>@Html.DisplayNameFor(model => model.BeneNationalID)</th>
+                                <th>@Html.DisplayNameFor(model => model.BeneName)</th>
+                                <th>@Html.DisplayNameFor(model => model.ChqStatus)</th>
+
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null)
+                            {
+
+
+                                foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@Html.DisplayFor(modelItem => item.id)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.MemNationalID)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.MemberID)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.MemName)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.BeneNationalID)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.BeneName)</td>
+
+
+
+                                        @{
+
+                                            switch (item.ChqStatus)
+                                            {
+                                                case "E":
+                                                    <td>Cheque Entered</td>
+                                                    break;
+                                                case "P":
+                                                    <td>Cheque posted for approval</td>
+                                                    break;
+                                                case "CA":
+                                                    <td>Cheque approved by chairperson</td>
+                                                    break;
+                                                case "CR":
+                                                    <td>Cheque rejected by chairperson</td>
+                                                    break;
+                                                case "SA":
+                                                    <td>Cheque approved by secretary</td>
+                                                    break;
+                                                case "SR":
+                                                    <td>Cheque rejected by secretary</td>
+                                                    break;
+                                                case "TA":
+                                                    <td>Cheque approved by Treasurer</td>
+                                                    break;
+                                                case "TR":
+                                                    <td>Cheque rejected by Treasurer</td>
+                                                    break;
+
+                                                default:
+                                                    <td>Cheque Entered</td>
+                                                    break;
+                                            }
+                                        }
+
+
+                                        <td>
+                                            <div class="row">
+                                                <div class="form-group  col-sm-2">
+
+                                                    <a href="@Url.Action("Details", "ClaimEntry", new {  id=item.id })" class="btn btn-success btn-sm" data-toggle="tooltip" title="Details"><i class="fas fa-list"></i></a>
+
+                                                </div>
+                                                <div class="form-group  col-sm-2">
+                                                    <a href="@Url.Action("ClaimDocumemts", "ClaimEntry", new {  id=item.id })" class="btn btn-warning btn-sm " data-toggle="tooltip" title="Claim Document"><i class="fas fa-file"></i></a>
+                                                </div>
+
+
+                                                <div class="form-group col-sm-2">
+
+                                                    <a href="@Url.Action("Print", "ClaimEntry", new {  memberid=item.id })" class="btn btn-primary btn-sm" data-toggle="tooltip" title="Print Details" target="_blank"><i class="fas fa-print"></i></a>
+
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                        <tfoot class="table-dark">
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.id)</th>
+                                <th>@Html.DisplayNameFor(model => model.MemNationalID)</th>
+                                <th>@Html.DisplayNameFor(model => model.MemberID)</th>
+                                <th>@Html.DisplayNameFor(model => model.MemName)</th>
+                                <th>@Html.DisplayNameFor(model => model.BeneNationalID)</th>
+                                <th>@Html.DisplayNameFor(model => model.BeneName)</th>
+                                <th>@Html.DisplayNameFor(model => model.ChqStatus)</th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#tblMemberList').DataTable();
+    });
+</script>
+
+

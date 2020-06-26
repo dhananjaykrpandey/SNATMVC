@@ -42,7 +42,9 @@ namespace SNAT.Classes.CommonClasses
         public DbSet<mWagesUpload> mWagesUploads { get; set; }
         public DbSet<mEmployeeDetails> mEmployeeDetails { get; set; }
         public DbSet<mClaimEntry> mClaimEntries { get; set; }
-
+        public DbSet<mClaimDocuments> mClaimDocuments { get; set; }
+        public DbSet<mChequeEntry> mChequeEntries { get; set; }
+        public DbSet<mChequeDocuments> mChequeDocuments { get; set; }
 
     }
 }

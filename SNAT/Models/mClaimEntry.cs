@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -10,6 +11,7 @@ namespace SNAT.Models
 
         [Key]
         [Column(TypeName = "numeric")]
+        [Display(Name = "Claim Entry ID")]
         public int ID { get; set; }
 
 

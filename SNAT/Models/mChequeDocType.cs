@@ -15,6 +15,8 @@ namespace SNAT.Models
         [Display(Name = "Document Code")]
         [StringLength(15)]
         public string code { get; set; }
+        //[ForeignKey("doccode")]
+        //public virtual mChequeDocuments mChequeDocumentsCollection { get; set; }
 
         [Column("name")]
         [Display(Name = "Document Name")]
