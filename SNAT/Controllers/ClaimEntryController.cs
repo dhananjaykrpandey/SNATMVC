@@ -11,8 +11,8 @@ using System.Web.Mvc;
 
 namespace SNAT.Controllers
 {
-    [AuthorizeUserAccess]
     [CompressContent]
+    [AuthorizeUserAccess]
     public class ClaimEntryController : Controller
     {
         // GET: ClaimEntry

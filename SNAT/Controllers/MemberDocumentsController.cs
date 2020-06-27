@@ -9,8 +9,8 @@ using System.Web.Mvc;
 
 namespace SNAT.Controllers
 {
-    [AuthorizeUserAccess]
     [CompressContent]
+    [AuthorizeUserAccess]
     public class MemberDocumentsController : Controller
     {
         private DbCxSnat db = new DbCxSnat();

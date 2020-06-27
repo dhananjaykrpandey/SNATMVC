@@ -46,12 +46,7 @@ namespace SNAT.Controllers
                     Web.HttpContext.Current.Session["UserEmail"] = ClsLogin.StrUserEmail;
                     Web.HttpContext.Current.Session["UserPhone"] = ClsLogin.StrUserPhone;
 
-                    //Web.HttpContext.Current.Session["Menu"] = ClsMenu.GetUserDefineMenu();
-
-                    //DbCxSnat  dbCxAdminDashBoard = new DbCxSnat();
-                    //Web.HttpContext.Current.Session["MProjectMenu"] = "";
-                    //dynamic jsonObj = JsonConvert.DeserializeObject(JsonConvert.SerializeObject(dbCxAdminDashBoard.MProjectMenu));
-                    //Web.HttpContext.Current.Session["MProjectMenu"] = jsonObj;
+                    
                     return RedirectToAction("Home", "Home");
                 }
                 else

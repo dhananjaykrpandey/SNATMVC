@@ -1,0 +1,398 @@
+﻿@model SNAT.Models.mChequeEntry
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutMainMDI.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+
+
+    <form method="get" action="#" class="needs-validation" novalidate="">
+        <div class="card card-primary">
+            <div class="card-header"><h4>@ViewBag.Title</h4></div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="form-group col-md-9 col-sm-6">
+                        <label for="nationalid ">@Html.DisplayNameFor(model => model.ChqStatus)</label>
+                        <div class="input-group">
+                            @{
+                                var ClaimStatus ="Cheque Under Processing..";
+                                var color = "Blue";
+                                switch (Model.ChqStatus)
+                                {
+                                    case "E":
+                                        ClaimStatus = "Cheque Request Entered";
+                                        break;
+                                    case "P":
+                                        ClaimStatus = "Cheque posted for approval";
+                                        color = "Marron";
+                                        break;
+                                    case "CA":
+                                        ClaimStatus = "Cheque Request approved by chairperson";
+                                        color = "Green";
+                                        break;
+                                    case "CR":
+                                        ClaimStatus = "Cheque Request rejected by chairperson";
+                                        color = "Red";
+                                        break;
+                                    case "SA":
+                                        ClaimStatus = "Cheque Request approved by secretary";
+                                        color = "Green";
+                                        break;
+                                    case "SR":
+                                        ClaimStatus = "Cheque Request rejected by secretary";
+                                        color = "Red";
+                                        break;
+                                    case "TA":
+                                        ClaimStatus = "Cheque Request approved by Treasurer";
+                                        color = "Green";
+                                        break;
+                                    case "TR":
+                                        ClaimStatus = "Cheque Request rejected by Treasurer";
+                                        color = "Red";
+                                        break;
+                                    case "CI":
+                                        ClaimStatus = "Cheque Issued && Received";
+                                        color = "Red";
+                                        break;
+
+                                }
+                                <input type="text" name="ClaimStatus" id="ClaimStatus" value="@ClaimStatus" class="form-control font-weight-bolder bg-light" style="color:@color" readonly />
+
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3 col-sm-6">
+                        <label for="nationalid ">@Html.DisplayNameFor(model => model.id)</label>
+                        <div class="input-group">
+                            <input type="text" name="ClaimStatus" id="ClaimStatus" value="@Model.id" class="form-control font-weight-bold bg-light" readonly />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3 col-sm-6">
+                        <label for="username">@Html.DisplayNameFor(model => model.MemNationalID)</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.MemNationalID, new { @class = "form-control bg-white", @name = "MemNationalID", @tabindex = "2", @readonly = "true" })
+                        </div>
+                    </div>
+                    <div class="form-group  col-md-3 col-sm-6">
+                        <label for="nationalid">@Html.DisplayNameFor(model => model.MemberID)</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.MemberID, new { @class = "form-control bg-white", @name = "MemberID", @tabindex = "3", @readonly = "readonly" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6 col-sm-8">
+                        <label for="username">@Html.DisplayNameFor(model => model.MemName)</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.MemName, new { @class = "form-control bg-white", @name = "MemName", @tabindex = "5", @readonly = "true" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group  col-md-3 col-sm-6">
+                        <label for="nationalid">@Html.DisplayNameFor(model => model.BeneNationalID)</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.BeneNationalID, new { @class = "form-control bg-white", @name = "BenfNationalID", @tabindex = "3", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6 col-sm-6">
+                        <label for="username">@Html.DisplayNameFor(model => model.BeneName)</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.BeneName, new { @class = "form-control bg-white", @name = "BenfName", @tabindex = "5", @readonly = "true" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-3 col-sm-4">
+                        <label for="username">@Html.DisplayNameFor(model => model.PayeeNationalID)</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.PayeeNationalID, new { @class = "form-control bg-white", @name = "BenfName", @tabindex = "5", @readonly = "true" })
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6 col-sm-4">
+                        <label for="username">@Html.DisplayNameFor(model => model.Payee)</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.Payee, new { @class = "form-control bg-white", @name = "Entery", @tabindex = "9", @readonly = "true" })
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3 col-sm-6">
+                        <label for="username">@Html.DisplayNameFor(model => model.TotalAmount)</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.TotalAmount, new { @class = "form-control bg-info text-white", @name = "Mortuary", @tabindex = "8", @readonly = "true" })
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3 col-sm-6">
+                        <label for="username">@Html.DisplayNameFor(model => model.ChequeNo)</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.ChequeNo, new { @class = "form-control bg-success text-white", @name = "Mortuary", @tabindex = "8", @readonly = "true" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3 col-sm-6">
+                        <label for="username">@Html.DisplayNameFor(model => model.RequestedDate)</label>
+                        <div class="input-group">
+
+                            @{
+                                if (Model.RequestedDate.HasValue)
+                                {
+                                    @Html.TextBox("EnteryDate", Model.RequestedDate.Value.ToShortDateString(), new { @class = "form-control bg-white", @name = "EnteryDate", @tabindex = "12", @readonly = "true" })
+                                }
+                                else
+                                {
+                                    <input type="text" class="form-control bg-white" , name="dob" tabindex="12" readonly value="" />
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6 col-sm-6">
+                        <label for="username">@Html.DisplayNameFor(model => model.RequestBy)</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.RequestBy, new { @class = "form-control bg-white", @name = "NomineeName", @tabindex = "10", @readonly = "true" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-9 col-sm-6">
+                        <label for="username">@Html.DisplayNameFor(model => model.ResonFor)</label>
+                        <div class="input-group">
+                            @Html.TextAreaFor(model => model.ResonFor, new { @class = "form-control bg-white", @name = "TotalAmount", @tabindex = "11", @readonly = "true" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-9 col-sm-6">
+                        <label for="username">@Html.DisplayNameFor(model => model.ChqRecivedy)</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.ChqRecivedy, new { @class = "form-control bg-white", @name = "RecivingRemarks", @tabindex = "10", @readonly = "true" })
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3 col-sm-6">
+                        <label for="username">@Html.DisplayNameFor(model => model.ChqRecivedNationalID)</label>
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.ChqRecivedNationalID, new { @class = "form-control bg-white", @name = "RecivingRemarks", @tabindex = "10", @readonly = "true" })
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3 col-sm-6">
+                        <label for="username">@Html.DisplayNameFor(model => model.ChqRecivingDate)</label>
+                        <div class="input-group">
+
+                            @{
+                                if (Model.ChqRecivingDate.HasValue)
+                                {
+                                    @Html.TextBox("EnteryDate", Model.ChqRecivingDate.Value.ToShortDateString(), new { @class = "form-control bg-white", @name = "EnteryDate", @tabindex = "12", @readonly = "true" })
+                                }
+                                else
+                                {
+                                    <input type="text" class="form-control bg-white" , name="dob" tabindex="12" readonly value="" />
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body bg-secondary">
+                    <div class="row">
+                        <div class="form-group col-md-6 col-sm-6">
+                            <label for="username" class="text-white">@Html.DisplayNameFor(model => model.EnteryUser)</label>
+                            <div class="input-group">
+                                @Html.TextBoxFor(model => model.EnteryUser, new { @class = "form-control bg-white", @name = "EnteryUser", @tabindex = "11", @readonly = "true" })
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3 col-sm-6">
+                            <label for="username" class="text-white">@Html.DisplayNameFor(model => model.EnteryDate)</label>
+                            <div class="input-group">
+                                @{
+                                    if (Model.EnteryDate.HasValue)
+                                    {
+                                        @Html.TextBox("EnteryDate", Model.EnteryDate.Value.ToShortDateString(), new { @class = "form-control bg-white", @name = "EnteryDate", @tabindex = "12", @readonly = "true" })
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control bg-white" , name="dob" tabindex="12" readonly value="" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-9 col-sm-8">
+                            <label for="username" class="text-white">@Html.DisplayNameFor(model => model.EnteryRemarks)</label>
+                            <div class="input-group">
+                                @Html.TextAreaFor(model => model.EnteryRemarks, new { @class = "form-control bg-white", @name = "EnteryRemarks", @tabindex = "10", @readonly = "true" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body bg-primary">
+                    <div class="row">
+                        <div class="form-group col-md-6 col-sm-6">
+                            <label for="Chariperson_Name" class="text-white">@Html.DisplayNameFor(model => model.Chariperson_Name)</label>
+                            <div class="input-group">
+                                @Html.TextBoxFor(model => model.Chariperson_Name, new { @class = "form-control bg-white", @name = "Chariperson_Name", @tabindex = "11", @readonly = "true" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-3 col-sm-6">
+                            <label for="username" class="text-white">@Html.DisplayNameFor(model => model.Chariperson_Date)</label>
+                            <div class="input-group">
+                                @{
+                                    if (Model.Chariperson_Date.HasValue)
+                                    {
+                                        @Html.TextBox("Chariperson_Date", Model.Chariperson_Date.Value.ToShortDateString(), new { @class = "form-control bg-white", @name = "Chariperson_Date", @tabindex = "12", @readonly = "true" })
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control bg-white" , name="dob" tabindex="12" readonly value="" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3 col-sm-6">
+                            <label for="username" class="text-white">@Html.DisplayNameFor(model => model.Chariperson_Status)</label>
+                            <div class="input-group">
+                                @{
+                                    var Chariperson_Status = @Model.Chariperson_Status;
+                                    Chariperson_Status = Chariperson_Status.ToUpper() == "A" ? "Approved" : Chariperson_Status.ToUpper() == "R" ? "Rejected" : "";
+
+                                    <input type="text" value="@Chariperson_Status" class="form-control bg-white" name="Chariperson_Status" readonly />
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-9 col-sm-8">
+                            <label for="username" class="text-white">@Html.DisplayNameFor(model => model.Chariperson_Remarks)</label>
+                            <div class="input-group">
+                                @Html.TextAreaFor(model => model.Chariperson_Remarks, new { @class = "form-control bg-white", @name = "Chariperson_Remarks", @tabindex = "10", @readonly = "true" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body bg-warning">
+                    <div class="row">
+                        <div class="form-group col-md-6 col-sm-6">
+                            <label for="username" class="text-white">@Html.DisplayNameFor(model => model.Secteatary_Name)</label>
+                            <div class="input-group">
+                                @Html.TextBoxFor(model => model.Secteatary_Name, new { @class = "form-control bg-white", @name = "Secteatary_Name", @tabindex = "11", @readonly = "true" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-3 col-sm-6">
+                            <label for="username" class="text-white">@Html.DisplayNameFor(model => model.Secteatary_Date)</label>
+                            <div class="input-group">
+                                @{
+                                    if (Model.Secteatary_Date.HasValue)
+                                    {
+                                        @Html.TextBox("Secteatary_Date", Model.Secteatary_Date.Value.ToShortDateString(), new { @class = "form-control bg-white", @name = "Chariperson_Date", @tabindex = "12", @readonly = "true" })
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control bg-white" , name="dob" tabindex="12" readonly value="" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 col-sm-6">
+                            <label for="username" class="text-white">@Html.DisplayNameFor(model => model.Secteatary_Status)</label>
+                            <div class="input-group">
+                                
+                                @{
+                                    var Secteatary_Status = @Model.Secteatary_Status;
+                                    Secteatary_Status = Secteatary_Status.ToUpper() == "A" ? "Approved" : Secteatary_Status.ToUpper() == "R" ? "Rejected" :"";
+
+                                    <input type="text" value="@Secteatary_Status" class="form-control bg-white" name="Chariperson_Status" readonly />
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-9 col-sm-8">
+                            <label for="username" class="text-white">@Html.DisplayNameFor(model => model.Secteatary_Remarks)</label>
+                            <div class="input-group">
+                                @Html.TextAreaFor(model => model.Secteatary_Remarks, new { @class = "form-control bg-white", @name = "Secteatary_Remarks", @tabindex = "10", @readonly = "true" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body bg-light">
+                    <div class="row">
+                        <div class="form-group col-md-6 col-sm-6">
+                            <label for="username">@Html.DisplayNameFor(model => model.Treasurer_Name)</label>
+                            <div class="input-group">
+                                @Html.TextBoxFor(model => model.Treasurer_Name, new { @class = "form-control bg-white", @name = "Treasurer_Name", @tabindex = "11", @readonly = "true" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-3 col-sm-6">
+                            <label for="username">@Html.DisplayNameFor(model => model.Treasurer_Date)</label>
+                            <div class="input-group">
+                                @{
+                                    if (Model.Treasurer_Date.HasValue)
+                                    {
+                                        @Html.TextBox("Treasurer_Date", Model.Treasurer_Date.Value.ToShortDateString(), new { @class = "form-control bg-white", @name = "Treasurer_Date", @tabindex = "12", @readonly = "true" })
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control bg-white" , name="dob" tabindex="12" readonly value="" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 col-sm-6">
+                            <label for="username">@Html.DisplayNameFor(model => model.Treasurer_Status)</label>
+                            <div class="input-group">
+                                
+                                @{
+                                    var Treasurer_Status = @Model.Treasurer_Status;
+                                    Treasurer_Status = Treasurer_Status.ToUpper() == "A" ? "Approved" : Treasurer_Status.ToUpper() == "R" ? "Rejected" : "";
+
+                                    <input type="text" value="@Treasurer_Status" class="form-control bg-white" name="Chariperson_Status" readonly />
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-9 col-sm-8">
+                            <label for="username">@Html.DisplayNameFor(model => model.Treasurer_Remarks)</label>
+                            <div class="input-group">
+                                @Html.TextAreaFor(model => model.Treasurer_Remarks, new { @class = "form-control bg-white", @name = "Treasurer_Remarks", @tabindex = "10", @readonly = "true" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+
+                    <div class="form-group col-sm-2">
+                        @*@Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary", @tabindex = "25" })*@
+                        @if (Request.UrlReferrer != null)
+                        {
+                            <a href="#" onclick="history.go(-1); return false;" class="btn btn-danger btn-sm" data-toggle="tooltip" title="Back to Member List"><i class="fas fa-arrow-circle-left"></i> Back </a>
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+}

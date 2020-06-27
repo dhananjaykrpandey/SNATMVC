@@ -10,8 +10,8 @@ using System.Web.Mvc;
 
 namespace SNAT.Controllers
 {
-    [AuthorizeUserAccess]
     [CompressContent]
+    [AuthorizeUserAccess]
     public class BeneficiariesController : Controller
     {
         private DbCxSnat db = new DbCxSnat();

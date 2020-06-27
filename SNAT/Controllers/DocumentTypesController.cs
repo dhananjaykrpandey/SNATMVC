@@ -8,8 +8,8 @@ using System.Web.Mvc;
 
 namespace SNAT.Controllers
 {
-    [AuthorizeUserAccess]
     [CompressContent]
+    [AuthorizeUserAccess]
     public class DocumentTypesController : Controller
     {
         private DbCxSnat db = new DbCxSnat();

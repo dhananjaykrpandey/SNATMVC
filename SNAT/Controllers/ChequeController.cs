@@ -1,4 +1,5 @@
-﻿using SNAT.Classes.CommonClasses;
+﻿using SNAT.Classes.BussinessClasses;
+using SNAT.Classes.CommonClasses;
 using SNAT.Models;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,8 @@ using System.Web.Mvc;
 
 namespace SNAT.Controllers
 {
+    [CompressContent]
+    [AuthorizeUserAccess]
     public class ChequeController : Controller
     {
         // GET: Cheque
@@ -24,12 +27,12 @@ namespace SNAT.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            mChequeEntry mClaim = db.mChequeEntries.Where(mem => mem.id == id).FirstOrDefault();
-            if (mClaim == null)
+            mChequeEntry _mCheque = db.mChequeEntries.Where(mem => mem.id == id).FirstOrDefault();
+            if (_mCheque == null)
             {
                 return HttpNotFound();
             }
-            return View(mClaim);
+            return View(_mCheque);
         }
         public ActionResult ChequeDocumemts(int? id)
         {
@@ -37,12 +40,21 @@ namespace SNAT.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            IEnumerable<mChequeDocuments> mClaim = db.mChequeDocuments.Where(mem => mem.ChqReqID == id).ToList();
-            if (mClaim == null)
+            IEnumerable<mChequeDocuments> _mChequeDocuments = db.mChequeDocuments.Where(mem => mem.ChqReqID == id).ToList();
+
+            foreach (var DocCode in _mChequeDocuments)
+            {
+                var DocDesc = db.mChequeDocTypes.Where(chq => chq.code == DocCode.doccode).FirstOrDefault();
+                DocCode.docDescription = DocDesc.name;
+
+            }
+            
+
+            if (_mChequeDocuments == null)
             {
                 return HttpNotFound();
             }
-            return View(mClaim);
+            return View(_mChequeDocuments);
         }
     }
 }

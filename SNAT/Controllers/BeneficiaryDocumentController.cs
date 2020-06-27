@@ -5,8 +5,8 @@ using System.Web.Mvc;
 
 namespace SNAT.Controllers
 {
-    [AuthorizeUserAccess]
     [CompressContent]
+    [AuthorizeUserAccess]
     public class BeneficiaryDocumentController : Controller
     {
         // GET: BeneficiaryDocument

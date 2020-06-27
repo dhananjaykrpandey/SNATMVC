@@ -22,14 +22,17 @@ namespace SNAT.Models
         public string beneficiaryname { get; set; }
         [Display(Name = "Document Code")]
         public string doccode { get; set; }
-        //[ForeignKey("code")]
-        //public virtual ICollection<mChequeDocType> mChequeDocTypeCollection { get; set; }
+               
         [Display(Name = "Is Mandatory")]
-        public string IsMandatory { get; set; }
+        public bool? IsMandatory { get; set; }
         [Display(Name = "Document Location")]
         public string docLocation { get; set; }
         [Display(Name = "Is Document Uploaded")]
-        public string docUploaded { get; set; }
+        public bool? docUploaded { get; set; }
+
+        [NotMapped]
+        [Display(Name = "Document Description")]
+        public string docDescription { get; set; }
 
     }
 }
